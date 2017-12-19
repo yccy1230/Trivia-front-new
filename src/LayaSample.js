@@ -11,11 +11,10 @@ var tiledMap;
 	(function()
 	{
 		// 不支持WebGL时自动切换至Canvas
-		Laya.init(1100, 800, WebGL);
+		Laya.init(1100, 950, WebGL);
 
         //调用DebugTool调试面板
-        Laya.DebugPanel.init();
-        Laya.DebugTool.init();
+        // Laya.DebugTool.init();
 		Laya.stage.alignV = Stage.ALIGN_MIDDLE;
 		Laya.stage.alignH = Stage.ALIGN_CENTER;
 
@@ -33,49 +32,41 @@ var tiledMap;
 	}
 })();
 
+
+/**
+ * 点击事件监听
+ * @param {*} e 
+ */
 function onKeyDown(e) {
     var player = tiledMap.getLayerObject("hero","role1");
     var b = true;
 //     var b = map1.getTileProperties(0, a-1, "isCanPass");
-console.log(player.x+"  "+player.y);
+// console.log(tiledMap);
+    var height = tiledMap.height;
+    var width = tiledMap.width;
+    var gridSize = tiledMap.width/tiledMap.numColumnsTile;
 　　switch (e.keyCode) {
 　　　　case 38:{
-　　　　　　if ( (player.y - 48) <= 0) {
-　　　　　　　　player.y = 0;
-　　　　　　}else{
-             if(b){
-　　　　　　　　　　player.y -= 48;
-　　　　　　　　}
-          }
+　　　　　　if (((player.y - gridSize) > 0) && b) {
+　　　　　　　　player.y -= gridSize;
+           }
 　　　　　　break;
       }
       case 40:{
-          if ( (player.y + 48) >= (576- 48)){
-　　　　　　　　player.y = 576 - 48;
-          }else{
-             if(b){
-　　　　　　　　　　player.y += 48;
-　　　　　　　　}
+          if (((player.y + gridSize) < (height- gridSize)) && b){
+　　　　　　　　player.y += gridSize;
           }
           break;
       }  
       case 37:{
-　　　　　　if ( (player.x - 48) <= 0) {
-　　　　　　　　player.x = 0;
-　　　　　　}else{
-　　　　　　　　if(b){
- 　　　　　　　　　　player.x -= 48;
-　　　　　　　　}
+　　　　　　if (((player.x - gridSize) > 0) && b) {
+ 　　　　　　　player.x -= gridSize;
 　　　　　　}
 　　　　　　break;
       }
       case 39:{
-　　　　　　if ( (player.x + 48) >= (576 - 48)) {
-　　　　　　　　player.x = 576 - 48;
-　　　　　　}else{
-　　　　　　　　if(b){
-　　　　　　　　　　player.x += 48;
-　　　　　　　　}
+　　　　　　if (((player.x + gridSize) < (width - gridSize)) && b) {
+　　　　　　　　player.x += gridSize;
 　　　　　　}
 　　　　    break;
 　　　　}　　
