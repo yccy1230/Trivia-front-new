@@ -1,5 +1,14 @@
 
 var tiledMap;
+
+
+
+// 创建TestPageUI的子类
+function Test()
+{
+	Test.super(this);   
+}
+
 (function()
 {
 	var Stage     = Laya.Stage;
@@ -29,6 +38,7 @@ var tiledMap;
 		tiledMap = new TiledMap();
 		tiledMap.createMap("../laya/assets/map/orthogonal-test-movelayer.json", new Rectangle(0, 0, Laya.stage.width, Laya.stage.height), null);
         Laya.stage.on(laya.events.Event.KEY_DOWN,this,onKeyDown);//设置键盘监听事件
+    
 	}
 })();
 
@@ -38,6 +48,9 @@ var tiledMap;
  * @param {*} e 
  */
 function onKeyDown(e) {
+        Laya.class(Test, "Test", TestUI);
+        var view = new Test();
+        Laya.stage.addChild(view);
     var player = tiledMap.getLayerObject("hero","role1");
     var b = true;
 //     var b = map1.getTileProperties(0, a-1, "isCanPass");
