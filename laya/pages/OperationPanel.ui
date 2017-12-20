@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":4,
-    "props":{"x":0,"width":600,"sceneColor":"#000000","height":1000},
+    "selectedBox":4,
+    "selecteID":17,
+    "props":{"x":0,"width":400,"sceneColor":"#000000","height":700},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,57 +15,59 @@
         {
             "x":15,
             "type":"Tab",
-            "props":{"y":878,"x":306,"width":458,"selectedIndex":2,"pivotY":84,"pivotX":228,"height":167},
+            "props":{"y":552,"x":212,"width":458,"selectedIndex":2,"pivotY":84,"pivotX":228,"height":167},
             "nodeParent":1,
             "label":"Tab",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":4,
             "child":[
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":103,"x":54,"width":136,"skin":"template/ButtonTab/btn_LargeTabButton_Left.png","name":"item0","labelSize":36,"labelColors":"#007AFF,#007AFF,#FFFFFF","label":"准备","height":65},
+                    "props":{"y":102,"x":236,"width":143,"var":"btnExit","skin":"template/ButtonTab/btn_LargeTabButton_Right.png","name":"btnExit","labelSize":20,"labelColors":"#007AFF,#007AFF,#FFFFFF","label":"退出","height":66},
                     "nodeParent":4,
-                    "label":"Button(item0)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":5,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Button",
-                    "props":{"y":102,"x":236,"width":143,"skin":"template/ButtonTab/btn_LargeTabButton_Right.png","name":"item2","labelSize":36,"labelColors":"#007AFF,#007AFF,#FFFFFF","label":"退出","height":66},
-                    "nodeParent":4,
-                    "label":"Button(item2)",
+                    "label":"Button(btnExit)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":7,
                     "child":[
                         ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":102,"x":52,"width":143,"var":"btnReady","skin":"template/ButtonTab/btn_LargeTabButton_Right.png","name":"btnReady","labelSize":20,"labelColors":"#007AFF,#007AFF,#FFFFFF","label":"准备","height":66},
+                    "nodeParent":4,
+                    "label":"Button(btnReady)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":16,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":102,"x":138,"width":143,"visible":false,"var":"btnDice","skin":"template/ButtonTab/btn_LargeTabButton_Right.png","name":"btnDice","labelSize":20,"labelColors":"#007AFF,#007AFF,#FFFFFF","label":"掷骰子","height":66},
+                    "nodeParent":4,
+                    "label":"Button(btnDice)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":17,
+                    "child":[
+                        ]
                 }]
         },
         {
             "x":15,
-            "type":"TextArea",
-            "props":{"y":19,"x":129,"width":334,"text":"TextArea","height":261},
-            "nodeParent":1,
-            "label":"TextArea",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":8,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Image",
-            "props":{"y":55,"x":29,"width":542,"skin":"template/Warn/alert_dialog.png","height":369},
+            "props":{"y":55,"x":29,"width":342,"skin":"template/Warn/alert_dialog.png","height":234},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -77,14 +79,14 @@
         },
         {
             "x":15,
-            "type":"Label",
-            "props":{"y":78,"x":57,"width":488,"skin":"template/Warn/label.png","height":328,"fontSize":28,"color":"#030406","align":"center"},
+            "type":"TextArea",
+            "props":{"y":77,"x":56,"width":290,"text":"TextArea","height":192,"editable":false},
             "nodeParent":1,
-            "label":"Label",
+            "label":"TextArea",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":15,
+            "compId":8,
             "child":[
                 ]
         }],
