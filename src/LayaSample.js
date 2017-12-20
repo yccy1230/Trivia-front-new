@@ -4,9 +4,9 @@ var Handler= Laya.Handler;
 
 
 // 创建TestPageUI的子类
-function Test()
+function OperationPanel()
 {
-	Test.super(this);   
+	OperationPanel.super(this);   
 }
 
 (function()
@@ -20,15 +20,14 @@ function Test()
 	(function()
 	{
 		// 不支持WebGL时自动切换至Canvas
-		Laya.init(1400, 950, WebGL);
+		Laya.init(1500, 950, WebGL);
 
         //调用DebugTool调试面板
         // Laya.DebugTool.init();
 		Laya.stage.alignV = Stage.ALIGN_MIDDLE;
 		Laya.stage.alignH = Stage.ALIGN_CENTER;
-
 		Laya.stage.scaleMode = Stage.SCALE_SHOWALL;
-		Laya.stage.bgColor = "#232628";
+		Laya.stage.bgColor = "#FFFFFF";
 
 		createMap();
 	})();
@@ -43,13 +42,16 @@ function Test()
 
 function onMapLoaded(){
     //预加载资源文件后执行回调
-    Laya.loader.load(["res/atlas/comp.atlas","res/atlas/template/ButtonTab.atlas"], Handler.create(this, onDialogLoaded));
+    Laya.loader.load(["h5/res/atlas/comp.atlas","h5/res/atlas/template/ButtonTab.atlas","h5/res/atlas/template/Warn.atlas"], Handler.create(this, onDialogLoaded));
 }
 
 function onDialogLoaded(){
-    Laya.class(Test, "Test", TestUI);
-    var view = new Test();
-    Laya.stage.addChild(view);
+    Laya.class(OperationPanel, "OperationPanel", OperationPanelUI);
+    var view = new OperationPanel();
+    console.log(view);
+    view.x = 1000;
+    view.y = 550;
+    Laya.stage.addChild(view,);
 }
 
 /**
