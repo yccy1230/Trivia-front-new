@@ -1,0 +1,712 @@
+﻿<!doctype html>
+<!--[if lt IE 7]><html lang="en" class="no-js ie6"><![endif]-->
+<!--[if IE 7]><html lang="en" class="no-js ie7"><![endif]-->
+<!--[if IE 8]><html lang="en" class="no-js ie8"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>i-ECNU - 从这里开始</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/jquery.easy-pie-chart.css">
+    <link rel="stylesheet" href="assets/css/styles.css" title="mainStyle">
+
+    <!-- REVOLUTION BANNER CSS SETTINGS -->
+    <link rel="stylesheet" type="text/css" href="assets/rs-plugin/css/settings.css" media="screen" />
+
+    <script src="assets/js/modernizr.custom.32033.js"></script>
+
+    <!--[if IE]><script type="text/javascript" src="assets/js/excanvas.compiled.js"></script><![endif]-->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div class="pre-loader">
+        <div class="load-con">
+            <img src="assets/img/logo-blue.png" class="animated fadeInDown" alt="">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <div class="go-down">
+        <a href="#whoWeAre">
+            <i class="fa fa-angle-down fa-3x"></i>
+        </a>
+    </div>
+    <!-- Wrap all page content here -->
+    <div id="wrap" class="home">
+
+        <header class="masthead">
+            <div class="slider-container" id="slider">
+                <div class="tp-banner-container">
+                    <div class="tp-banner">
+                        <ul>
+							<li data-transition="slotfade-horizontal" data-slotamount="7" data-masterspeed="500">
+                                <!-- MAIN IMAGE -->
+                                <img src="assets/img/dummy.png" data-lazyload="assets/img/samples/slider-bk.jpg" alt="slidebg1" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                                <!-- LAYERS -->
+
+                                <div class="tp-caption large_white_bold sft" data-x="left" data-y="center" data-hoffset="0" data-voffset="-100" data-speed="700" data-start="1300" data-easing="Power4.easeOut">
+                                    <h1>我们注重 </h1>
+                                </div>
+                                <div class="tp-caption italic large_white_light sft hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="0" data-speed="700" data-start="1500" data-easing="Power4.easeOut">
+                                    简单 ·
+                                </div>
+                                <div class="tp-caption italic large_white_light sfb hidden-xs" data-x="left" data-y="center" data-hoffset="110" data-voffset="0" data-speed="700" data-start="1700" data-easing="Power4.easeOut">
+                                    感受 ·
+                                </div>
+                                <div class="tp-caption italic large_white_light sfr hidden-xs" data-x="left" data-y="center" data-hoffset="230" data-voffset="0" data-speed="700" data-start="1900" data-easing="Power4.easeOut">
+                                    态度
+                                </div>
+
+                            </li>
+							<li data-transition="slotfade-horizontal" data-slotamount="7" data-masterspeed="500">
+                                <!-- MAIN IMAGE -->
+                                <img src="assets/img/dummy.png" data-lazyload="assets/img/samples/slider-bk2.jpg" alt="slidebg1" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                                <!-- LAYERS -->
+
+                                <!-- LAYER NR. 1 -->
+                                <div class="tp-caption lfl fadeout" data-x="left" data-y="center" data-hoffset="0" data-voffset="0" data-speed="500" data-start="700" data-easing="Power4.easeOut">
+                                    <img src="assets/img/samples/iphone.png" alt="">
+                                </div>
+                                <div class="tp-caption large_white_bold sft" data-x="520" data-y="center" data-hoffset="0" data-voffset="-100" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
+                                    <h1>我们尝试 </h1>
+                                </div>
+                                <div class="tp-caption large_white_light sfb" data-x="520" data-y="center" data-hoffset="0" data-voffset="10" data-speed="1000" data-start="1300" data-easing="Power4.easeOut">
+                                    缩短距离 & 成本
+                                </div>
+                                <div class="tp-caption large_white_light sfb" data-x="520" data-y="center" data-hoffset="0" data-voffset="70" data-speed="1000" data-start="1300" data-easing="Power4.easeOut">
+                                    做线上校园生活的领跑者
+                                </div>
+                            </li>
+
+                           
+                            <li data-transition="slotfade-horizontal" data-slotamount="7" data-masterspeed="500">
+                                <!-- MAIN IMAGE -->
+                                <img src="assets/img/dummy.png" data-lazyload="assets/img/samples/slider-bk3.jpg" alt="slidebg1" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                                <!-- LAYERS -->
+
+                                <!-- LAYER NR. 1 -->
+                                <div class="tp-caption sft fadeout" data-x="left" data-y="center" data-hoffset="0" data-voffset="0" data-speed="500" data-start="700" data-easing="Power4.easeOut">
+                                    <img src="assets/img/samples/macbook-bl.png" class="macbook-image" alt="">
+                                </div>
+
+								<div class="tp-caption large_white_bold sft" data-x="660" data-y="center" data-hoffset="0" data-voffset="-100" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
+                                    <h1>我们追求 </h1>
+                                </div>
+                                <!-- <div class="tp-caption large_white_light sfb" data-x="520" data-y="center" data-hoffset="0" data-voffset="-40" data-speed="1000" data-start="1300" data-easing="Power4.easeOut">
+                                    
+                                </div> -->
+                                <div class="tp-caption large_white_light sfb" data-x="660" data-y="center" data-hoffset="0" data-voffset="10" data-speed="1000" data-start="1300" data-easing="Power4.easeOut">
+                                    "互联网+" 新生活
+                                </div>
+                                <div class="tp-caption large_white_light sfb" data-x="660" data-y="center" data-hoffset="0" data-voffset="70" data-speed="1000" data-start="1300" data-easing="Power4.easeOut">
+                                    让线上理念融入校园
+                                </div>
+
+								<!-- 
+                                <div class="tp-caption large_white_light italic sfb hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="0" data-speed="1000" data-start="1300" data-easing="Power4.easeOut">
+                                    <a href="#portfolio" class="btn btn-naked">Check Our Work</a>
+                                </div>
+                                <div class="tp-caption italic large_white_light sft hidden-xs" data-x="right" data-y="center" data-hoffset="0" data-voffset="0" data-speed="1000" data-start="1300" data-easing="Power4.easeOut">
+                                    <a href="#team" class="btn btn-naked">Meet The Team</a>
+                                </div> -->
+                            </li>
+
+                        </ul>
+                        <div class="tp-bannertimer"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Fixed navbar -->
+            <div class="navbar navbar-static-top" id="nav" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <i class="fa fa-align-justify"></i>
+                        </button>
+                        <a class="navbar-brand" href="#">
+                            <img src="assets/img/logo-blue.png" alt="">
+                        </a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="active"><a href="#slider">首页</a>
+                            </li>
+                            <li><a href="#about">项目详情</a>
+                            </li>
+                            <li><a href="#services">功能</a>
+                            </li>
+                            <li><a href="#team">团队</a>
+                            </li>
+                            <li><a href="#get-in-touch">联系我们</a>
+                            </li>
+                            <li><a href="dashboard.html">管理后台</a>
+                            </li>
+                            <li class="social-nav visible-lg">
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!--/.container -->
+            </div>
+            <!--/.navbar -->
+
+        </header>
+
+        <section id="whoWeAre">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-push-2 clearfix">
+                        <div class="section-heading scrollpoint sp-effect3">
+                            <h1>i-ecnu</h1>
+                        	
+                            <span class="divider"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="media scrollpoint sp-effect2">
+                            <a class="pull-left" href="#">
+                                <i class="media-object fa fa-star fa-4x"></i>
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading">线上直播</h4>
+                                <p>依托腾讯强大的技术平台，提供专业稳定快速的直播接入和分发服务。即使足不出户，也能将校园内的各种信息尽收眼底。</p>
+                                <p>注：主办方可通过后台管理系统进行直播预约。</p>
+                            </div>
+                        </div>
+                        <div class="media scrollpoint sp-effect2">
+                            <a class="pull-left" href="#">
+                                <i class="media-object fa fa-support fa-4x"></i>
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading">推荐引擎</h4>
+                                <p>EasyRec是一个易集成、易扩展、功能强大且具有可视化管理的推荐系统。</p>
+                            	<p>通过各种不同的行为数据的收集，EasyRec通过离线分析，综合利用多种推荐算法产生用户的个性化推荐信息及聚合信息</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="media right scrollpoint sp-effect1">
+                            <a class="pull-right" href="#">
+                                <i class="media-object fa fa-send fa-4x"></i>
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading">图文详情</h4>
+                                <p>活动详情界面提供了时下热门的图文展示可通过第三方图文编辑器</p>
+                                <p>打造出个性化，独特的活动详情界面</p>
+                            </div>
+                        </div>
+                        <div class="media right scrollpoint sp-effect1">
+                            <a class="pull-right" href="#">
+                                <i class="media-object fa fa-slack fa-4x"></i>
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading">范围搜索算法</h4>
+                                <p>通过GEOHASH快速缩减查找范围</p>
+                                <p>利用tag对活动进行二次筛选,精准定位用户需求。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-push-2 clearfix">
+                        <div class="section-heading scrollpoint sp-effect3">
+                            <h1>项目详情</h1>
+                            <h4>Project Detail</h4>
+                            <span class="divider"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="section-heading scrollpoint sp-effect3">
+                                <h4>“校园通”活动信息发布平台，是一个基于安卓平台开发的一个应用型 APP</h4>
+                            	<h4>通过将校园活动与互联网充分结合,线上化的方式</h4>
+                            	<h4>缓解大数据时代用户对于信息获取的压力</h4>
+                            	<h4>是互联网+校园的典型项目</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="media vertical scrollpoint sp-effect5">
+                                    <a href="#">
+                                        <i class="media-object fa fa-university fa-2x"></i>
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Why i-ecnu</h4>
+                                        <p>校园通一体化平台，同时通过用户行为数据，对用户进行推荐，同时为主办方反馈大量的数据信息，协助反馈.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="media vertical scrollpoint sp-effect5">
+                                    <a href="#">
+                                        <i class="media-object fa fa-user fa-2x"></i>
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">what we do</h4>
+                                        <p>我们为校园活动线上化提供了一体化的平台。充分发挥了“互联网+”对于校园活动的作用，解决了时间、空间局限性。</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="media vertical scrollpoint sp-effect5">
+                                    <a href="#">
+                                        <i class="media-object fa fa-umbrella fa-2x"></i>
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">our history</h4>
+                                        <p>我们团队具有开发移动书屋、医药管理系统、智能预算等多样化的丰富的项目经验，具备开发产品的能力。</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="media vertical scrollpoint sp-effect5">
+                                    <a href="#">
+                                        <i class="media-object fa fa-taxi fa-2x"></i>
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Achievments</h4>
+                                        <p>成功实现用户个性化推荐、直播线上化、用户IM通讯、活动反馈、图文消息等功能，满足用户需求.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="highlights">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="carousel-example-generic"  class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators vertical">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img src="assets/img/samples/600-300/sc-1.jpg" alt="">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/samples/600-300/sc-2.jpg" alt="">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/samples/600-300/sc-3.jpg" alt="">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/samples/600-300/sc-4.jpg" alt="">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>产品亮点</h4>
+                        <h5>Product Highlight</h5>
+                        <p>通过不断的研发，迭代，反馈，最终得到了这个产品，突出功能如下：</p>
+                        <ul>
+                            <li>分类筛选，个性推荐、Rank排行等多样化筛选方式。</li>
+                            <li>IM通讯系统，辅以导航插件，优化体验。</li>
+                            <li>直播系统，承载线上活动的主要形式。</li>
+                            <li>客服系统，及时向工程师反馈问题信息。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-push-2 clearfix">
+                        <div class="section-heading scrollpoint sp-effect3">
+                            <h1>功能</h1>
+                            <h4>Function</h4>
+                            <span class="divider"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="media media-services right scrollpoint sp-effect1">
+                                    <a class="pull-right" href="#">
+                                        <i class="media-object fa fa-mobile fa-2x"></i>
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">个性推荐</h4>
+                                        <p>通过EasyRec推荐引擎及用户行为数据，通过离线算法分析，推出用户的个性化推荐列表.</p>
+                                    </div>
+                                </div>
+                                <div class="media media-services right scrollpoint sp-effect2">
+                                    <a class="pull-right" href="#">
+                                        <i class="media-object fa fa-link fa-2x"></i>
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">距离排序</h4>
+                                        <p>通过GEOHASH缩小活动范围，通过二次排序反馈准确的地理位置信息.</p>
+                                    </div>
+                                </div>
+                                <div class="media media-services right scrollpoint sp-effect1">
+                                    <a class="pull-right" href="#">
+                                        <i class="media-object fa fa-film fa-2x"></i>
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">直播</h4>
+                                        <p>基于腾讯云的视频通讯服务，搭建出集弹幕、直播、连麦、点赞、美颜等实用功能。满足主办方的基本需求.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="media media-services scrollpoint sp-effect2">
+                                    <a class="pull-left" href="#">
+                                        <i class="media-object fa fa-send-o fa-2x"></i>
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">IM通讯</h4>
+                                        <p>根据大数据分析结果，现代大学生已然离不开即时通讯功能，社交距离不断缩减的今天，这也是一个必备的功能，同时我们提供定位功能，防止迷路的同学们找不到活动地点.</p>
+                                    </div>
+                                </div>
+                                <div class="media media-services scrollpoint sp-effect1">
+                                    <a class="pull-left" href="#">
+                                        <i class="media-object fa fa-shopping-cart fa-2x"></i>
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">图文详情</h4>
+                                        <p>微信的图文方式已然席卷了互联网，成为用户喜爱的阅读方式，因此，我们同样支持图文编辑器的编辑展示，满足个性化需求.</p>
+                                    </div>
+                                </div>
+                                <div class="media media-services scrollpoint sp-effect2">
+                                    <a class="pull-left" href="#">
+                                        <i class="media-object fa fa-shopping-cart fa-2x"></i>
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">客服系统</h4>
+                                        <p>集成支持客服，提供专业化、及时的问题咨询及bug反馈功能.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-push-2 clearfix">
+                        <div class="section-heading scrollpoint sp-effect3">
+                            <h1>研发团队</h1>
+                            <h4>Develop Team</h4>
+                            <span class="divider"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="row">
+                            <div class="member scrollpoint sp-effect5">
+                                <div class="member-image">
+                                    <img src="assets/img/samples/team/2.jpg" alt="" class="img-responsive img-center">
+                                    <div class="member-details">
+                                        <p>负责技术选取，攻坚，并承担主要开发</p>
+                                    </div>
+                                </div>
+                                <div class="member-name">
+                                    <h4>Jack Chen</h4>
+                                    <p>技术统筹&研发</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="row">
+                            <div class="member scrollpoint sp-effect3">
+                                <div class="member-image">
+                                    <img src="assets/img/samples/team/2.jpg" alt="" class="img-responsive img-center">
+                                    <div class="member-details">
+                                        <p>负责主办方网站研发，以及统筹任务</p>
+                                    </div>
+                                </div>
+                                <div class="member-name member-odd">
+                                    <h4>Adije</h4>
+                                    <p>开发工程师</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="row">
+                            <div class="member scrollpoint sp-effect5">
+                                <div class="member-image">
+                                    <img src="assets/img/samples/team/3.jpg" alt="" class="img-responsive img-center">
+                                    <div class="member-details">
+                                        <p>负责数据图表设计，优化等工作</p>
+                                    </div>
+                                </div>
+                                <div class="member-name">
+                                    <h4>Sam zhang</h4>
+                                    <p>UI工程师</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="row">
+                            <div class="member scrollpoint sp-effect3">
+                                <div class="member-image">
+                                    <img src="assets/img/samples/team/3.jpg" alt="" class="img-responsive img-center">
+                                    <div class="member-details">
+                                        <p>负责软件及网站界面的图片设计及交互优化</p>
+                                    </div>
+                                </div>
+                                <div class="member-name member-odd">
+                                    <h4>Chang</h4>
+                                    <p>美术编辑</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-push-2 clearfix">
+                        <div class="section-heading scrollpoint sp-effect3">
+                            <h3>我们使用的技术</h3>
+                            <h4>The Skills We Used</h4>
+                            <span class="divider"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 scrollpoint sp-effect6 text-center">
+                        <div class="chart" data-percent="90">
+                            <span>90%</span>
+                        </div>
+                        <h4 class="skill-detail">java</h4>
+                    </div>
+                    <div class="col-md-3 col-sm-6 scrollpoint sp-effect6 text-center">
+                        <div class="chart" data-percent="75">
+                            <span>75%</span>
+                        </div>
+                        <h4 class="skill-detail">SpringMVC+Hibernate</h4>
+                    </div>
+                    <div class="col-md-3 col-sm-6 scrollpoint sp-effect6 text-center">
+                        <div class="chart" data-percent="55">
+                            <span>55%</span>
+                        </div>
+                        <h4 class="skill-detail">js & html</h4>
+                    </div>
+                    <div class="col-md-3 col-sm-6 scrollpoint sp-effect6 text-center">
+                        <div class="chart" data-percent="35">
+                            <span>35%</span>
+                        </div>
+                        <h4 class="skill-detail">PHP</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="twitter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-push-2 clearfix">
+                        <div class="section-heading white scrollpoint sp-effect3">
+                            <h1>I-ECNU</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="carousel-twitter" class="carousel slide" data-ride="carousel">
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="row">
+                                    <div class="col-md-8 col-md-push-2">
+                                        <p>APP客户端已发布到腾讯应用宝平台，可扫描下方二维码进行下载</p>
+                                        <p>暂无IOS开发计划</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+		                            <div class="member scrollpoint sp-effect3">
+		                                <div class="member-image">
+		                                    <img src="assets/img/microQr.png" alt="" class="img-responsive img-center">
+		                                </div>
+		                            </div>
+		                        </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="follow">
+                        <a href="http://android.myapp.com/myapp/detail.htm?apkName=com.yuzhi.collegenews" class="btn btn-empty text-center">
+                            下载到电脑
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="get-in-touch">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-push-2 clearfix">
+                        <div class="section-heading scrollpoint sp-effect3">
+                            <h1>联系我们</h1>
+                            <h4>Contact Us</h4>
+                            <span class="divider"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="contact-details">
+                            <div class="detail">
+                                <h4>地址</h4>
+                                <p>上海市 普陀区 中山北路3663号 华东师范大学 软件学院</p>
+                            </div>
+                            <div class="detail">
+                                <h4>联系我们</h4>
+                                <p>13162303868</p>
+                            </div>
+                            <div class="detail">
+                                <h4>邮箱</h4>
+                                <p>920901835@qq.com</p>
+                            </div>
+                            <div class="detail">
+                                <ul class="clearfix">
+                                    <li><a href="#"><i class="fa fa-google-plus fa-2x"></i></a>
+                                    </li>
+                                    <li><a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+                                    </li>
+                                    <li><a href="#"><i class="fa fa-facebook fa-2x"></i></a>
+                                    </li>
+                                    <li><a href="#"><i class="fa fa-youtube fa-2x"></i></a>
+                                    </li>
+                                    <li><a href="#"><i class="fa fa-pinterest fa-2x"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <form>
+                            <div class="form-group has-feedback left">
+                                <input type="text" class="form-control" placeholder="姓名">
+                                <i class="fa fa-user form-control-feedback"></i>
+                            </div>
+                            <div class="form-group has-feedback left">
+                                <input type="email" class="form-control" placeholder="邮件">
+                                <i class="fa fa-envelope-o form-control-feedback"></i>
+                            </div>
+                            <div class="form-group has-feedback left">
+                                <textarea class="form-control" rows="7" placeholder="写下你的建议"></textarea>
+                                <i class="fa fa-pencil-square-o form-control-feedback"></i>
+                            </div>
+                            <button class="btn btn-primary btn-lg pull-right">提交</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <footer id="site-footer">
+            <div class="container">
+                <div class="row">
+                    <span class="divider grey"></span>
+                    <h4>2017 华东师大科创项目</h4>
+                    <h5>Copyright 2017 - 2017 i-ecnu. All Rights Reserved
+                    </h5>
+                    <a href="#" class="scroll-top">
+                        <img src="assets/img/top.png" alt="" class="top">
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!--/wrap-->
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/stellar.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/jquery.easypiechart.min.js"></script>
+
+    <!-- jQuery REVOLUTION Slider  -->
+    <script type="text/javascript" src="assets/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+    <script type="text/javascript" src="assets/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+    <script src="assets/js/waypoints.min.js"></script>
+
+    
+    <script src="assets/js/script.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        appMaster.preLoader();
+        appMaster.smoothScroll();
+        appMaster.animateScript();
+        appMaster.navSpy();
+        appMaster.revSlider();
+        appMaster.stellar();
+        appMaster.skillsChart();
+        
+        appMaster.isoTop();
+        appMaster.canvasHack();
+    });
+    </script>
+
+</body>
+
+</html>
