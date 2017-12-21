@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="gb2312" />
+<meta name="applicable-device" content="pc">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<title>jQuery查找节点并获取节点属性的方法_jquery_脚本之家</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<meta name="keywords" content="jQuery,查找节点,节点属性" />
+<meta name="description" content="这篇文章主要介绍了jQuery查找节点并获取节点属性的方法,涉及jQuery简单获取节点及attr与text方法读取元素属性的相关技巧,需要的朋友可以参考下" />
+<link rel="alternate" media="only screen and(max-width: 640px)" href="http://m.jb51.net/article/92281.htm" />
+<meta http-equiv="mobile-agent" content="format=html5; url=http://m.jb51.net/article/92281.htm" />
+<meta http-equiv="mobile-agent" content="format=xhtml; url=http://m.jb51.net/article/92281.htm" />
+<script type="text/javascript">
+var tougao="shichen2014";var lmname="JavaScript";
+(function(){var reWriteUrl=function(url){if(url){var Splits=url.split("/"),siteName=window.location.pathname;if(typeof siteName!=="undefined"){return "http://m.jb51.net"+siteName}}};if(/Android|webOS|iPhone|iPad|Windows Phone|iPod|BlackBerry|SymbianOS|Nokia|Mobile/i.test(navigator.userAgent)){var url=window.location.href;var pathname=window.location.pathname;if(url.indexOf("?pc")<0){try{window.location.href=reWriteUrl(url)}catch(e){}}}})();
+</script>
+<link type="text/css" href="/skin/2016/base.css" rel="stylesheet" />
+<link type="text/css" href="/skin/2016/common.css" rel="stylesheet" />
+<script type="text/javascript" src="//apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+if (!window.jQuery) {
+	var script = document.createElement('script');
+	script.src = "/skin/js/jquery.js";
+	document.body.appendChild(script);}
+</script>
+<script type=text/javascript src="/js/function.js"></script> 
+</head>
+<body>
+<!--head Star -->
+<div id="head">
+  <div class="toolBar">
+  <div class="main">
+    <!--topNav Star -->
+    <div class="topNav clearfix">
+      <ul class="navList fl">
+        <li>
+          <div class="one"><a href="http://www.jb51.net" target="_blank">脚本之家</a></div>
+        </li>
+        <li>
+          <div class="one"><a href="http://www.jb51.net/softs/" target="_blank">软件下载<i class="icon"></i></a></div>
+          <div class="two">
+<a href="/softs/android.html" target="_blank">android软件</a> <a href="/softs/mac.html" target="_blank">MAC软件</a> <a href="/qudong/" target="_blank">驱动下载</a> <a href="/fonts/" target="_blank">字体下载</a> <a href="/dll/" target="_blank">DLL下载</a> </div>
+</li>
+        <li>
+          <div class="one"><a href="/codes/" target="_blank">源码下载<i class="icon"></i></a></div>
+          <div class="two"> <a href="/codes/asp.html" target="_blank">asp源码</a> <a href="/codes/php.html" target="_blank">php源码</a> <a href="/codes/aspnet.html" target="_blank">asp.net源码</a> <a href="/codes/jsp.html" target="_blank">jsp源码</a> <a href="/codes/editor.html" target="_blank">网页编辑器</a> <a href="/codes/list123_1.html" target="_blank">数据库管理</a> <a href="/codes/list124_1.html" target="_blank">常用组件</a> <a href="/jiaoben/" target="_blank">脚本下载</a></div>
+        </li>
+        <li>
+          <div class="one"><a href="http://tools.jb51.net" target="_blank">在线工具<i class="icon"></i></a></div>
+          <div class="two"> <a href="/shouce/" target="_blank">在线手册</a> <a href="/tools/cssyasuo.shtml" target="_blank">CSS格式化</a> <a href="http://tools.jb51.net/code/js" target="_blank">JS格式化</a> <a href="/tools/html-js.htm" target="_blank">Html转化为Js</a> <a href="http://tools.jb51.net/regex/javascript" target="_blank">js正则表达式</a>
+</div>
+        </li>
+        <li>
+          <div class="one"><a href="/w3school/" target="_blank">网页教程基础</a></div>
+        </li>
+			<li>
+          <div class="one"><a href="http://s.jb51.net" target="_blank">服务器常用软件</a></div>
+        </li>
+		<li>
+          <div class="one"><a href="http://m.jb51.net" target="_blank">手机版</a></div>
+          <div class="two"><img src="http://files.jb51.net/images/m.jb51.net.png" data-baiduimageplus-ignore /></div>     
+        </li>
+        <li class="watch">
+          <div class="one"><a href="http://www.jb51.net/about.htm" target="_blank" rel="nofollow" ><i class="icon"></i>关注微信</a></div>
+          <div class="two"><img src="http://files.jb51.net/images/weixin_200.gif" data-baiduimageplus-ignore /></div>
+        </li>
+      </ul>
+      <div class="navUser mt5 fr" id="jb51_topbar" >
+
+      </div>
+    </div>
+    <!--topNav End -->
+  </div>
+</div>
+
+  <div class="main clearfix">
+    <div class="mtb10 clearfix">
+      <div class="logo"><a href="http://www.jb51.net/"><img src="http://www.jb51.net/images/logo.gif" title="脚本之家" alt="脚本之家" /></a></div>
+      <div class="logom fl"><span id="logo_m" class="jbTestPos"></span></div>
+      <div class="logor fr"><span id="logo_r" class="jbTestPos"></span></div>
+    </div>
+<!-- 导航-->
+<DIV class="nav_top clearfix">
+<UL>
+<li><a href="http://www.jb51.net/web/">网页制作</a></li>
+<li><a href="http://www.jb51.net/list/index_1.htm">网络编程</a></li>
+<li><a href="http://www.jb51.net/list/index_96.htm">脚本专栏</a></li>
+<li><a href="http://www.jb51.net/jiaoben/">脚本下载</a></li>
+<li><a href="http://www.jb51.net/list/index_104.htm">数据库</a></li>
+<li><a href="http://www.jb51.net/cms/">CMS教程</a></li>
+<li><a href="http://www.jb51.net/books/">电子书籍</a></li>
+<li><a href="http://www.jb51.net/pingmian/">平面设计</a></li>
+<li><a href="http://www.jb51.net/media/">媒体动画</a></li>
+<li><a href="http://www.jb51.net/os/">操作系统</a></li>
+<li><a href="http://www.jb51.net/yunying/">网站运营</a></li>
+<li><a href="http://www.jb51.net/hack/">网络安全</a></li>
+<li class="last"><a href="http://www.jb51.net/shouce/">在线手册</a></li>
+
+</UL>
+</DIV>
+
+<!--导航结束-->
+<div class="subnav clearfix">
+<ul><li><a href='/list/list_170_1.htm' title="YUI.Ext相关">YUI.Ext相关</a></li>
+<li><a href='/list/list_171_1.htm' title="prototype">prototype</a></li>
+<li><a href='/list/list_172_1.htm' title="jquery">jquery</a></li>
+<li><a href='/list/list_253_1.htm' title="AngularJS">AngularJS</a></li>
+<li><a href='/list/list_187_1.htm' title="json">json</a></li>
+<li><a href='/list/list_194_1.htm' title="lib_js">lib_js</a></li>
+<li><a href='/list/list_198_1.htm' title="js面向对象">js面向对象</a></li>
+<li><a href='/list/list_217_1.htm' title="extjs">extjs</a></li>
+<li><a href='/list/list_225_1.htm' title="Mootools">Mootools</a></li>
+<li><a href='/list/list_241_1.htm' title="Seajs">Seajs</a></li>
+<li><a href='/list/list_181_1.htm' title="dojo">dojo</a></li>
+<li><a href='/list/list_269_1.htm' title="vue.js">vue.js</a></li>
+<li><a href='/list/list_271_1.htm' title="backbone.js">backbone.js</a></li>
+<li><a href='/list/list_240_1.htm' title="其它">其它</a></li>
+</ul>
+</div>
+<div class="NavBar clearfix ptb10">
+<div class="fl w690">
+<div class="box mb15 mt10"><i class="icon"></i>您的位置：<a href='/'>首页</a> → <a href="/list/index_1.htm" title="网络编程">网络编程</a> → <a href="/list/list_3_1.htm" title="JavaScript">JavaScript</a> → <a href="/list/list_23_1.htm" title="javascript类库">javascript类库</a> → <a href="/list/list_172_1.htm" title="jquery">jquery</a> → 正文内容 jQuery查找节点并获取节点属性</div>
+</div>
+<div class="fr w300"><div class="search">
+<form action="http://so.jb51.net/cse/search" target="_blank">
+    <input type="hidden" name="s" value="10520733385329581432">
+    <input type="hidden" name="ie" value="gbk">
+    <input type="text" name="q" class="key_input" placeholder="请输入关键词">
+    <input type="submit" value="搜索" class="c_btn">
+</form></div></div>
+  </div>
+</div>
+<!--head End -->
+<div class="main mb10 clearfix">
+<div class="clearfix"><span id="tonglan1" class="jbTestPos"></span></div>
+</div>
+
+<!--content Star -->
+<div id="contents">
+ <div class="main clearfix">
+      <div class="w690 fl">
+      <div class="article-content border">
+      <div class="title">
+            <h1 class="YaHei">jQuery查找节点并获取节点属性的方法</h1>
+            <p>作者：onestopweb  字体：[<a href="javascript:turnbig()">增加</a> <a href="javascript:turnsmall()">减小</a>] 类型：转载 时间：2016-09-09<a href="#comments"> 我要评论</a></p>
+        </div>
+        <div class="art_desc mt10"><div id="art_demo">这篇文章主要介绍了jQuery查找节点并获取节点属性的方法,涉及jQuery简单获取节点及attr与text方法读取元素属性的相关技巧,需要的朋友可以参考下</div></div>
+        <div class="lbd clearfix"><span id="art_up" class="jbTestPos"></span></div>
+        <div id="content">
+<p>本文实例讲述了jQuery查找节点并获取节点属性的方法。分享给大家供大家参考，具体如下：</p>
+<div class="jb51code">
+<pre class="brush:js;">
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;script type="text/javascript" src="js/jquery-1.10.1.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+//&lt;![CDATA[
+$(function(){
+ var $para = $("p"); // 获取&lt;p&gt;节点
+ var $li = $("ul li:eq(1)"); // 获取第二个&lt;li&gt;元素节点
+ var p_txt = $para.attr("title"); // 输出&lt;p&gt;元素节点属性title
+ var ul_txt = $li.attr("title"); // 获取&lt;ul&gt;里的第二个&lt;li&gt;元素节点的属性title
+ var li_txt = $li.text(); // 输出第二个&lt;li&gt;元素节点的text
+ alert(ul_txt);
+ alert(li_txt);
+ alert(p_txt);
+});
+//]]&gt;
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p title="T选择你最喜欢的水果." &gt;你最喜欢的水果是&#63;&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li title='T苹果'&gt;苹果&lt;/li&gt;
+ &lt;li title='T橘子'&gt;橘子&lt;/li&gt;
+ &lt;li title='T菠萝'&gt;菠萝&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</pre>
+</div>
+<p>效果图：</p>
+<p><img alt="" src="http://files.jb51.net/file_images/article/201609/20169991006108.png&#63;20168991038" /></p>
+<p>更多关于jQuery相关内容感兴趣的读者可查看本站专题：《<a target="_blank" href="http://www.jb51.net/Special/161.htm">jQuery操作DOM节点方法总结</a>》、《<a target="_blank" href="http://www.jb51.net/Special/875.htm">jQuery页面元素操作技巧汇总</a>》、《<a target="_blank" href="http://www.jb51.net/Special/205.htm">jQuery常见事件用法与技巧总结</a>》、《<a target="_blank" href="http://www.jb51.net/Special/200.htm">jQuery常用插件及用法总结</a>》、《<a target="_blank" href="http://www.jb51.net/Special/451.htm">jQuery扩展技巧总结</a>》、《<a target="_blank" href="http://www.jb51.net/Special/539.htm">jQuery表格(table)操作技巧汇总</a>》、《<a target="_blank" href="http://www.jb51.net/Special/430.htm">jQuery常见经典特效汇总</a>》及《<a target="_blank" href="http://www.jb51.net/Special/75.htm">jquery选择器用法总结</a>》</p>
+<p>希望本文所述对大家jQuery程序设计有所帮助。</p>
+
+</div><!--endmain-->
+<div class="art_xg">
+<h4>您可能感兴趣的文章:</h4><ul><li><a href="/article/67649.htm" title="JQuery包裹DOM节点的方法" target="_blank">JQuery包裹DOM节点的方法</a></li><li><a href="/article/92525.htm" title="jQuery查找节点方法完整实例" target="_blank">jQuery查找节点方法完整实例</a></li><li><a href="/article/92276.htm" title="jQuery简单创建节点的方法" target="_blank">jQuery简单创建节点的方法</a></li><li><a href="/article/92239.htm" title="jQuery插入节点和移动节点用法示例(insertAfter、insertBefore方法)" target="_blank">jQuery插入节点和移动节点用法示例(insertAfter、insertBefore方法)</a></li><li><a href="/article/92238.htm" title="jQuery删除节点用法示例(remove方法)" target="_blank">jQuery删除节点用法示例(remove方法)</a></li><li><a href="/article/92233.htm" title="jQuery复制节点用法示例(clone方法)" target="_blank">jQuery复制节点用法示例(clone方法)</a></li><li><a href="/article/92227.htm" title="jQuery替换节点用法示例(使用replaceWith方法)" target="_blank">jQuery替换节点用法示例(使用replaceWith方法)</a></li><li><a href="/article/92209.htm" title="jQuery遍历节点树方法分析" target="_blank">jQuery遍历节点树方法分析</a></li><li><a href="/article/41283.htm" title="jquery获取子节点和父节点的示例代码" target="_blank">jquery获取子节点和父节点的示例代码</a></li><li><a href="/article/47531.htm" title="jquery的父子兄弟节点查找示例代码" target="_blank">jquery的父子兄弟节点查找示例代码</a></li><li><a href="/article/34480.htm" title="jQuery:节点(插入,复制,替换,删除)操作" target="_blank">jQuery:节点(插入,复制,替换,删除)操作</a></li><li><a href="/article/92529.htm" title="jQuery包裹节点用法完整示例" target="_blank">jQuery包裹节点用法完整示例</a></li></ul>
+</div>
+<div class="lbd clearfix">
+<span id="art_down" class="jbTestPos"></span>
+</div>
+<div id="shoucang"></div>
+<div class="tags mt10">
+<strong>Tags：</strong><a href="http://common.jb51.net/tag/jQuery/1.htm" target="_blank" title="搜索关于jQuery的文章">jQuery</a> <a href="http://common.jb51.net/tag/%E6%9F%A5%E6%89%BE%E8%8A%82%E7%82%B9/1.htm" target="_blank" title="搜索关于查找节点的文章">查找节点</a> <a href="http://common.jb51.net/tag/%E8%8A%82%E7%82%B9%E5%B1%9E%E6%80%A7/1.htm" target="_blank" title="搜索关于节点属性的文章">节点属性</a> 
+</div>
+<DIV class="relatedarticle clearfix mt5">
+<H2>相关文章</H2>
+<ul><li><span>2010-02-02</span><a href="/article/22244.htm" title="jquery1.4 教程一 便利的设置函数" target="_blank">jquery1.4 教程一 便利的设置函数</a></li><li><span>2016-12-12</span><a href="/article/100539.htm" title="Jquery Easyui对话框组件Dialog使用详解（14）" target="_blank">Jquery Easyui对话框组件Dialog使用详解（14）</a></li><li><span>2015-01-01</span><a href="/article/59678.htm" title="JS JQUERY实现滚动条自动滚到底的方法" target="_blank">JS JQUERY实现滚动条自动滚到底的方法</a></li><li><span>2014-02-02</span><a href="/article/46783.htm" title="jQuery获取和设置表单元素的方法" target="_blank">jQuery获取和设置表单元素的方法</a></li><li><span>2016-03-03</span><a href="/article/80453.htm" title="简单的jQuery banner图片轮播实例代码" target="_blank">简单的jQuery banner图片轮播实例代码</a></li><li><span>2014-05-05</span><a href="/article/50254.htm" title="jQuery.holdReady()使用方法" target="_blank">jQuery.holdReady()使用方法</a></li><li><span>2015-01-01</span><a href="/article/59746.htm" title="jQuery实现瀑布流的取巧做法分享" target="_blank">jQuery实现瀑布流的取巧做法分享</a></li><li><span>2017-02-02</span><a href="/article/105316.htm" title="使用jquery判断一个元素是否含有一个指定的类(class)实例" target="_blank">使用jquery判断一个元素是否含有一个指定的类(class)实例</a></li><li><span>2011-12-12</span><a href="/article/29044.htm" title="jquery中dom操作和事件的实例学习 下拉框应用" target="_blank">jquery中dom操作和事件的实例学习 下拉框应用</a></li><li><span>2009-11-11</span><a href="/article/20734.htm" title="Jquery AJAX 框架的使用方法" target="_blank">Jquery AJAX 框架的使用方法</a></li></ul>
+</DIV>
+<div class="lbd clearfix mt5">
+<span id="art_down2" class="jbTestPos"></span>
+</div>
+<a href="#comments"></a>
+<div id="comments">
+<H2>最新评论</H2>
+<div class="pd5"><div id="SOHUCS" sid="art_92281"></div></div>
+</div>
+      </div><!--endborder-->
+      </div><!--end fl-->
+      
+<div class="w300 fr">
+<div class="r300 clearfix"><span id="side_up" class="jbTestPos"></span></div>
+<DIV class="tabTitleBar mt10 bgf borderTblue">
+<DIV class="borderTnone pb10 YaHei">
+<H4 class="blue">大家感兴趣的内容</H4>
+<UL class="newsList newList-in">
+<li><EM class="no1">1</EM><a href="/article/27444.htm" title="jquery加载页面的方法(页面加载完成就执行)" target="_blank">jquery加载页面的方法(页面加载完</a></li><li><EM class="no2">2</EM><a href="/article/25929.htm" title="JQuery 绑定select标签的onchange事件，弹出选择的值，并实现跳转、传参" target="_blank">JQuery 绑定select标签的onchang</a></li><li><EM class="no3">3</EM><a href="/article/53599.htm" title="jQuery判断checkbox是否选中的3种方法" target="_blank">jQuery判断checkbox是否选中的3种</a></li><li><EM class="no4">4</EM><a href="/article/48361.htm" title="jquery获取复选框被选中的值" target="_blank">jquery获取复选框被选中的值</a></li><li><EM class="no5">5</EM><a href="/article/21628.htm" title="jquery $(document).ready() 与window.onload的区别" target="_blank">jquery $(document).ready() 与w</a></li><li><EM class="no6">6</EM><a href="/article/19342.htm" title="jquery 将disabled的元素置为enabled的三种方法" target="_blank">jquery 将disabled的元素置为ena</a></li><li><EM class="no7">7</EM><a href="/article/41534.htm" title="jquery中获取id值方法小结" target="_blank">jquery中获取id值方法小结</a></li><li><EM class="no8">8</EM><a href="/article/24219.htm" title="jQuery.Autocomplete实现自动完成功能（详解）" target="_blank">jQuery.Autocomplete实现自动完成</a></li><li><EM class="no9">9</EM><a href="/article/24581.htm" title="JQuery中each()的使用方法说明" target="_blank">JQuery中each()的使用方法说明</a></li><li><EM class="no10">10</EM><a href="/article/19366.htm" title="jquery JSON的解析方式" target="_blank">jquery JSON的解析方式</a></li>
+</UL>
+</DIV>
+</DIV>
+<div class="r300 clearfix mt10"><span id="idctu" class="jbTestPos"></span></div>
+<DIV class="tabTitleBar mt10 bgf borderTblue">
+<DIV class="borderTnone pb10 YaHei">
+<H4 class="blue">最近更新的内容</H4>
+<UL class="newsListA">
+<ul><li><a href="/article/78006.htm" title="jQuery简单操作cookie的插件实例" target="_blank">jQuery简单操作cookie的插件实例</a></li><li><a href="/article/50396.htm" title="jquery attr方法获取input的checked属性问题" target="_blank">jquery attr方法获取input的checked属性问</a></li><li><a href="/article/99198.htm" title="jQuery实现删除li节点的方法" target="_blank">jQuery实现删除li节点的方法</a></li><li><a href="/article/100489.htm" title="jQuery拖拽通过八个点改变div大小" target="_blank">jQuery拖拽通过八个点改变div大小</a></li><li><a href="/article/53141.htm" title="jquery append()方法与html()方法的区别及使用介绍" target="_blank">jquery append()方法与html()方法的区别及</a></li><li><a href="/article/28425.htm" title="Jquery Change与bind事件代码" target="_blank">Jquery Change与bind事件代码</a></li><li><a href="/article/97966.htm" title="基于jquery实现的银行卡号每隔4位自动插入空格的实现代码" target="_blank">基于jquery实现的银行卡号每隔4位自动插入</a></li><li><a href="/article/94528.htm" title="jquery动态添加文本并获取值的方法" target="_blank">jquery动态添加文本并获取值的方法</a></li><li><a href="/article/85289.htm" title="jquery取消事件冒泡的三种方法(推荐)" target="_blank">jquery取消事件冒泡的三种方法(推荐)</a></li><li><a href="/article/84493.htm" title="JQuery解析XML数据的几个简单实例" target="_blank">JQuery解析XML数据的几个简单实例</a></li></ul>
+</UL>
+</DIV>
+</DIV>   
+<div class="r300 clearfix mt10"><span id="idctu1" class="jbTestPos"></span></div>
+<DIV class="tabTitleBar mt10 bgf borderTblue">
+<DIV class="borderTnone pb10 YaHei">
+<H4 class="blue">常用在线小工具</H4>
+<ul class="newsListA"><span id="bctools" class="jbTestPos"></span></ul>
+</DIV>
+</DIV>
+<div class="r300 clearfix mt10" id="idctu2"><span id="idctu2" class="jbTestPos"></span></div>
+<div class="mt10 rFixedBox">
+<span id="r_2" class="jbTestPos"></span>
+</div>
+      
+      
+      </div><!--end fr-->
+      </div>
+</div><!--end content-->
+<div id="footer">
+<div class="main clearfix">
+<p>
+<a href="http://www.jb51.net/about.htm" target="_blank">关于我们</a> - 
+<a href="http://www.jb51.net/support.htm" target="_blank">广告合作</a> - 
+<a href="http://www.jb51.net/linkus.htm" target="_blank">联系我们</a> -  
+<a href="http://www.jb51.net/sm.htm" target="_blank">免责声明</a> -  
+<a href="http://www.jb51.net/sitemap.htm" target="_blank">网站地图</a> - 
+<a href="tencent://message/?uin=461478385&Site=http://www.jb51.net" target="_blank">投诉建议</a> - 
+<a href="http://www.jb51.net/up.htm" target="_blank">在线投稿</a>
+</p>
+<p>&copy;CopyRight 2006-2017 JB51.Net Inc All Rights Reserved. 脚本之家 版权所有</p>
+</div>
+</div><!--end footer-->
+<link type="text/css" rel="stylesheet" href="/jslib/syntaxhighlighter/styles/shCore.css" />
+<link type="text/css" rel="Stylesheet" href="/jslib/syntaxhighlighter/styles/shThemeDefault.css" />
+<script type="text/javascript" src="/jslib/syntaxhighlighter/scripts/shCore.js"></script>
+<script type="text/javascript" src="/jslib/syntaxhighlighter/scripts/shAutoloader.js"></script>
+<script type="text/javascript">
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+if (top.location != self.location)top.location=self.location;
+$(function(){
+	$('#content').find('img').each(function(){
+        var img = this;
+        if (img.width >= 650){
+            img.style.width = "650px";
+            img.style.height = "auto";
+            //$(img).removeAttr('height');
+            var aTag = document.createElement('a');
+            aTag.href = img.src;
+			aTag.target="_blank";
+            $(aTag).addClass('bPic')
+            .insertAfter(img).append(img)
+          }
+    });
+	$(window).scroll(function()
+    {	
+    	//rFixedBox跟随滚动
+    	var h = $(window).height();
+        var top = $(window).scrollTop();
+    	var rFixedBox = $('.rFixedBox').prev().offset();
+        var fixedTop = rFixedBox.top;
+		
+        if(top>=fixedTop+344)
+        {
+			var h1 = parseInt($('#content').children('.main').height());
+			if(parseInt(top) + 340 < h1){
+				$('.rFixedBox').css({'position':'fixed','top': 0});
+			}else{
+				$('.rFixedBox').css({'position':'absolute','top': h1-510});
+			}
+        }
+        else
+        {
+            $('.rFixedBox').css({'position':'static', 'top':0});   
+        }	
+       /* return true;*/
+    });
+/*$(document).ready(function() {
+  $("#content img").unveil();
+});	*/
+SyntaxHighlighter.autoloader(
+	'applescript			/jslib/syntaxhighlighter/scripts/shBrushAppleScript.js',
+	'actionscript3 as3		/jslib/syntaxhighlighter/scripts/shBrushAS3.js',
+	'bash shell				/jslib/syntaxhighlighter/scripts/shBrushBash.js',
+	'coldfusion cf			/jslib/syntaxhighlighter/scripts/shBrushColdFusion.js',
+	'cpp c					/jslib/syntaxhighlighter/scripts/shBrushCpp.js',
+	'obj-c objc				/jslib/syntaxhighlighter/scripts/shBrushObjC.js',
+	'c# c-sharp csharp		/jslib/syntaxhighlighter/scripts/shBrushCSharp.js',
+	'css					/jslib/syntaxhighlighter/scripts/shBrushCss.js',
+	'delphi pascal			/jslib/syntaxhighlighter/scripts/shBrushDelphi.js',
+	'diff patch pas			/jslib/syntaxhighlighter/scripts/shBrushDiff.js',
+	'erl erlang				/jslib/syntaxhighlighter/scripts/shBrushErlang.js',
+	'groovy					/jslib/syntaxhighlighter/scripts/shBrushGroovy.js',
+	'haxe hx				/jslib/syntaxhighlighter/scripts/shBrushHaxe.js',
+	'java					/jslib/syntaxhighlighter/scripts/shBrushJava.js',
+	'jfx javafx				/jslib/syntaxhighlighter/scripts/shBrushJavaFX.js',
+	'js jscript javascript	/jslib/syntaxhighlighter/scripts/shBrushJScript.js',
+	'perl pl				/jslib/syntaxhighlighter/scripts/shBrushPerl.js',
+	'php					/jslib/syntaxhighlighter/scripts/shBrushPhp.js',
+	'text plain				/jslib/syntaxhighlighter/scripts/shBrushPlain.js',
+	'py python				/jslib/syntaxhighlighter/scripts/shBrushPython.js',
+	'ruby rails ror rb		/jslib/syntaxhighlighter/scripts/shBrushRuby.js',
+	'scala					/jslib/syntaxhighlighter/scripts/shBrushScala.js',
+	'sql					/jslib/syntaxhighlighter/scripts/shBrushSql.js',
+	'vb vbnet				/jslib/syntaxhighlighter/scripts/shBrushVb.js',
+	'ps powershell			/jslib/syntaxhighlighter/scripts/shBrushPowerShell.js',
+	'xml xhtml xslt html	/jslib/syntaxhighlighter/scripts/shBrushXml.js'
+);
+SyntaxHighlighter.all();
+});
+var ourl="";
+</script>
+<script type="text/javascript" src='http://icws.jb51.net/good/arct.js'></script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<div id="tongji">
+<script type="text/javascript" src="http://tongji.jbzj.com/tongji/tongji.js"></script>
+<script type="text/javascript">
+//tu+
+var cpro_id = "u1893014";
+document.write('<scri'+'pt src="http://cpro.baidustatic.com/cpro/ui/i.js" type="text/javascript"></s'+'cript>');
+</script>
+<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cyrHH3dwi',
+conf: 'prod_1dc5dc80970106099d43fe242b7465fc'
+});
+</script>
+</div> 
+<script type="text/javascript" src="http://www.jb51.net/pl.asp?id=92281"></script>
+</body>
+</html>
+<!-- published at 2017/12/15 8:40:32By dxycms qq:461478385  -->

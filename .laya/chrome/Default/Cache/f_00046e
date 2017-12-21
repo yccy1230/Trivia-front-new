@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>华东师范大学宣传系统——登录</title>
+    <link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css"  rel="stylesheet">
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+
+
+
+  <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"></script>
+    <script src="../assets/js/respond.min.js"></script>
+  <![endif]-->
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- <script src="vender/bootstrap3/assets/js/ie-emulation-modes-warning.js"></script> -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Custom styles for this template -->
+
+    <link href="/resources/assets/css/custom.css" rel="stylesheet">
+    <style>
+      h3{
+        font-size: 18px;
+        color: #c63e3e;
+      }
+      hr{
+        margin-top:0px;
+        margin-bottom:0px; 
+      }
+      #myCarousel{
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+	  footer{
+	  	margin-top:10px;
+	  	padding-top:10px;
+	  	border-top:1px solid #eee;
+	  }
+	  #contact{
+	  	padding:0px;
+	  }
+	  
+	  #uilii i{
+	  	padding-right: 15px;
+	  
+	  }
+	  .list-group {
+    	border-top:0px;
+    	margin: 0px;
+	}
+	.list-group-item, .list-group-item:first-child, .list-group-item:last-child {
+    
+    background-color: #FFF;
+	}
+	#more{
+		font-size:15px;
+		margin-right:30px;
+	}
+	img.code{
+		cursor:pointer;
+		margin-top:7px;
+	}
+    </style>
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+
+  <div class="container">
+        <div class="row ">
+          <div class="page-header">
+            <div class="row-fluid">
+              <div>
+                <a href="/page/index" class="image-header" >
+                  <img id="logo" src="/resources/assets/images/logo1.png" alt="ECNU Logo"/>
+                </a>
+                <hr/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        
+
+    <!-- Carousel
+    ================================================== -->
+    <div class="row">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="/resources/assets/images/article-banner.png" alt="First slide">
+          </div>
+
+         </div>
+        
+      </div>
+    </div><!-- /.carousel -->
+
+    
+    <div class="row" id="uilii">
+          <aside class="col-md-7 sidebar" >
+          				<div class="row">
+            			 	<h3 class="post-title">招生宣传活动公告 <a id="more" href="/controller/WebNewsService/getOutList?tname=loginList.html" class="pull-right" target="_blank">更多</a></h3>
+                      	</div>
+                      <div class="row" id="center">
+
+						
+						
+                  
+							 <div class="post-content" >
+		                          <ul class="list-group">
+		                            <li class="list-group-item">
+		                              <span class="badge"></span>
+		                              
+		                              <i class="fa fa-angle-right"></i>
+		                              <!-- 没有linkurl属性 跳服务器页面 -->
+		                              
+		                              <a href="/controller/WebNewsService/getNewsByUuid?newsUuid=2cac7218-dded-4689-b86d-f29f36d94f51&amp;Read=qwer&amp;tname=loginDetails.html" target="_blank">寒假学生使用手册</a>
+		                               <!-- 有linkurl属性 跳回外部链接服务器页面 -->
+		                              
+		                              
+		                              <img src="/resources/assets/images/hot.gif" alt="First slide">
+		                            </li>
+		                          </ul>
+                     		 </div>
+						
+                  
+							 <div class="post-content" >
+		                          <ul class="list-group">
+		                            <li class="list-group-item">
+		                              <span class="badge"></span>
+		                              
+		                              <i class="fa fa-angle-right"></i>
+		                              <!-- 没有linkurl属性 跳服务器页面 -->
+		                              
+		                              
+		                               <!-- 有linkurl属性 跳回外部链接服务器页面 -->
+		                              
+		                              <a href="http://www.zsb.ecnu.edu.cn/webapp/scoreSearch-new2.jsp?moduleId=31" target="_blank">历年录取分数与计划查询</a>
+		                              
+		                            </li>
+		                          </ul>
+                     		 </div>
+						
+                  
+							 <div class="post-content" >
+		                          <ul class="list-group">
+		                            <li class="list-group-item">
+		                              <span class="badge"></span>
+		                              
+		                              <i class="fa fa-angle-right"></i>
+		                              <!-- 没有linkurl属性 跳服务器页面 -->
+		                              
+		                              
+		                               <!-- 有linkurl属性 跳回外部链接服务器页面 -->
+		                              
+		                              <a href="http://www.zsb.ecnu.edu.cn/webapp/text-news-detail.jsp?newsUuid=0f490f18-a848-4b8f-9ca2-e2e4d4dc1c1e&amp;moduleId=28" target="_blank">华东师范大学2017年招生宣传总结会顺利召开</a>
+		                              
+		                            </li>
+		                          </ul>
+                     		 </div>
+						
+                  
+							 <div class="post-content" >
+		                          <ul class="list-group">
+		                            <li class="list-group-item">
+		                              <span class="badge"></span>
+		                              
+		                              <i class="fa fa-angle-right"></i>
+		                              <!-- 没有linkurl属性 跳服务器页面 -->
+		                              
+		                              
+		                               <!-- 有linkurl属性 跳回外部链接服务器页面 -->
+		                              
+		                              <a href="https://mp.weixin.qq.com/s?__biz=MzA4NzA4MDg5Mg==&amp;mid=2649954744&amp;idx=1&amp;sn=f564ba5ab187a538fa6f88e565d70807&amp;chksm=8839536bbf4eda7d69fd4705c7bcf5d451c54a220cc5f4da41e64b9a540b9cf259ef8846e8cc#rd" target="_blank">华东师范大学河北招生组走进河北衡水中学</a>
+		                              
+		                            </li>
+		                          </ul>
+                     		 </div>
+						
+                  
+							 <div class="post-content" >
+		                          <ul class="list-group">
+		                            <li class="list-group-item">
+		                              <span class="badge"></span>
+		                              
+		                              <i class="fa fa-angle-right"></i>
+		                              <!-- 没有linkurl属性 跳服务器页面 -->
+		                              
+		                              
+		                               <!-- 有linkurl属性 跳回外部链接服务器页面 -->
+		                              
+		                              <a href="https://mp.weixin.qq.com/s?__biz=MzA4NzA4MDg5Mg==&amp;mid=2649954708&amp;idx=1&amp;sn=f55df44de1fa7770c6b48784abfdaf44&amp;chksm=88395347bf4eda519f5054dfd79476a84e8d983aedfea056e01c8d576767f92d71f2a5cf1027#rd" target="_blank">校领导周傲英赴四川省绵阳中学开展讲座</a>
+		                              
+		                            </li>
+		                          </ul>
+                     		 </div>
+						
+                  
+							 <div class="post-content" >
+		                          <ul class="list-group">
+		                            <li class="list-group-item">
+		                              <span class="badge"></span>
+		                              
+		                              <i class="fa fa-angle-right"></i>
+		                              <!-- 没有linkurl属性 跳服务器页面 -->
+		                              
+		                              
+		                               <!-- 有linkurl属性 跳回外部链接服务器页面 -->
+		                              
+		                              <a href="https://mp.weixin.qq.com/s?__biz=MzA4NzA4MDg5Mg==&amp;mid=2649954701&amp;idx=1&amp;sn=b165b453cf26006079f0f76eb5e0c3c1&amp;chksm=8839535ebf4eda485d3bfcfe11dc40a5e6bfaba80bb6a37e37417d146cbbec33ab843c6b9c76#rd" target="_blank">华东师范大学2017年招生组长会议顺利召开</a>
+		                              
+		                            </li>
+		                          </ul>
+                     		 </div>
+						
+                  
+							 <div class="post-content" >
+		                          <ul class="list-group">
+		                            <li class="list-group-item">
+		                              <span class="badge"></span>
+		                              
+		                              <i class="fa fa-angle-right"></i>
+		                              <!-- 没有linkurl属性 跳服务器页面 -->
+		                              
+		                              <a href="/controller/WebNewsService/getNewsByUuid?newsUuid=b4350ed8-a767-4696-b9ea-92ecd58b18b8&amp;Read=qwer&amp;tname=loginDetails.html" target="_blank">2017年走进中学-华东师范大学招生组广西中学行</a>
+		                               <!-- 有linkurl属性 跳回外部链接服务器页面 -->
+		                              
+		                              
+		                              
+		                            </li>
+		                          </ul>
+                     		 </div>
+						
+                      
+                         
+
+                      </div>
+
+
+          </aside>
+          <main id="login-form" class="col-md-5 main-content">
+                <!-- Nav tabs -->
+                <ul id="form-title" class="nav nav-tabs" role="tablist">
+                  
+                  <li role="presentation" class="active col-md-6 col-sm-6"><a href="#profile" role="tab" data-toggle="tab"><i class="fa fa-credit-card"></i>公共数据库登录</a></li>
+                  <li role="presentation" class="col-md-6 col-sm-6"><a href="#home" role="tab" data-toggle="tab"><i class="fa fa-ticket"></i> 系统号登录</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                	<div role="tabpanel" class="tab-pane active" id="profile">
+                      <form id="loginByIdc" class="form-horizontal" role="form" action="/controller/UserService/addUserByIdc" method="post">
+
+	                      <div id="idcWarn" class="alert alert-danger alert-dismissible fade in" role="alert">
+	                        <p><i class="fa fa-warning"></i> 用户名或密码不正确</p>
+	                      </div>
+	
+	                      <div class="form-group">
+	                        <label for="" class="col-sm-4 control-label input-lg">学号/工号:</label>
+	                        <div class="col-sm-8">
+	                          <input type="text" class="form-control input-lg" id="userIdc" name="userIdc" placeholder="请输入IDC账号" />
+	                        </div>
+	                      </div>
+	
+	                      <div class="form-group">
+	                        <label for="" class="col-sm-4 control-label input-lg">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
+	                        <div class="col-sm-8">
+	                          <input type="password" class="form-control input-lg" id="userPasswd" name="userPasswd" placeholder="6-16个字符，区分大小写">
+	                        </div>
+	                      </div>
+	                      <div class="form-group">
+	                        <label for="" class="col-sm-4 control-label input-lg">验证码：</label>
+	                        <div class="col-sm-5">
+	                          <input type="hidden" class="form-control input-lg" id="validateCodeHide2"/>
+	                          <input type="hidden" class="form-control input-lg" id="validateCode2" name="validateCode"/>
+	                          <input type="text" class="form-control input-lg" id="validateCodeInput2" name="validateCodeInput" placeholder="" maxlength="4">
+	                        </div>
+	                        <div class="col-sm-3">
+	                          <img id="code2" class="code" src="" />
+	                        </div>
+	                      </div>
+	                      <div class="form-group">
+	                        <div class="col-sm-offset-4 col-sm-8">
+	                          <button type="submit" id="idcSubmit" class="btn btn-default btn-lg active">立即登录</button>
+	                          <!-- <div class="col-md-1"></div>
+                          	  <a href="" th:href="@{/controller/UserService/getLoginList(tname='register.html')}"  class="col-md-5 btn btn-default btn-lg">注册帐号</a> -->
+	                        </div>
+	                      </div>
+	
+	                      <!-- <div class="form-group">
+	                        <div class="col-sm-offset-3 col-sm-9">
+	                        <a href="#">忘记密码？请点此处</a>
+	                        </div>
+	                      </div> -->
+	
+	                      <div class="form-group">
+	                        <div role="alert" class="alert alert-warning mb-0">
+	                            <p>
+	                              <i aria-hidden="true" class="fa fa-exclamation-triangle"></i>
+	                              注：如有公共数据库账号请直接登录,外校用户请先注册！
+	                            </p>
+	                        </div>
+	                      </div>
+                    </form>
+                  </div>
+                  <div role="tabpanel" class="tab-pane" id="home">
+                      <form id="loginByName" class="form-horizontal" role="form" action="/controller/UserService/loginByName">
+
+                      <div id="nameWarn" class="alert alert-danger alert-dismissible fade in" role="alert">
+                        <p><i class="fa fa-warning"></i> 用户名或密码不正确</p>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="" class="col-sm-4 control-label input-lg">用户名：</label>
+                        <div class="col-sm-8">
+                          <input  type="text" class="form-control input-lg" id="userLoginName" name="userLoginName" placeholder="请输入用户名">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="" class="col-sm-4 control-label input-lg">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+                        <div class="col-sm-8">
+                          <input type="password" class="form-control input-lg" id="userPasswd1" name="userPasswd" placeholder="6-16个字符，区分大小写">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="" class="col-sm-4 control-label input-lg">验证码：</label>
+                        <div class="col-sm-5">
+                          <input type="hidden" class="form-control input-lg" id="validateCodeHide"/>
+                          <input type="hidden" class="form-control input-lg" id="validateCode" name="validateCode"/>
+                          <input type="text" class="form-control input-lg" id="validateCodeInput" name="validateCodeInput" placeholder="" maxlength="4">
+                          
+                        </div>
+                        <div class="col-sm-3">
+                          <img id="code" class="code" src="" />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-8">
+                          <button type="submit" id="nameSubmit" class="btn btn-default btn-lg active">立即登录</button>
+                          <a href="/controller/UserService/getLoginList?tname=register.html" class="btn btn-default btn-lg">注册帐号</a>
+                          
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div role="alert" class="alert alert-warning mb-0">
+                            <p>
+                              <i aria-hidden="true" class="fa fa-exclamation-triangle"></i>
+                              注：如有公共数据库账号请直接登录,外校用户请先注册！
+                            </p>
+                        </div>
+                      </div>
+                    </form>
+
+                  </div>
+
+                  
+                </div>
+          </main>
+          
+      </div>  
+
+
+      <!-- /END THE FEATURETTES -->
+      <div class="row">
+      		<div class="col-lg-12" id="contact">
+      			<h3>友情链接</h3>
+      			<div id="related-links" class="panel container-fluid">
+					<div class="col-xs-6 col-md-2">
+						<a href="http://www.ecnu.edu.cn/" target="_blank"> <img src="/resources/assets/images/link1.jpg" alt="华东师范大学" /></a>
+					</div>
+					<div class="col-xs-6 col-md-2">
+						<a href="http://gaokao.chsi.com.cn/" target="_blank"> <img src="/resources/assets/images/link2.jpg" alt="华东师范大学" /></a>
+					</div>
+					<div class="col-xs-6 col-md-2">
+						<a href="http://www.jwc.ecnu.edu.cn/" target="_blank"> <img src="/resources/assets/images/link3.jpg" alt="华东师范大学" /></a>
+					</div>
+					<div class="col-xs-6 col-md-2">
+						<a href="http://www.ecnu.edu.cn/" target="_blank"> <img src="/resources/assets/images/link4.jpg" alt="华东师范大学" /></a>
+					</div>
+					<div class="col-xs-6 col-md-2">
+						<a href="http://www.zsb.ecnu.edu.cn/webapp/index-new.jsp" target="_blank"> <img src="/resources/assets/images/link6.jpg" alt="华东师范大学" /></a>
+					</div>
+				</div>
+      		</div>
+      </div>
+    
+      <div class="row">
+        <!-- FOOTER -->
+        <footer>
+          <p class="text-center">&copy; 华东师范大学招生办公室版权所有 华东师范大学软件学院研制&nbsp;<a href="#" class="btn btn-primary btn-xs"><i class="fa fa-arrow-up"></i> 返回顶部</a></p>
+          <p class="text-center"><i class="fa fa-envelope-o"></i>&nbsp;联系地址：上海市普陀区中山北路3663号 200062 | <i class="fa fa-phone"></i>&nbsp;联系电话（86—21）62232212 | <i class="fa fa-phone"></i>&nbsp;技术支持电话（86—21）62601671</p>
+        </footer>
+      </div>
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <!-- <script src="vender/bootstrap3/assets/js/docs.min.js"></script> -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <script src="vender/bootstrap3/assets/js/ie10-viewport-bug-workaround.js"></script> -->
+    <script src="/resources/assets/js/md5.min.js"></script>
+	<script>
+		$(function(){
+			$("#nameWarn").hide();
+			$("#idcWarn").hide();
+			refresh();//获取验证码
+			$("#code,#code2").click(function(){
+				refresh();
+			});
+			
+			//系统号登陆
+			$("#loginByName").on('submit',function(e){
+				e.preventDefault();
+				//TODO 表单前端验证
+				var username=$("#userLoginName").val();
+				var pwd=$("#userPasswd1").val();
+				var userCode=$("#validateCodeInput").val().toUpperCase();
+				if(username==undefined||username==""){
+					alert("用户名不能为空");
+					return false;
+				}
+				if(pwd==undefined||pwd==""){
+					alert("密码不能为空");
+					return false;
+				}
+				if(userCode==undefined||userCode==""){
+					alert('请输入验证码');
+					return false;
+				}
+				if($.md5(userCode)!=$("#validateCodeHide").val()){
+					alert('验证码输入有误');
+					refresh();
+					return false;
+				}
+				$("#validateCode").val($.md5(userCode));
+				var url = $(this).prop("action");
+				var loginByName = $(this).serialize();
+				var logNameAjx=$.ajax({
+	                  async: true,
+	                  url: url,
+	                  type: "post",
+	                  data: loginByName,
+	                  dataType: "json",
+	                  beforeSend:function(){
+	                	  $("#nameSubmit").attr("disabled",true);
+	                      $("#nameSubmit").text("正在登陆..");
+	                  },
+	                  success: function (returnData) {
+		  					if(returnData.returnCode >= 0){
+		  						if(returnData.isUnfinish==1){
+		  							location.href="/page/userInfo/userinfoEdit?action=c2VydmljZU5hbWU9VXNlclNlcnZpY2Umb3BlcmF0aW9uPWdldFVzZXJGb3JNb2RpZnk=";
+		  						}else{
+		  							location.href ="/controller/WebNewsService/getAllList?tname=main.html";
+		  						}
+		  						
+		  					}else{
+		  						$("#nameWarn").show();
+		  						$("#nameSubmit").attr("disabled",false);
+		                	    $("#nameSubmit").text("立即登陆");
+		                	    refresh();
+		  						alert(returnData.returnMsg);
+		  						
+		  					}
+	                  },
+	                  error:function(XMLHttpRequest, textStatus, errorThrown){
+	                	  alert('系统号登陆故障,请联系超管');
+                		  $("#nameSubmit").attr("disabled",false);
+                	      $("#nameSubmit").text("立即登陆");
+                	      refresh();  
+	                  },
+	                  timeout:10000,
+	                  complete:function(XMLHttpRequest,status){
+	                	  if(status=='timeout'){
+	                		  logNameAjx.abort();
+	                		  alert('请求超时,请稍后再尝试');
+	                		  $("#nameSubmit").attr("disabled",false);
+	                	      $("#nameSubmit").text("立即登陆");
+	                	      refresh();
+	                	  }
+	                  }
+	              });
+			});
+			$("#loginByIdc").on('submit',function(e){
+				e.preventDefault();
+				var userIdc=$("#userIdc").val();
+				var userPasswd=$("#userPasswd").val();
+				var userCode=$("#validateCodeInput2").val().toUpperCase();
+				if(userIdc==undefined||userIdc==""){
+					alert("IDC号不能为空");
+					return false;
+				}
+				if(userPasswd==undefined||userPasswd==""){
+					alert("密码不能为空");
+					return false;
+				}
+				if(userCode==undefined||userCode==""){
+					alert('请输入验证码');
+					return false;
+				}
+				if($.md5(userCode)!=$("#validateCodeHide2").val()){
+					alert('验证码输入有误');
+					refresh();
+					return false;
+				}
+				$("#validateCode2").val($.md5(userCode));
+				var url = $(this).prop("action");
+				var loginByIdc = $(this).serialize();
+				var idcAjax=$.ajax({
+	                  async: true,
+	                  url: url,
+	                  type: "post",
+	                  data: loginByIdc,
+	                  dataType: "json",
+	                  beforeSend:function(){
+	                	  $("#idcSubmit").attr("disabled",true);
+	                      $("#idcSubmit").text("正在登陆..");
+	                  },
+	                  success: function (result) {
+		  					var code=result.returnCode;
+		  					if(code==0){
+		  						var flag=result.isUnfinish;
+		  						if(result.userLoginName!=null||result.userLoginName!=undefined){
+		  							alert("您的系统号用户名:"+result.userLoginName+"\n"+"系统号密码:"+result.userPasswd+"\n请妥善保管！");
+		  						}
+		  						if(flag==1){
+		  							location.href="/page/userInfo/userinfoEdit?action=c2VydmljZU5hbWU9VXNlclNlcnZpY2Umb3BlcmF0aW9uPWdldFVzZXJGb3JNb2RpZnk=";
+		  						}else{
+		  							window.location.href = "/controller/WebNewsService/getAllList?tname=main.html";
+		  						}
+		  					}else{
+		  						$("#idcWarn").show();
+		  						$("#idcSubmit").attr("disabled",false);
+		                	    $("#idcSubmit").text("立即登陆");
+		                	    refresh();
+		  						alert(result.returnMsg);
+		  					}
+	                  },
+	                  error:function(XMLHttpRequest, textStatus, errorThrown){
+	                	  alert('IDC登陆故障,请联系超管!');
+	                	  console.log(XMLHttpRequest.status);
+	                	  console.log(textStatus);
+                		  $("#idcSubmit").attr("disabled",false);
+                	      $("#idcSubmit").text("立即登陆");
+                	      refresh(); 
+		              },
+	                  timeout:10000,
+	                  complete:function(XMLHttpRequest,status){
+	                	  if(status=='timeout'){
+	                		  idcAjax.abort();
+	                		  alert('请求超时,请稍后再尝试');
+	                		  $("#idcSubmit").attr("disabled",false);
+	                	      $("#idcSubmit").text("立即登陆");
+	                	      refresh();
+	                	  }
+	                  }
+	              });
+			});
+		});
+		//获取验证码图片
+		function refresh(){
+			var codeUrl="/controller/ValidateCodeService/getValidateCode";
+			$.post(codeUrl,function(result){
+				var returnCode=result.returnCode;
+				if(returnCode==0){
+					var srcUrl=result.validateCodePath;
+					var imgUrl="/"+srcUrl.substring(1,srcUrl.length);
+					$("#code").attr('src',imgUrl);
+					$("#code2").attr('src',imgUrl);
+					var  sysCode=srcUrl.substring(15,srcUrl.indexOf('.'));
+					$("#validateCodeHide").val(sysCode);
+					$("#validateCodeHide2").val(sysCode);
+				}else{
+					alert('获取验证码出错！请重刷页面');
+				}
+			},'json');
+		}
+	</script>
+  </body>
+</html>

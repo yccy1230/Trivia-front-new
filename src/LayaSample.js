@@ -12,6 +12,7 @@ var Byte   = Laya.Byte;
 
 //Global Variable
 var curUserId;
+var positions=[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}];
 
 // 定义常量
 var GAME_READY = 0;
@@ -40,9 +41,42 @@ function OperationPanel()
     Laya.stage.bgColor = "#FFFFFF";
 
     createMap();
-    connect();
 	
 })();
+
+function initData(){
+    $.ajax({
+        type: "GET",
+        url: "http://localhost/trivia/game/refresh/",
+        contentType: "application/json; charset=utf-8",
+        dataType:"json",
+        success: function (body) {
+            if (body.resCode !== "200") {
+                alert("拉取房间数据出错！");
+            }   
+        }
+    });
+}
+
+function createDice(){
+    operationView.btnDice.on(Event.CLICK, this, initDiceBtnListener);
+}
+
+function initDiceBtnListener(){
+    $.ajax({
+        type: "GET",
+        url: "http://localhost/trivia/game/roll/dice/",
+        contentType: "application/json; charset=utf-8",
+        dataType:"json",
+        success: function (body) {
+            if (body.resCode !== "200") {
+                alert(body.resMsg);
+            } else{
+                setBtnVisibility(false,false,false);
+            }  
+        }
+    });
+}
 
 /**
  * 建立WebSocket连接
@@ -94,6 +128,7 @@ function refreshUI(message){
     }
     var stage = message.game.stage;
     var curPlayer = message.game.currentPlayerId;
+    refreshPlayerPanel(message);
     switch(stage){
         case GAME_READY:
         //新一轮游戏就绪
@@ -105,6 +140,24 @@ function refreshUI(message){
         break;
         case GAME_DICE_RESULT:
         //掷骰子点数
+        var dice = $("#dice");
+        dice.attr("class","dice");//清除上次动画后的点数 
+        dice.css("cursor","default"); 
+        $(".wrap").append("<div id='dice_mask'></div>");//加遮罩 
+        var num = message.game.diceNumber;
+        dice.animate({left: '+2px'}, 100,function(){ 
+            dice.addClass("dice_t"); 
+        }).delay(200).animate({top:'-2px'},100,function(){ 
+            dice.removeClass("dice_t").addClass("dice_s"); 
+        }).delay(200).animate({opacity: 'show'},600,function(){ 
+            dice.removeClass("dice_s").addClass("dice_e"); 
+        }).delay(100).animate({left:'-2px',top:'2px'},100,function(){ 
+            dice.removeClass("dice_e").addClass("dice_"+num); 
+            $("#result").html("掷得点数是<span>"+num+"</span>"); 
+            console.log(num);
+            dice.css('cursor','pointer'); 
+            $("#dice_mask").remove();//移除遮罩 
+        }); 
         if(curPlayer===curUserId){
 
         }else{
@@ -134,6 +187,23 @@ function refreshUI(message){
 }
 
 /**
+ * 刷新玩家界面
+ * @param {*} message 
+ */
+function refreshPlayerPanel(obj){
+    console.log(obj);
+    if(typeof operationView ==='undefined'){
+        return;
+    }
+    operationView.playerText.text = " \t昵称\t \t\t \t位置\t \t\t \t金币\n\n";
+    $.each(obj.playerList,function(index,item){
+        operationView.playerText.text += " \t\t"+item.nickName+"\t";
+        operationView.playerText.text += " \t\t\t\t"+item.position+"\t";
+        operationView.playerText.text += " \t\t\t\t"+item.balance+"\n\n";
+    });
+}
+
+/**
  * 设置按钮的显示状态
  * @param {*} btnReady 
  * @param {*} btnExit 
@@ -152,6 +222,7 @@ function createMap()
 {
     tiledMap = new TiledMap();
     tiledMap.createMap("../laya/assets/map/orthogonal-test-movelayer.json", new Rectangle(0, 0, 1100, 950),Handler.create(this,onMapLoaded));
+    tiledMap.gridSize = 20;
     Laya.stage.on(laya.events.Event.KEY_DOWN,this,onKeyDown);//设置键盘监听事件
 }
 
@@ -159,8 +230,10 @@ function createMap()
  * 地图加载完成回调
  */
 function onMapLoaded(){
+    this.tiledMap.scale = 1.0;
     //预加载资源文件后执行回调
     Laya.loader.load(["h5/res/atlas/comp.atlas","h5/res/atlas/template/ButtonTab.atlas","h5/res/atlas/template/Warn.atlas"], Handler.create(this, onDialogLoaded));
+    
 }
 
 /**
@@ -173,6 +246,9 @@ function onDialogLoaded(){
     operationView.y = 0;
     operationView.btnReady.on(Event.CLICK, this, btnReadyClicked);
     Laya.stage.addChild(operationView);
+    createDice();
+    connect();
+    initData();
 }
 
 /**

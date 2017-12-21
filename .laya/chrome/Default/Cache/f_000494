@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head lang="zh-cn">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta charset="utf-8" />
+<title>华东师范大学-任务管理</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta content="" name="description" />
+<meta content="" name="author" />
+
+<link rel="shortcut icon" href="/resources/assets/images/favicon.png" type="image/x-icon" />
+<!-- Favicon -->
+<link rel="apple-touch-icon-precomposed" href="/resources/assets/images/apple-touch-icon-57-precomposed.png">
+<!-- For iPhone -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	href="/resources/assets/images/apple-touch-icon-114-precomposed.png">
+<!-- For iPhone 4 Retina display -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="/resources/assets/images/apple-touch-icon-72-precomposed.png">
+<!-- For iPad -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+	href="/resources/assets/images/apple-touch-icon-144-precomposed.png">
+<!-- For iPad Retina display -->
+
+<!-- CORE CSS FRAMEWORK - START -->
+<link href="http://cdn.bootcss.com/pace/1.0.2/themes/black/pace-theme-flash.min.css"
+	rel="stylesheet" type="text/css" media="screen" />
+<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="http://cdn.bootcss.com/animate.css/3.5.2/animate.css"
+	rel="stylesheet" type="text/css" />
+<link href="http://cdn.bootcss.com/jquery.perfect-scrollbar/0.5.9/perfect-scrollbar.min.css"
+	rel="stylesheet" type="text/css" />
+<!-- CORE CSS FRAMEWORK - END -->
+
+<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
+<link href="/resources/assets/plugins/datatables/css/jquery.dataTables.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="/resources/assets/plugins/datatables/extensions/TableTools/css/dataTables.tableTools.min.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="/resources/assets/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="/resources/assets/plugins/datatables/extensions/Responsive/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet" type="text/css" media="screen"/>
+<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END --> 
+
+<!-- CORE CSS TEMPLATE - START -->
+<link href="/resources/assets/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/resources/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+	<link href="/resources/assets/plugins/datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
+<!-- CORE CSS TEMPLATE - END -->
+
+<style>
+	section.box .actions {
+    margin: 0px;
+    margin-right: 10px;
+    
+}
+button, input, optgroup, select, textarea {
+	    margin: 2px;
+	    font: inherit;
+	    color: inherit;
+	}
+	.btn.btn-sm, .btn-sm, .btn-group-sm>.btn{
+		padding:4px 13px;
+	}
+	.form-group a {
+		padding: 3px;
+	}
+#formCss{
+		margin-left:18px;
+		margin-bottom:5px;
+	}
+	.form-inline .form-group{
+		margin-right:10px;
+		padding-top:3px;
+	}
+	.btn.btn-primary.pull-right{
+	   margin-right:10px;
+	}
+	.pos{
+		position:relative;
+	}
+	.badge{
+		padding:4px 7px;
+	}
+	#subTaskList .modal-dialog{
+		width:900px;
+	}
+	
+	.nav.nav-tabs.nav-justified li.active a{
+		background:rgba(31, 181, 172, 1);
+		color:white;
+	}
+</style>
+</head>
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+<body class=" ">
+	<!-- START TOPBAR -->
+	<div class='page-topbar '>
+		<div class='logo-area'></div>
+		<div class='quick-area'>
+			<div class='pull-right'>
+				<ul class="info-menu right-links list-inline list-unstyled">
+					<li class="profile"><a href="#" data-toggle="dropdown"
+						class="toggle"> <i class="fa fa-user"></i> 当前登录帐号：<span>陈宇</span>
+					</a>
+						<ul class="dropdown-menu profile animated fadeIn">
+							<!-- <li><a href="#settings"> <i
+									class="fa fa-wrench"></i> 系统设置
+							</a></li> -->
+							<li><a href="/page/userInfo/userinfoEdit?action=c2VydmljZU5hbWU9VXNlclNlcnZpY2Umb3BlcmF0aW9uPWdldFVzZXJGb3JNb2RpZnk="> <i
+									class="fa fa-user"></i> 帐号信息
+							</a></li>
+							<!-- <li><a href="#help"> <i
+									class="fa fa-info"></i> 帮助
+							</a></li> -->
+							<li class="last"><a href="/page/index?action=c2VydmljZU5hbWU9VXNlclNlcnZpY2Umb3BlcmF0aW9uPWxvZ291dA==">
+									<i class="fa fa-lock"></i> 退出登录
+							</a></li>
+						</ul></li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+	<!-- END TOPBAR -->
+	
+	
+	<!-- START CONTAINER -->
+	<div class="page-container row-fluid">
+
+		<!-- SIDEBAR - START -->
+		<div class="page-sidebar " style="position:fixed !important;">
+
+			<!-- MAIN MENU - START -->
+			<div class="page-sidebar-wrapper" id="main-menu-wrapper">
+
+				<!-- USER INFO - START -->
+				<div class="profile-info row">
+
+					<!-- <div class="profile-image col-md-4 col-sm-4 col-xs-4">
+						<a href="../../resources/ui-profile.html" th:href="@{/page/userInfo/userinfoEdit?action=c2VydmljZU5hbWU9VXNlclNlcnZpY2Umb3BlcmF0aW9uPWdldFVzZXJGb3JNb2RpZnk=}"> 
+						<img th:src="@{/resources/assets/images/profile.png}" 
+							src="../../resources/data/profile/profile.png"
+							class="img-responsive img-circle">
+						</a>
+					</div> -->
+
+					<div class="profile-details col-md-offset-2 col-sm-offset-2 col-xs-offset-2 col-md-9 col-sm-9 col-xs-9">
+						<h3>
+							<a>招生宣传管理系统</a>
+
+							<!-- Available statuses: online, idle, busy, away and offline -->
+							<span class="profile-status online"></span>
+						</h3>
+
+						<p class="profile-title">华东师大招生办创立</p>
+					</div>
+
+				</div>
+				<!-- USER INFO - END -->
+	
+				<ul class='wraplist'>
+					
+					<li class="">
+						<a href="/controller/WebNewsService/getAllList?tname=main.html">
+							<i class="fa fa-dashboard"></i> <span class="title">信息首页(含资料下载)</span>
+						</a>
+					</li>
+					
+					<li class="" id="1049a56d-e049-415e-94df-e3ac366de38b" >
+					<a href="javascript:;"> 
+						<i class="fa fa-th"></i> <span class="title">个人信息区</span>
+						<span class="arrow "></span>
+					</a>
+						<ul class="sub-menu">
+							
+							
+							
+							<li>
+								<a class="inactive" href="/page/userInfo/userinfoEdit?action=c2VydmljZU5hbWU9VXNlclNlcnZpY2Umb3BlcmF0aW9uPWdldFVzZXJGb3JNb2RpZnk=">修改完善个人信息</a>
+							</li>
+							
+							
+							<li>
+								<a class="inactive" href="/page/userInfo/pwdEdit">修改系统号密码</a>
+							</li>
+							
+							<li>
+								<a class="inactive" href="/page/userInfo/idcContact">公共数据库关联</a>
+							</li>
+							
+						</ul>
+					</li>
+					
+					<li class="" id="14e2d1e6-827f-4fff-866d-019c03dcc198" >
+					<a href="javascript:;"> 
+						<i class="fa fa-th"></i> <span class="title">组和成员维护</span>
+						<span class="arrow "></span>
+					</a>
+						<ul class="sub-menu">
+							
+							
+							
+							
+							<li>
+								<a class="inactive" href="/page/group/myGroup?action=c2VydmljZU5hbWU9R3JvdXBTZXJ2aWNlJm9wZXJhdGlvbj1nZXRVc2VyR3JvdXA=">我的组</a>
+							</li>
+							
+							
+							
+							
+							
+						</ul>
+					</li>
+					
+					<li class="open" id="f5a385e0-bae2-4a98-bad9-771cd5f20f65" >
+					<a href="javascript:;"> 
+						<i class="fa fa-th"></i> <span class="title">我的任务管理</span>
+						<span class="arrow "></span>
+					</a>
+						<ul class="sub-menu">
+							
+							
+							
+							
+							
+							<li>
+								<a class="inactive" href="/page/task/groupNewMission?action=c2VydmljZU5hbWU9VGFza1NlcnZpY2Umb3BlcmF0aW9uPWdldE15R3JvdXBPdGhlclRhc2tz">任务申请列表</a>
+							</li>
+							
+							<li>
+								<a class="active" href="/page/task/myTaskList?action=c2VydmljZU5hbWU9VGFza1NlcnZpY2Umb3BlcmF0aW9uPWdldE15VGFzaw==">我的当前任务</a>
+							</li>
+							
+							<li>
+								<a class="inactive" href="/page/task/myTaskHistoryList?action=c2VydmljZU5hbWU9VGFza1NlcnZpY2Umb3BlcmF0aW9uPWdldE15SGlzdG9yeVRhc2s=">我的历史任务</a>
+							</li>
+						</ul>
+					</li>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+
+				</ul>
+
+			</div>
+			<!-- MAIN MENU - END -->
+		</div>
+		<!--  SIDEBAR - END -->
+		
+		<!-- START CONTENT -->
+		<section id="main-content" class=" ">
+			<section class="wrapper"
+				style='margin-top: 60px; display: inline-block; width: 100%; padding: 15px 0 0 15px;'>
+
+				<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+					<div class="page-title">
+
+						<div class="pull-left">
+							<h1 class="title">申请培训与材料</h1>
+						</div>
+
+
+					</div>
+				</div>
+				<div class="clearfix"></div>
+
+				<div class="col-lg-12">
+					<section class="box ">
+						<header class="panel_header">
+								<h2 class="title pull-left">申请培训与材料</h2>
+								<input id="taskUuid" type="hidden" value="b7259392-91b6-4edc-b10f-aeeb4c5ea79f"/>
+								<input id="taskId" type="hidden" value="1000039"/>
+								<input id="isWinter" type="hidden" value="1"/>
+						</header>
+						<div class="content-body">
+							<div class="row">
+								<!-- panel -->
+								<div class="col-md-12 col-sm-12 col-xs-12" style="padding-left:1px;padding-right:1px;">
+									<ul class="nav nav-tabs nav-justified">
+									  <li role="presentation" class="active"><a href="#train" data-toggle="tab">申请培训</a></li>
+									  <li role="presentation"><a href="#materical" data-toggle="tab">申请材料</a></li>
+									</ul>
+								</div>
+								<!-- panelContent -->
+								<div id="myTabContent" class="tab-content">
+									<!-- train -->
+									<div class="tab-pane fade in active" id="train">
+										<div class="row">
+											<div class="col-md-12 col-sm-12 col-xs-12">
+												<h4>我的培训列表</h4>
+											</div>
+											<div class="col-md-12 col-sm-12 col-xs-12">
+												<table class="table table-striped table-responsive swipe-horizontal table-hover display">
+													<thead>
+														<tr>
+															<th class="text-center">培训名称</th>
+															<th class="text-center">场次名称</th>
+															<th class="text-center">场次时间</th>
+															<th class="text-center">操作</th>
+														</tr>
+													</thead>
+			
+													<tbody id="applyTrainList">
+														<tr>
+															<td class="text-center" colspan="100">暂无已申请参加的培训</td>
+														</tr>
+														
+			
+													</tbody>
+			
+												</table>
+											</div>
+											<!-- 可申请的培训列表 -->
+											<div class="col-md-12 col-sm-12 col-xs-12">
+												<h4>可申请参加的培训列表</h4>
+											</div>
+											<div class="col-md-12 col-sm-12 col-xs-12">
+												<table class="table table-striped table-responsive swipe-horizontal table-hover display">
+													<thead>
+														<tr>
+															<th class="text-center">培训名称</th>
+															<th class="text-center">培训描述</th>
+															<th class="text-center">场次数量</th>
+															<th class="text-center">操作</th>
+														</tr>
+													</thead>
+			
+													<tbody id="trainList">
+														<tr>
+															<td class="text-center" colspan="100">暂无可申请参加的培训</td>
+														</tr>
+														
+			
+													</tbody>
+			
+												</table>
+											</div>
+										</div>
+									</div>
+									
+									
+									
+									
+									
+									
+									<!-- materical -->
+									<div class="tab-pane fade" id="materical">
+											<div class="row">
+												<div class="col-md-12 col-sm-12 col-xs-12">
+													<h4>已申请的材料列表</h4>
+												</div>
+												<div class="col-md-12 col-sm-12 col-xs-12">
+													<table class="table table-striped table-responsive swipe-horizontal table-hover display">
+														<thead>
+															<tr>
+																<th class="text-center">材料名称</th>
+																<th class="text-center">申请数量</th>
+																<th class="text-center">已发放数量</th>
+																<th class="text-center">状态</th>
+																<th class="text-center">操作</th>
+															</tr>
+														</thead>
+				
+														<tbody id="applyMaterialList">
+															<tr>
+																<td class="text-center" colspan="100">暂无已申请的材料</td>
+															</tr>
+															
+				
+														</tbody>
+				
+													</table>
+												</div>
+												<!-- 可申请的材料列表 -->
+												<div class="col-md-12 col-sm-12 col-xs-12">
+													<h4>可申请的材料列表</h4>
+												</div>
+												<div class="col-md-12 col-sm-12 col-xs-12">
+													<table class="table table-striped table-responsive swipe-horizontal table-hover display">
+														<thead>
+															<tr>
+																<th class="text-center">序号</th>
+																<th class="text-center">材料名称</th>
+																<th class="text-center">材料有效时间</th>
+																<th class="text-center">材料说明</th>
+																<th class="text-center">数量</th>
+															</tr>
+														</thead>
+				
+														<tbody id="materialList">
+															<tr>
+																<td class="text-center" colspan="100">暂无可申请的材料</td>
+															</tr>
+															
+				
+														</tbody>
+				
+													</table>
+												</div>
+											</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+
+			</section>
+		</section>
+		<!-- END CONTENT -->
+		
+	</div>
+	<!-- END CONTAINER -->
+	<!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
+
+
+	<div>
+			<!-- CORE JS FRAMEWORK - START -->
+			<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+			<!-- 动画特效 -->
+			<script src="http://cdn.bootcss.com/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+			<!-- Sortable -->
+			<script src="http://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
+			<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+			<!-- 加载进度条显示 -->
+			<script src="http://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+			<!-- 自定义滚动条，14k -->
+			<script src="http://cdn.bootcss.com/jquery.perfect-scrollbar/0.5.9/perfect-scrollbar.min.js"></script>
+			<!-- 视口侦测 -->
+			<script src="/resources/assets/plugins/viewport/viewportchecker.js"></script>
+			<!-- CORE JS FRAMEWORK - END -->
+		
+			<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
+			
+			<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
+		
+			<!-- CORE TEMPLATE JS - START -->
+			<script src="/resources/assets/js/scripts.js"></script>
+			<!-- END CORE TEMPLATE JS - END -->
+		</div>
+	<script src="/resources/assets/plugins/datepicker/js/datepicker.js"></script>
+	
+	<script>
+		var isWinter=$("#isWinter").val()==1?1:0;
+		$(function() {
+			$("#startDate").datepicker();
+			 $("#endDate").datepicker();
+			// 处理模态窗口缓存数据的问题
+			$('body').on('hidden.bs.modal', '.modal', function() {
+				$(this).removeData('bs.modal');
+			});
+			/*--------------培训---------------*/
+			//撤回培训申请
+			$(document).on('click','.returnTrain',function(e){
+				var btnSelf=$(this);
+				var obj=btnSelf.attr("data-obj");
+				
+				$.post("/controller/TrainApplyService/deleteTrainApply",{trainUuid:obj,taskUuid:$("#taskUuid").val(),isWinter:isWinter},function(data){
+					if(data.returnCode==0){
+						
+						$.post("/controller/TrainApplyService/getTrainApplyByTaskId",{taskId:$("#taskId").val(),tname:'task/applyTrainOrMaterial.html',sname:'trainList',target:1},function(trainList){
+							$("#at-"+obj).remove();
+							$("#trainList").replaceWith(trainList);
+							if($("#applyTrainList").children().length<=0){
+								$("#applyTrainList").append('<tr><td class="text-center" colspan="100">暂无已申请的材料</td></tr>');
+							}
+							alert('撤回成功');
+						});
+						
+					}else{
+						alert(data.returnMsg);
+					}
+				},'json');
+			});
+			$(document).on('click','#totalBtn',function(e){
+				var roundRadio=$("input[name=roundCheck]:checked");
+				if(roundRadio.length<=0){
+					alert("至少选择一个场次");
+					return false;
+				}
+				var ruuid=roundRadio.val();
+				var rid=roundRadio.attr("data-rid");
+				var tid=roundRadio.attr("data-tid");
+				var taskUuid=$("#taskUuid").val();
+				var send={
+						trainId:tid,
+						roundId:rid,
+						roundUuid:ruuid,
+						taskUuid:taskUuid,
+						isWinter:isWinter
+				};
+				console.log(send);
+				$.post("/controller/TrainApplyService/addTrainApply",send,function(data){
+					if(data.returnCode==0){
+						$.post("/controller/TrainApplyService/getTrainApplyByTaskId",{taskId:$("#taskId").val(),tname:'task/applyTrainOrMaterial.html',sname:'applyTrainList',target:1},function(applyTrainList){
+							$("#applyTrainList").replaceWith(applyTrainList);
+							$("#t-"+tid).remove();
+							$("#roundList").modal("hide");
+							alert("申请成功");
+						});
+						
+					}else{
+						alert(data.returnMsg);
+					}
+				},'json');
+			});
+			/*--------------材料---------------*/
+			
+			//撤回材料申请
+			$(document).on('click','.returnMaterical',function(e){
+				var btnSelf=$(this);
+				var obj=btnSelf.attr("data-obj");
+				$.post("/controller/MaterialApplyService/cancelApply",{applyUuid:obj,isWinter:isWinter},function(data){
+					if(data.returnCode==0){
+						$.post("/controller/TrainApplyService/getTrainApplyByTaskId",{taskId:$("#taskId").val(),tname:'task/applyTrainOrMaterial.html',sname:'materialList',target:2,isWinter:isWinter},function(applyMaterialList){
+							$("#am-"+obj).remove();
+							if($("#applyMaterialList").children().length<=0){
+								$("#applyMaterialList").append('<tr><td class="text-center" colspan="100">暂无已申请的材料</td></tr>');
+							}
+							$("#materialList").replaceWith(applyMaterialList);
+							alert('撤回成功');
+						});
+					}else{
+						alert(data.returnMsg);
+					}
+				},'json');
+			});
+			//申请单份材料
+			$(document).on('click','.applyMaterial',function(e){
+				var materialUuid=$(this).attr('data-obj');
+				var applyCount=$("#m-"+materialUuid+"  input[name=mCount]").val();
+				console.log(applyCount);
+				var taskUuid=$("#taskUuid").val();
+				if(applyCount==undefined||applyCount<=0){
+					alert('请填写申请材料数量');
+					return false;
+				}
+				$.post("/controller/MaterialApplyService/addApply",{materialUuid:materialUuid,applyCount:applyCount,taskUuid:taskUuid,isWinter:isWinter},function(data){
+					if(data.returnCode==0){
+						$.post("/controller/TrainApplyService/getTrainApplyByTaskId",{taskId:$("#taskId").val(),tname:'task/applyTrainOrMaterial.html',sname:'applyMaterialList',target:2,isWinter:isWinter},function(applyMaterialList){
+							$("#m-"+materialUuid).remove();
+							$("#applyMaterialList").replaceWith(applyMaterialList);
+							alert("申请成功");
+						});
+					}else{
+						alert(data.returnMsg);
+					}
+				},'json');
+			});
+		});
+	</script>
+	
+	<div id="roundList" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div id="editFormDiv" class="modal-content">
+					
+					
+				</div>
+				
+			</div>
+	</div>
+</body>
+</html>

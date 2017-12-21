@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="gb2312" />
+<meta name="applicable-device" content="pc">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<title>原生js结合html5制作简易的双色子游戏_javascript技巧_脚本之家</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<meta name="keywords" content="js,html5,色子" />
+<meta name="description" content="这篇文章主要介绍了原生js结合html5制作简易的双色子游戏的代码，是个人学习练手用的，虽然写的不太好，还是分享给大家，有需要的小伙伴可以参考下。" />
+<link rel="alternate" media="only screen and(max-width: 640px)" href="http://m.jb51.net/article/63045.htm" />
+<meta http-equiv="mobile-agent" content="format=html5; url=http://m.jb51.net/article/63045.htm" />
+<meta http-equiv="mobile-agent" content="format=xhtml; url=http://m.jb51.net/article/63045.htm" />
+<script type="text/javascript">
+var tougao="hebedich";var lmname="JavaScript";
+(function(){var reWriteUrl=function(url){if(url){var Splits=url.split("/"),siteName=window.location.pathname;if(typeof siteName!=="undefined"){return "http://m.jb51.net"+siteName}}};if(/Android|webOS|iPhone|iPad|Windows Phone|iPod|BlackBerry|SymbianOS|Nokia|Mobile/i.test(navigator.userAgent)){var url=window.location.href;var pathname=window.location.pathname;if(url.indexOf("?pc")<0){try{window.location.href=reWriteUrl(url)}catch(e){}}}})();
+</script>
+<link type="text/css" href="/skin/2016/base.css" rel="stylesheet" />
+<link type="text/css" href="/skin/2016/common.css" rel="stylesheet" />
+<script type="text/javascript" src="//apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+if (!window.jQuery) {
+	var script = document.createElement('script');
+	script.src = "/skin/js/jquery.js";
+	document.body.appendChild(script);}
+</script>
+<script type=text/javascript src="/js/function.js"></script> 
+</head>
+<body>
+<!--head Star -->
+<div id="head">
+  <div class="toolBar">
+  <div class="main">
+    <!--topNav Star -->
+    <div class="topNav clearfix">
+      <ul class="navList fl">
+        <li>
+          <div class="one"><a href="http://www.jb51.net" target="_blank">脚本之家</a></div>
+        </li>
+        <li>
+          <div class="one"><a href="http://www.jb51.net/softs/" target="_blank">软件下载<i class="icon"></i></a></div>
+          <div class="two">
+<a href="/softs/android.html" target="_blank">android软件</a> <a href="/softs/mac.html" target="_blank">MAC软件</a> <a href="/qudong/" target="_blank">驱动下载</a> <a href="/fonts/" target="_blank">字体下载</a> <a href="/dll/" target="_blank">DLL下载</a> </div>
+</li>
+        <li>
+          <div class="one"><a href="/codes/" target="_blank">源码下载<i class="icon"></i></a></div>
+          <div class="two"> <a href="/codes/asp.html" target="_blank">asp源码</a> <a href="/codes/php.html" target="_blank">php源码</a> <a href="/codes/aspnet.html" target="_blank">asp.net源码</a> <a href="/codes/jsp.html" target="_blank">jsp源码</a> <a href="/codes/editor.html" target="_blank">网页编辑器</a> <a href="/codes/list123_1.html" target="_blank">数据库管理</a> <a href="/codes/list124_1.html" target="_blank">常用组件</a> <a href="/jiaoben/" target="_blank">脚本下载</a></div>
+        </li>
+        <li>
+          <div class="one"><a href="http://tools.jb51.net" target="_blank">在线工具<i class="icon"></i></a></div>
+          <div class="two"> <a href="/shouce/" target="_blank">在线手册</a> <a href="/tools/cssyasuo.shtml" target="_blank">CSS格式化</a> <a href="http://tools.jb51.net/code/js" target="_blank">JS格式化</a> <a href="/tools/html-js.htm" target="_blank">Html转化为Js</a> <a href="http://tools.jb51.net/regex/javascript" target="_blank">js正则表达式</a>
+</div>
+        </li>
+        <li>
+          <div class="one"><a href="/w3school/" target="_blank">网页教程基础</a></div>
+        </li>
+			<li>
+          <div class="one"><a href="http://s.jb51.net" target="_blank">服务器常用软件</a></div>
+        </li>
+		<li>
+          <div class="one"><a href="http://m.jb51.net" target="_blank">手机版</a></div>
+          <div class="two"><img src="http://files.jb51.net/images/m.jb51.net.png" data-baiduimageplus-ignore /></div>     
+        </li>
+        <li class="watch">
+          <div class="one"><a href="http://www.jb51.net/about.htm" target="_blank" rel="nofollow" ><i class="icon"></i>关注微信</a></div>
+          <div class="two"><img src="http://files.jb51.net/images/weixin_200.gif" data-baiduimageplus-ignore /></div>
+        </li>
+      </ul>
+      <div class="navUser mt5 fr" id="jb51_topbar" >
+
+      </div>
+    </div>
+    <!--topNav End -->
+  </div>
+</div>
+
+  <div class="main clearfix">
+    <div class="mtb10 clearfix">
+      <div class="logo"><a href="http://www.jb51.net/"><img src="http://www.jb51.net/images/logo.gif" title="脚本之家" alt="脚本之家" /></a></div>
+      <div class="logom fl"><span id="logo_m" class="jbTestPos"></span></div>
+      <div class="logor fr"><span id="logo_r" class="jbTestPos"></span></div>
+    </div>
+<!-- 导航-->
+<DIV class="nav_top clearfix">
+<UL>
+<li><a href="http://www.jb51.net/web/">网页制作</a></li>
+<li><a href="http://www.jb51.net/list/index_1.htm">网络编程</a></li>
+<li><a href="http://www.jb51.net/list/index_96.htm">脚本专栏</a></li>
+<li><a href="http://www.jb51.net/jiaoben/">脚本下载</a></li>
+<li><a href="http://www.jb51.net/list/index_104.htm">数据库</a></li>
+<li><a href="http://www.jb51.net/cms/">CMS教程</a></li>
+<li><a href="http://www.jb51.net/books/">电子书籍</a></li>
+<li><a href="http://www.jb51.net/pingmian/">平面设计</a></li>
+<li><a href="http://www.jb51.net/media/">媒体动画</a></li>
+<li><a href="http://www.jb51.net/os/">操作系统</a></li>
+<li><a href="http://www.jb51.net/yunying/">网站运营</a></li>
+<li><a href="http://www.jb51.net/hack/">网络安全</a></li>
+<li class="last"><a href="http://www.jb51.net/shouce/">在线手册</a></li>
+
+</UL>
+</DIV>
+
+<!--导航结束-->
+<div class="subnav clearfix">
+<ul><li><a href='/list/list_61_1.htm' title="基础知识">基础知识</a></li>
+<li><a href='/list/list_23_1.htm' title="javascript类库">javascript类库</a></li>
+<li><a href='/list/list_22_1.htm' title="表单特效">表单特效</a></li>
+<li><a href='/list/list_18_1.htm' title="广告代码">广告代码</a></li>
+<li><a href='/list/list_43_1.htm' title="网页特效">网页特效</a></li>
+<li><a href='/list/list_26_1.htm' title="黑客性质">黑客性质</a></li>
+<li><a href='/list/list_222_1.htm' title="javascript技巧">javascript技巧</a></li>
+<li><a href='/list/list_232_1.htm' title="DOM">DOM</a></li>
+<li><a href='/list/list_243_1.htm' title="node.js">node.js</a></li>
+<li><a href='/list/list_248_1.htm' title="js其它">js其它</a></li>
+</ul>
+</div>
+<div class="NavBar clearfix ptb10">
+<div class="fl w690">
+<div class="box mb15 mt10"><i class="icon"></i>您的位置：<a href='/'>首页</a> → <a href="/list/index_1.htm" title="网络编程">网络编程</a> → <a href="/list/list_3_1.htm" title="JavaScript">JavaScript</a> → <a href="/list/list_222_1.htm" title="javascript技巧">javascript技巧</a> → 正文内容 原生js结合html5制作简易的双色子游戏</div>
+</div>
+<div class="fr w300"><div class="search">
+<form action="http://so.jb51.net/cse/search" target="_blank">
+    <input type="hidden" name="s" value="10520733385329581432">
+    <input type="hidden" name="ie" value="gbk">
+    <input type="text" name="q" class="key_input" placeholder="请输入关键词">
+    <input type="submit" value="搜索" class="c_btn">
+</form></div></div>
+  </div>
+</div>
+<!--head End -->
+<div class="main mb10 clearfix">
+<div class="clearfix"><span id="tonglan1" class="jbTestPos"></span></div>
+</div>
+
+<!--content Star -->
+<div id="contents">
+ <div class="main clearfix">
+      <div class="w690 fl">
+      <div class="article-content border">
+      <div class="title">
+            <h1 class="YaHei">原生js结合html5制作简易的双色子游戏</h1>
+            <p>投稿：hebedich  字体：[<a href="javascript:turnbig()">增加</a> <a href="javascript:turnsmall()">减小</a>] 类型：转载 时间：2015-03-30<a href="#comments"> 我要评论</a></p>
+        </div>
+        <div class="art_desc mt10"><div id="art_demo">这篇文章主要介绍了原生js结合html5制作简易的双色子游戏的代码，是个人学习练手用的，虽然写的不太好，还是分享给大家，有需要的小伙伴可以参考下。</div></div>
+        <div class="lbd clearfix"><span id="art_up" class="jbTestPos"></span></div>
+        <div id="content">
+<p>想转html5游戏开，这是学习练手的东西，最开始是用面向过程的方式实现，后面用面向对象的方式实现(被坑了)……</p>
+<p>演示地址:http://runjs.cn/detail/ss8pkzrc</p>
+<p><strong>html代码</strong></p>
+<div class="jb51code">
+<pre class="brush:xhtml;">
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"/&gt;
+    &lt;title&gt;掷色子的游戏&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td align="center"&gt;
+          &lt;canvas id="game" width="400" height="300" style="border:1px solid #c3c3c3"&gt;
+            你的游览器不支持html5的画布元素，请升级到IE9+或使用firefox、chrome这类高级的智能游览器！
+          &lt;/canvas&gt;&lt;br/&gt;
+          &lt;input id="button" type="button" onclick="javascript:stage.play();" value="开始掷骰子"/&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          游戏规则：&lt;br/&gt;
+          1、一个玩家、两个色子，每个色子有1-6个点，点数随机出现，点数是2-12中的任意数字&lt;br/&gt;
+          2、如果玩家第一次抛出 7 或者 11，则本回合胜利 进行下一回合&lt;br/&gt;
+          3、如果玩家抛出2、3、12 则回合失败 进行下一回合&lt;br/&gt;
+          4、抛出其他数字4、5、6、7、8、9、10 记录点数和，并继续掷色子&lt;br/&gt;
+          5、当玩家掷出7 则本回合失败 进行下一回合&lt;br/&gt;
+          6、当玩家抛出的点数和与上一次的相同，本局胜利 进行下一回合&lt;br/&gt;
+          7、当玩家抛出的点数和与上一次的不同，本局失败，进行下一回合&lt;br/&gt;
+          后期扩展：&lt;br/&gt;
+          这个游戏有押注和积分的功能，尚无思路，所以没有实现&lt;br/&gt;
+           
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td colspan="2"&gt;
+          &lt;div id="log"&gt;&lt;/div&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;br/&gt;
+    &lt;script&gt;
+      /**
+        游戏规则：
+          一个玩家、两个色子，每个色子有1-6个点，点数随机出现，点数是2-12中的任意数字
+          如果玩家第一次抛出 7 或者 11，则本回合胜利 进行下一回合
+          如果玩家抛出2、3、12 则回合失败 进行下一回合
+          抛出其他数字4、5、6、7、8、9、10 记录点数和，并继续掷色子
+          当玩家掷出7 则本回合失败 进行下一回合
+          当玩家抛出的点数和与上一次的相同，本局胜利 进行下一回合
+          当玩家抛出的点数和与上一次的不同，本局失败，进行下一回合
+           
+        game:{游戏对象
+           
+        }
+        Stage={场景对象
+          add(thing) //添加一个物件
+          addEvent(type,handler)
+          redraw() //重绘所有thing对象
+        }
+        Thing = {//物件对象
+          draw(canvas)//传入一个canvas画板对象用于绘制thing
+          isScope(x,y) //传入鼠标相对于canvas的位置，返回boolean，
+                 //用于判断鼠标是否在thing的范围 true在，false不在
+          addEvent(type,handler) //公开方法 //给物件设置时间
+        }
+         
+        定义我们自己的场景对象
+        掷色子的场景内需要：
+          1、两个色子 色子一号 色子二号
+          2、一个公告板 显示本局信息
+          3、三个按钮 重现开始 
+      **/
+       
+      function Stage(canvas){
+        this.canvas = document.getElementById(canvas);
+        this.ctx = this.canvas.getContext('2d');
+        this.ctx.lineWidth = 1;
+        this.ctx.strokeStyle = 'rgb(255,0,0)';
+        this.width = this.canvas.width;
+        this.height = this.canvas.height;
+        this.things = [];
+        this.addEvent = [];
+        this.rule = {};
+      }
+      Stage.prototype.setings = function(){};
+      Stage.prototype.draw = function(){
+        for(var thing in this.things){
+          if(this.things[thing] instanceof Array){
+            for(var i=0;i&lt;this.things[thing].length;i++){
+              this.things[thing][i].init();
+            }
+          }
+        }
+      }
+      Stage.prototype.add = function(thing){
+        if(!thing){return;}
+        if(this.things['disc'] == undefined){
+          this.things['disc'] = [];
+        }
+        if(this.things['callBoard'] == undefined){
+          this.things['callBoard'] = [];
+        }
+        if(thing instanceof Disc){
+          this.things['disc'].push(thing);
+        }
+        if(thing instanceof CallBoard){
+          this.things['callBoard'].push(thing);
+        }
+      }
+      Stage.prototype.play = function(){
+        this.clean();
+        for(var i=0;i&lt;this.things['disc'].length;i++){
+          this.things['disc'][i].random_porints();
+        }
+        this.rule.init(this);
+        this.rule.run();
+        this.log();
+        if(!this.rule.hasNext){
+          var self = this;
+          document.getElementById('button').onclick = function(){
+            self.redraw();
+          }
+          document.getElementById('button').value = '重置游戏';
+        }else{
+          document.getElementById('button').value = '再抛一次';
+        }
+      }
+      Stage.prototype.redraw = function(){
+        this.clean();
+        this.things = {};
+        this.setings();
+        var self = this;
+        document.getElementById('button').onclick = function(){
+          self.play();
+        }
+        document.getElementById('button').value = '开始掷骰子';
+      }
+      Stage.prototype.log = function(){
+        var html = document.getElementById('log').innerHTML;
+        var tmp = this.rule.notice1.str +'&nbsp;'+ this.rule.notice2.str +'&nbsp;'+ this.rule.notice3.str +'&nbsp;&nbsp;';
+        tmp += (this.rule.integral.length &gt; 0 &#63; ('上一次点数[&lt;font color="red"&gt;'+this.rule.integral.join(',')+'&lt;/font&gt;]'):'')+this.rule.hasNext+'&lt;br/&gt;';
+        document.getElementById('log').innerHTML = html + tmp;
+      }
+      Stage.prototype.clean = function(){
+        for(var i=0;i&lt;this.things['disc'].length;i++){
+          this.things['disc'][i].clean();
+        }
+        for(var i=0;i&lt;this.things['callBoard'].length;i++){
+          this.things['callBoard'][i].clean();
+        }
+      }
+      function Disc(x,y,stage){
+        this.x = x;
+        this.y = y;
+        this.stage = stage;
+        this.init();
+      }
+      Disc.prototype.init = function(){
+        this.width = 170;
+        this.height = this.width;
+        this.porints = 1;
+        this.draw();
+        this.draw_porints();
+      }
+      Disc.prototype.draw = function(){
+        this.stage.ctx.beginPath();
+        this.stage.ctx.strokeRect(this.x,this.y,this.width,this.height);
+        this.stage.ctx.closePath();
+        this.stage.ctx.stroke();
+      }
+       
+      Disc.prototype.random_porints = function(){
+        this.clean();
+        var tmp = 0;
+        do{
+          tmp = Math.floor(Math.random() * 7);
+        }while(tmp &lt;= 0 || tmp &gt; 6)
+        this.porints = tmp;
+        this.draw_porints();
+      }
+      Disc.prototype.draw_porints = function(){
+        var radius = this.width/7;
+        if(this.porints == 1){//当只有1个点的时候，点位于正方形的正中间(width/2,height/2) 半径为width/4
+          draw_porint(this.x + (this.width/2),this.y + (this.height/2),this.width/4,this.stage);
+        }else if(this.porints == 2){//当有两个点时，第一个点位于(width/2,(height/7)*2,第二个点位于(width/2,(height/7)*5)
+          draw_porint(this.x + (this.width/2),this.y + ((this.height/7)*2),radius,this.stage);
+          draw_porint(this.x + (this.width/2),this.y + ((this.height/7)*5),radius,this.stage);;
+        }else if(this.porints == 3){
+          draw_porint(this.x + ((this.width/10)*2),this.y + ((this.height/10)*2),radius,this.stage);
+          draw_porint(this.x + ((this.width/10)*5),this.y + ((this.height/10)*5),radius,this.stage);
+          draw_porint(this.x + ((this.width/10)*8),this.y + ((this.height/10)*8),radius,this.stage);
+        }else if(this.porints == 4){
+          draw_porint(this.x + ((this.width/7)*2),this.y + ((this.height/7)*2),radius,this.stage);
+          draw_porint(this.x + ((this.width/7)*5),this.y + ((this.height/7)*2),radius,this.stage);
+          draw_porint(this.x + ((this.width/7)*2),this.y + ((this.height/7)*5),radius,this.stage);
+          draw_porint(this.x + ((this.width/7)*5),this.y + ((this.height/7)*5),radius,this.stage);
+        }else if(this.porints == 5){
+          draw_porint(this.x + ((this.width/10)*2),this.y + ((this.height/10)*2),radius,this.stage);
+          draw_porint(this.x + ((this.width/10)*2),this.y + ((this.height/10)*8),radius,this.stage);
+          draw_porint(this.x + ((this.width/10)*5),this.y + ((this.height/10)*5),radius,this.stage);
+          draw_porint(this.x + ((this.width/10)*8),this.y + ((this.height/10)*2),radius,this.stage);
+          draw_porint(this.x + ((this.width/10)*8),this.y + ((this.height/10)*8),radius,this.stage);
+        }else if(this.porints == 6){
+          draw_porint(this.x + ((this.width/7)*2),this.y + ((this.height/10)*2),radius,this.stage);
+          draw_porint(this.x + ((this.width/7)*5),this.y + ((this.height/10)*2),radius,this.stage);
+          draw_porint(this.x + ((this.width/7)*2),this.y + ((this.height/10)*5),radius,this.stage);
+          draw_porint(this.x + ((this.width/7)*5),this.y + ((this.height/10)*5),radius,this.stage);
+          draw_porint(this.x + ((this.width/7)*2),this.y + ((this.height/10)*8),radius,this.stage);
+          draw_porint(this.x + ((this.width/7)*5),this.y + ((this.height/10)*8),radius,this.stage);
+        }
+      }
+      Disc.prototype.redraw = function(){
+        this.clean();
+        this.porints = 1;
+        this.draw_porints();
+      }
+      Disc.prototype.clean = function(){
+        this.stage.ctx.clearRect(this.x,this.y,this.width,this.height);
+      }
+      function draw_porint(x,y,radius,stage){
+        stage.ctx.beginPath();
+        stage.ctx.arc(x,y,radius,0,2*Math.PI,false);
+        stage.ctx.closePath();
+        stage.ctx.fill();
+      }
+       
+      function CallBoard(x,y,stage){
+        this.x = x;
+        this.y = y;
+        this.width = 360;
+        this.height = 50;
+        this.stage = stage;
+        this.notices = [];
+        this.init();
+      }
+      CallBoard.prototype.init = function(){
+        this.stage.ctx.beginPath();
+        this.stage.ctx.strokeRect(this.x,this.y,this.width,this.height);
+        this.stage.ctx.closePath();
+        this.stage.ctx.stroke();
+        this.draw();
+      }
+      CallBoard.prototype.draw = function(){
+        for(var i =0;i&lt;this.notices.length;i++){
+          this.notices[i].init();
+        }
+      }
+      CallBoard.prototype.redraw = function(){
+        this.clean();
+        this.init();
+        this.draw();
+      }
+      CallBoard.prototype.clean = function(){
+        this.stage.ctx.clearRect(this.x,this.y,this.width,this.height);
+      }
+      CallBoard.prototype.add = function(notice){
+        if(!notice){return;}
+        this.notices.push(notice);
+      }
+       
+      function Notice(x,y,str,callBoard){
+        this.x = x;
+        this.y = y;
+        this.str = str;
+        this.width = 150;
+        this.height = 10;
+        this.stage = callBoard.stage;
+        if(str == undefined){
+          this.init();
+        }else{
+          this.init(str);
+        }
+      }
+      Notice.prototype.init = function(){
+        this.stage.ctx.fillText('暂无',this.x,this.y);
+      }
+      Notice.prototype.init = function(str){
+        if(str != ''){
+          this.str = str;
+        }
+        this.stage.ctx.fillText(this.str,this.x,this.y);
+      }
+      Notice.prototype.draw = function(str){
+        this.init(str);
+      }
+      Notice.prototype.redraw = function(str){
+        this.stage.ctx.clearRect(this.x,this.y-9,this.width,this.height);
+        this.draw(str);
+      }
+       
+      function Rule(){
+        this.disc1 = {};
+        this.disc2 = {};
+        this.notice1 = {};
+        this.notice2 = {};
+        this.notice3 = {};
+        this.count = 0;
+        this.integral = [];
+        this.hasNext = false;
+         
+      }
+      Rule.prototype.init = function(stage){
+        this.disc1 = stage.things['disc'][0];
+        this.disc2 = stage.things['disc'][1];
+        this.notice1 = stage.things['callBoard'][0].notices[0];
+        this.notice2 = stage.things['callBoard'][0].notices[1];
+        this.notice3 = stage.things['callBoard'][0].notices[2];
+        this.count = this.disc1.porints + this.disc2.porints;
+        this.notice1.redraw('色子1号当前点数为: '+this.disc1.porints+' 点');
+        this.notice2.redraw('色子2号当前点数为: '+this.disc2.porints+' 点');
+        this.notice3.redraw('当前点数和为:'+this.count+'点。');
+      }
+      Rule.prototype.run = function(){
+        var str = this.notice3.str;
+        this.notice3.width = 348;
+        if(this.integral.length == 0){
+          if(this.count == 7 || this.count == 11){
+            str += '你的运气真好一把就赢了，继续加油哦！';
+            this.notice3.redraw(str);
+            this.hasNext = false;
+            return this;
+          }
+          if(this.count == 2 || this.count == 3 || this.count == 12){
+            str += '你也太衰了吧！第一把就输了，再来一把试试！';
+            this.notice3.redraw(str)
+            this.hasNext = false;
+            return this;
+          }
+          if(this.count &gt;=4 && this.count &lt;= 10){
+            this.integral.push(this.count);
+            str += '请再抛一次骰子！';
+            this.notice3.redraw(str);
+            this.hasNext = true;
+            return this;
+          }
+        }else{
+          if(this.count == 7 || this.count != this.integral[this.integral.length - 1]){
+            str += '不好意思，你输了……！';
+            this.notice3.redraw(str);
+            this.hasNext = false;
+            return this;
+          }
+          if(this.count == this.integral[this.integral.length - 1]){
+            str += '你太厉害了，竟然抛出和上一次一样的点数！恭喜你赢了！';
+            this.notice3.redraw(str);
+            this.hasNext = false;
+            return this;
+          }
+        }
+      }
+       
+      var stage = new Stage('game');
+      stage.setings = function(){
+        var x1 = 20,y1 = 20;
+        var x2 = 210,y2 = 20;
+        var callBoard = new CallBoard(20,200,stage);
+        callBoard.add(new Notice(30,220,'色子1号，尚无点数。',callBoard));
+        callBoard.add(new Notice(220,220,'色子2号，尚无点数。',callBoard));
+        callBoard.add(new Notice(30,240,'当前尚无点数和。',callBoard));
+       
+        stage.add(new Disc(x1,y1,stage));
+        stage.add(new Disc(x2,y2,stage));
+        stage.add(callBoard);
+        stage.rule = new Rule();
+      }
+      stage.setings();
+       
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+</div>
+<p><strong>演示图片</strong></p>
+<p><img alt="" src="http://files.jb51.net/file_images/article/201503/201503300957012.png" /></p>
+<p>以上所述就是本文的全部内容了，希望能够对大家学习js+html5有所帮助。</p>
+
+</div><!--endmain-->
+<div class="art_xg">
+<h4>您可能感兴趣的文章:</h4><ul><li><a href="/article/106186.htm" title="原生JS实现《别踩白块》游戏（兼容IE）" target="_blank">原生JS实现《别踩白块》游戏（兼容IE）</a></li><li><a href="/article/104574.htm" title="原生js实现打字动画游戏" target="_blank">原生js实现打字动画游戏</a></li><li><a href="/article/66294.htm" title="原生js实现的贪吃蛇网页版游戏完整实例" target="_blank">原生js实现的贪吃蛇网页版游戏完整实例</a></li><li><a href="/article/39598.htm" title="JS写的贪吃蛇游戏(个人练习)" target="_blank">JS写的贪吃蛇游戏(个人练习)</a></li><li><a href="/article/35993.htm" title="纯JS实现五子棋游戏兼容各浏览器(附源码)" target="_blank">纯JS实现五子棋游戏兼容各浏览器(附源码)</a></li><li><a href="/article/24975.htm" title="JavaScript 打地鼠游戏代码说明" target="_blank">JavaScript 打地鼠游戏代码说明</a></li><li><a href="/article/18644.htm" title="JS 拼图游戏 面向对象，注释完整。" target="_blank">JS 拼图游戏 面向对象，注释完整。</a></li><li><a href="/article/108766.htm" title="原生js编写2048小游戏" target="_blank">原生js编写2048小游戏</a></li></ul>
+</div>
+<div class="lbd clearfix">
+<span id="art_down" class="jbTestPos"></span>
+</div>
+<div id="shoucang"></div>
+<div class="tags mt10">
+<strong>Tags：</strong><a href="http://common.jb51.net/tag/js/1.htm" target="_blank" title="搜索关于js的文章">js</a> <a href="http://common.jb51.net/tag/html5/1.htm" target="_blank" title="搜索关于html5的文章">html5</a> <a href="http://common.jb51.net/tag/%E8%89%B2%E5%AD%90/1.htm" target="_blank" title="搜索关于色子的文章">色子</a> 
+</div>
+<DIV class="relatedarticle clearfix mt5">
+<H2>相关文章</H2>
+<ul><li><span>2015-05-05</span><a href="/article/66154.htm" title="JavaScript生成福利彩票双色球号码" target="_blank">JavaScript生成福利彩票双色球号码</a></li><li><span>2016-05-05</span><a href="/article/84675.htm" title="Bootstrap3学习笔记(二)之排版" target="_blank">Bootstrap3学习笔记(二)之排版</a></li><li><span>2012-11-11</span><a href="/article/31758.htm" title="seajs1.3.0源码解析之module依赖有序加载" target="_blank">seajs1.3.0源码解析之module依赖有序加载</a></li><li><span>2016-12-12</span><a href="/article/99531.htm" title="JS定时器实现数值从0到10来回变化" target="_blank">JS定时器实现数值从0到10来回变化</a></li><li><span>2014-04-04</span><a href="/article/48677.htm" title="javascript实现des解密加密全过程" target="_blank">javascript实现des解密加密全过程</a></li><li><span>2007-09-09</span><a href="/article/11383.htm" title="写了个XML+Tree无穷树js版" target="_blank">写了个XML+Tree无穷树js版</a></li><li><span>2017-09-09</span><a href="/article/123812.htm" title="详解JS构造函数中this和return" target="_blank">详解JS构造函数中this和return</a></li><li><span>2016-12-12</span><a href="/article/98901.htm" title="搭建Bootstrap离线文档的方法" target="_blank">搭建Bootstrap离线文档的方法</a></li><li><span>2017-10-10</span><a href="/article/126967.htm" title="JavaScript数据结构之优先队列与循环队列实例详解" target="_blank">JavaScript数据结构之优先队列与循环队列实例详解</a></li><li><span>2015-02-02</span><a href="/article/61145.htm" title="Linux下编译安装php libevent扩展实例" target="_blank">Linux下编译安装php libevent扩展实例</a></li></ul>
+</DIV>
+<div class="lbd clearfix mt5">
+<span id="art_down2" class="jbTestPos"></span>
+</div>
+<a href="#comments"></a>
+<div id="comments">
+<H2>最新评论</H2>
+<div class="pd5"><div id="SOHUCS" sid="art_63045"></div></div>
+</div>
+      </div><!--endborder-->
+      </div><!--end fl-->
+      
+<div class="w300 fr">
+<div class="r300 clearfix"><span id="side_up" class="jbTestPos"></span></div>
+<DIV class="tabTitleBar mt10 bgf borderTblue">
+<DIV class="borderTnone pb10 YaHei">
+<H4 class="blue">大家感兴趣的内容</H4>
+<UL class="newsList newList-in">
+<li><EM class="no1">1</EM><a href="/article/14397.htm" title="js刷新页面方法大全" target="_blank">js刷新页面方法大全</a></li><li><EM class="no2">2</EM><a href="/article/25403.htm" title="js页面跳转常用的几种方式" target="_blank">js页面跳转常用的几种方式</a></li><li><EM class="no3">3</EM><a href="/article/35535.htm" title="JS中setTimeout()的用法详解" target="_blank">JS中setTimeout()的用法详解</a></li><li><EM class="no4">4</EM><a href="/article/42482.htm" title="JS截取字符串常用方法详细整理" target="_blank">JS截取字符串常用方法详细整理</a></li><li><EM class="no5">5</EM><a href="/article/64330.htm" title="JS设置cookie、读取cookie、删除cookie" target="_blank">JS设置cookie、读取cookie、删除</a></li><li><EM class="no6">6</EM><a href="/article/35691.htm" title="JS打开新窗口的2种方式" target="_blank">JS打开新窗口的2种方式</a></li><li><EM class="no7">7</EM><a href="/article/43136.htm" title="js 将json字符串转换为json对象的方法解析" target="_blank">js 将json字符串转换为json对象的</a></li><li><EM class="no8">8</EM><a href="/article/52038.htm" title="js数组与字符串的相互转换方法" target="_blank">js数组与字符串的相互转换方法</a></li><li><EM class="no9">9</EM><a href="/article/24101.htm" title="javascript深入理解js闭包" target="_blank">javascript深入理解js闭包</a></li><li><EM class="no10">10</EM><a href="/article/34502.htm" title="js关闭当前页面(窗口)的几种方式总结" target="_blank">js关闭当前页面(窗口)的几种方式</a></li>
+</UL>
+</DIV>
+</DIV>
+<div class="r300 clearfix mt10"><span id="idctu" class="jbTestPos"></span></div>
+<DIV class="tabTitleBar mt10 bgf borderTblue">
+<DIV class="borderTnone pb10 YaHei">
+<H4 class="blue">最近更新的内容</H4>
+<UL class="newsListA">
+<ul><li><a href="/article/24707.htm" title="javascript 关键字高亮显示实现代码" target="_blank">javascript 关键字高亮显示实现代码</a></li><li><a href="/article/27680.htm" title="w3c声明下可运行 兼容性比较好的js对联广告集合" target="_blank">w3c声明下可运行 兼容性比较好的js对联广</a></li><li><a href="/article/40833.htm" title="Javascript表格翻页效果实现思路及代码" target="_blank">Javascript表格翻页效果实现思路及代码</a></li><li><a href="/article/53634.htm" title="javascript获取checkbox复选框获取选中的选项" target="_blank">javascript获取checkbox复选框获取选中的</a></li><li><a href="/article/115471.htm" title="JavaScript实现一个空中避难的小游戏" target="_blank">JavaScript实现一个空中避难的小游戏</a></li><li><a href="/article/47175.htm" title="js实现连个数字相加而不是拼接的方法" target="_blank">js实现连个数字相加而不是拼接的方法</a></li><li><a href="/article/83031.htm" title="Bootstrap每天必学之标签页（Tab）插件" target="_blank">Bootstrap每天必学之标签页（Tab）插件</a></li><li><a href="/article/109335.htm" title="原生JS实现导航下拉菜单效果" target="_blank">原生JS实现导航下拉菜单效果</a></li><li><a href="/article/29051.htm" title="JS获取页面窗口大小的代码解读" target="_blank">JS获取页面窗口大小的代码解读</a></li><li><a href="/article/40919.htm" title="javascript:void(0)使用探讨" target="_blank">javascript:void(0)使用探讨</a></li></ul>
+</UL>
+</DIV>
+</DIV>   
+<div class="r300 clearfix mt10"><span id="idctu1" class="jbTestPos"></span></div>
+<DIV class="tabTitleBar mt10 bgf borderTblue">
+<DIV class="borderTnone pb10 YaHei">
+<H4 class="blue">常用在线小工具</H4>
+<ul class="newsListA"><span id="bctools" class="jbTestPos"></span></ul>
+</DIV>
+</DIV>
+<div class="r300 clearfix mt10" id="idctu2"><span id="idctu2" class="jbTestPos"></span></div>
+<div class="mt10 rFixedBox">
+<span id="r_2" class="jbTestPos"></span>
+</div>
+      
+      
+      </div><!--end fr-->
+      </div>
+</div><!--end content-->
+<div id="footer">
+<div class="main clearfix">
+<p>
+<a href="http://www.jb51.net/about.htm" target="_blank">关于我们</a> - 
+<a href="http://www.jb51.net/support.htm" target="_blank">广告合作</a> - 
+<a href="http://www.jb51.net/linkus.htm" target="_blank">联系我们</a> -  
+<a href="http://www.jb51.net/sm.htm" target="_blank">免责声明</a> -  
+<a href="http://www.jb51.net/sitemap.htm" target="_blank">网站地图</a> - 
+<a href="tencent://message/?uin=461478385&Site=http://www.jb51.net" target="_blank">投诉建议</a> - 
+<a href="http://www.jb51.net/up.htm" target="_blank">在线投稿</a>
+</p>
+<p>&copy;CopyRight 2006-2017 JB51.Net Inc All Rights Reserved. 脚本之家 版权所有</p>
+</div>
+</div><!--end footer-->
+<link type="text/css" rel="stylesheet" href="/jslib/syntaxhighlighter/styles/shCore.css" />
+<link type="text/css" rel="Stylesheet" href="/jslib/syntaxhighlighter/styles/shThemeDefault.css" />
+<script type="text/javascript" src="/jslib/syntaxhighlighter/scripts/shCore.js"></script>
+<script type="text/javascript" src="/jslib/syntaxhighlighter/scripts/shAutoloader.js"></script>
+<script type="text/javascript">
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+if (top.location != self.location)top.location=self.location;
+$(function(){
+	$('#content').find('img').each(function(){
+        var img = this;
+        if (img.width >= 650){
+            img.style.width = "650px";
+            img.style.height = "auto";
+            //$(img).removeAttr('height');
+            var aTag = document.createElement('a');
+            aTag.href = img.src;
+			aTag.target="_blank";
+            $(aTag).addClass('bPic')
+            .insertAfter(img).append(img)
+          }
+    });
+	$(window).scroll(function()
+    {	
+    	//rFixedBox跟随滚动
+    	var h = $(window).height();
+        var top = $(window).scrollTop();
+    	var rFixedBox = $('.rFixedBox').prev().offset();
+        var fixedTop = rFixedBox.top;
+		
+        if(top>=fixedTop+344)
+        {
+			var h1 = parseInt($('#content').children('.main').height());
+			if(parseInt(top) + 340 < h1){
+				$('.rFixedBox').css({'position':'fixed','top': 0});
+			}else{
+				$('.rFixedBox').css({'position':'absolute','top': h1-510});
+			}
+        }
+        else
+        {
+            $('.rFixedBox').css({'position':'static', 'top':0});   
+        }	
+       /* return true;*/
+    });
+/*$(document).ready(function() {
+  $("#content img").unveil();
+});	*/
+SyntaxHighlighter.autoloader(
+	'applescript			/jslib/syntaxhighlighter/scripts/shBrushAppleScript.js',
+	'actionscript3 as3		/jslib/syntaxhighlighter/scripts/shBrushAS3.js',
+	'bash shell				/jslib/syntaxhighlighter/scripts/shBrushBash.js',
+	'coldfusion cf			/jslib/syntaxhighlighter/scripts/shBrushColdFusion.js',
+	'cpp c					/jslib/syntaxhighlighter/scripts/shBrushCpp.js',
+	'obj-c objc				/jslib/syntaxhighlighter/scripts/shBrushObjC.js',
+	'c# c-sharp csharp		/jslib/syntaxhighlighter/scripts/shBrushCSharp.js',
+	'css					/jslib/syntaxhighlighter/scripts/shBrushCss.js',
+	'delphi pascal			/jslib/syntaxhighlighter/scripts/shBrushDelphi.js',
+	'diff patch pas			/jslib/syntaxhighlighter/scripts/shBrushDiff.js',
+	'erl erlang				/jslib/syntaxhighlighter/scripts/shBrushErlang.js',
+	'groovy					/jslib/syntaxhighlighter/scripts/shBrushGroovy.js',
+	'haxe hx				/jslib/syntaxhighlighter/scripts/shBrushHaxe.js',
+	'java					/jslib/syntaxhighlighter/scripts/shBrushJava.js',
+	'jfx javafx				/jslib/syntaxhighlighter/scripts/shBrushJavaFX.js',
+	'js jscript javascript	/jslib/syntaxhighlighter/scripts/shBrushJScript.js',
+	'perl pl				/jslib/syntaxhighlighter/scripts/shBrushPerl.js',
+	'php					/jslib/syntaxhighlighter/scripts/shBrushPhp.js',
+	'text plain				/jslib/syntaxhighlighter/scripts/shBrushPlain.js',
+	'py python				/jslib/syntaxhighlighter/scripts/shBrushPython.js',
+	'ruby rails ror rb		/jslib/syntaxhighlighter/scripts/shBrushRuby.js',
+	'scala					/jslib/syntaxhighlighter/scripts/shBrushScala.js',
+	'sql					/jslib/syntaxhighlighter/scripts/shBrushSql.js',
+	'vb vbnet				/jslib/syntaxhighlighter/scripts/shBrushVb.js',
+	'ps powershell			/jslib/syntaxhighlighter/scripts/shBrushPowerShell.js',
+	'xml xhtml xslt html	/jslib/syntaxhighlighter/scripts/shBrushXml.js'
+);
+SyntaxHighlighter.all();
+});
+var ourl="";
+</script>
+<script type="text/javascript" src='http://icws.jb51.net/good/arct.js'></script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<div id="tongji">
+<script type="text/javascript" src="http://tongji.jbzj.com/tongji/tongji.js"></script>
+<script type="text/javascript">
+//tu+
+var cpro_id = "u1893014";
+document.write('<scri'+'pt src="http://cpro.baidustatic.com/cpro/ui/i.js" type="text/javascript"></s'+'cript>');
+</script>
+<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cyrHH3dwi',
+conf: 'prod_1dc5dc80970106099d43fe242b7465fc'
+});
+</script>
+</div> 
+<script type="text/javascript" src="http://www.jb51.net/pl.asp?id=63045"></script>
+</body>
+</html>
+<!-- published at 2017/12/15 8:40:32By dxycms qq:461478385  -->
