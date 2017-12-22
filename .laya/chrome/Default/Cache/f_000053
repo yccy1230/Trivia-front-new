@@ -1,0 +1,651 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+        <title>SOGOU推广服务</title>
+        <style>
+*{
+    padding:0;
+    margin:0;
+}
+body a{
+    font-family: arial,"Microsoft YaHei", "微软雅黑",STXihei, "华文细黑", serif;
+}
+body, em {
+    font-size:12px;
+    font-family: arial,"Microsoft YaHei", "微软雅黑",STXihei, "华文细黑", serif;
+}
+body{
+    background:#FFFFFF;
+}
+ul{
+    list-style: none;
+}
+
+.ad-container{
+    border:#FFFFFF 1px solid;
+    overflow: hidden;
+    position:relative;
+}
+
+.pic-org-content .pic-item{
+    display:inline;
+    float: left;
+    cursor: pointer;
+}
+.pic-org-content .pic{
+    position:relative;
+    margin:auto;
+    border: 1px solid #aaa;
+}
+
+.pic-org-content .pic-hover{
+    border: 1px solid red;
+}
+.pic-org-content .pic a{
+    text-decoration: none;
+    color:#FFF;
+    font-weight: 400;
+    font-size:14px;
+}
+
+.pic-org-content .pic img{
+    display: block;
+    border: none;
+}
+
+.pic-org-content .pic-des-inside{
+    position:absolute;
+    bottom:0px;
+    _bottom:1px;
+    font-size:14px;
+    text-align: center;
+    cursor:pointer;
+    background:rgba(0,0,0,0.5);
+    _background:#333;
+}
+
+.pic-org-content .pic-des-outside{
+    text-align: center;
+    cursor:pointer;
+    font-size:14px;
+    overflow:hidden;
+}
+
+.text-org-content{
+}
+
+.text-org-content ul{
+    overflow:hidden;
+    background:white;
+    float: left;
+}
+
+.text-org-content a{
+    float:left;
+    font-weight:400;
+    text-decoration: none;
+    color: #000000;
+    font-size:14px;
+    font-family: "微软雅黑";
+}
+
+.text-org-content a.text-hover{
+    color: red;
+}
+
+a.logo{
+    display:block;
+    height:18px;
+    width:26px;
+    text-align:justify;
+    letter-spacing:20px;
+    text-decoration:none;
+    overflow:hidden;
+    cursor:default;
+    position:absolute;
+    bottom:0px;
+    right:0px;
+}
+a.logo{
+    background:url(http://p.inte.sogou.com/testgpimg/sogou_icon_short.png) no-repeat left top;
+}
+a.logo:hover{
+    width:78px;
+    background:url(http://p.inte.sogou.com/testgpimg/sogou_icon_long.png) no-repeat left top;
+}
+/* begin 新增logo样式 */
+/*hide模式*/
+a.logo_hide{
+   display:none;
+}
+/*文字样式1,2*/
+a.logo_text1,a.logo_text2{
+   width:31px;
+   height:16px;
+   background:url(http://p.inte.sogou.com/testgpimg/sogou_icon_wz_1.png) no-repeat left top;
+}
+a.logo_text4{
+   width:51px;
+     height:18px;
+     background:url(http://p.inte.sogou.com/testgpimg/logo4_ad.png) no-repeat left top;
+}
+a.logo_text5{
+     width:51px;
+     height:18px;
+     background:url(http://p.inte.sogou.com/testgpimg/logo5_spread.png) no-repeat left top;
+}
+a.logo_text6{
+     width:47px;
+     height:14px;
+     background:url(http://p.inte.sogou.com/testgpimg/pc_logo6.png) no-repeat left top;
+}
+/*文字样式1,2的hover效果不同*/
+a.logo_text1:hover{
+   width:89px;
+   background:url(http://p.inte.sogou.com/testgpimg/sogou_icon_wz_2.png) no-repeat left top;
+}
+a.logo_text2:hover{
+   width:89px;
+   background:url(http://p.inte.sogou.com/testgpimg/sogou_icon_wz_3.png) no-repeat left top;
+}
+a.logo_text4:hover{
+   width:88px;
+     height:18px;
+     background:url(http://p.inte.sogou.com/testgpimg/logo4_ad_hover.png) no-repeat left top;
+}
+a.logo_text5:hover{
+     width:86px;
+     height:18px;
+     background:url(http://p.inte.sogou.com/testgpimg/logo5_spread_hover.png) no-repeat left top;
+}
+a.logo_text6:hover{
+     width:47px;
+     height:14px;
+     background:url(http://p.inte.sogou.com/testgpimg/pc_logo6.png) no-repeat left top;
+}
+/*end 新增logo样式*/
+
+/* add by liwl
+   add four way hover
+ */
+.ad-container a{         /* defalut color */
+    color: #000;
+    text-decoration: none;
+}
+.ad-container a:hover{         /* defalut color */
+    text-decoration: underline;
+}
+/* 1 默认  边框，文字变红 */
+.pic-hover-1{
+
+}
+.pic-hover-1 .pic{
+    border: 1px solid red;
+}
+.pic-hover-1 .pic-des-outside a{
+    color: red;
+}
+/*2 凤凰效果  图片变大 */
+.pic-hover-2{
+
+}
+.pic-hover-2 .pic{overflow: hidden;}
+.pic-hover-2 .pic a img{
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    /*-webkit-backface-visibility: hidden;*/
+}
+.pic-hover-2 .pic a:hover img{
+    transform:scale(1.1,1.1);
+    -webkit-transform:scale(1.1,1.1);
+    -moz-transform:scale(1.1,1.1);
+    -o-transform:scale(1.1,1.1);
+    -ms-transform:scale(1.1,1.1);
+}
+
+/*
+    3  baidu hover
+*/
+.pic-hover-3 .pic-des-outside{
+    text-decoration: none;
+    color: #fff;
+    background: #369
+}
+.pic-hover-3 .pic-des-outside a{
+    color: #fff;
+}
+
+
+   /*金融图片提示 begin*/
+
+
+    .tip_parent{
+            cursor: default;
+            display: none;
+    }
+    .tip{
+        position: absolute;
+        left: 0;
+        top:0;
+
+    }
+    .tip_parent_show {
+        display: block;
+    }
+    .tip img.tip_icon_2{
+        display: none;
+    }
+    .tip_icon_1 {
+        width: 33px;
+        height: 19px;
+    }
+    .tip_icon_2 {
+        width: 83px;
+        height: 19px;
+    }
+/*金融图片提示 end*/
+
+        </style>
+    </head>
+    <body>
+
+        <script>
+var ad_title_list = '自制驴打滚,如何学剪纸,金鱼吃什么,叠纸大全,王菲,水培仙人球';
+var ad_url_list = 'http://inte.sogou.com/skwd?query=%D7%D4%D6%C6%C2%BF%B4%F2%B9%F6&mfp=YnU9MjA4MDAmcGlkPXNvZ291LXdzc2UtNjMxNTRkNTY2MWY3NzRmYiZwcGlkPXp1b3lhbmdjaGVuZyZwdmlkPWVmMTkxNzk1YzkyN2U3NGMmdHM9MTUxMzkwODE3NSZ3PTAmaD0wJmNpZD0tMSZwb3NpZD0tMSZmZz0yMjAyLDI1MDEsMjYwNCZpZD05MTM3NTEmaWU9Z2IyMzEyJmRpZD0zODE4MTcyJmZpZD0zNzA5NTMmc2lkPTM3MDk1MyZ1cmw9aHR0cDovL25ld3MuanNub2wuY29tL2xvY2FsLzIwMTcvMTIyMi8xNTQ5MjdfMi5odG1sJnBwPTAmc3A9MCZjcD0wJm5oaWQ9MSZuYnc9OTcmbmJoPTEwMiZuY2lkPTAmaXNuPTEmcXVlcnk9JUQ3JUQ0JUQ2JUM2JUMyJUJGJUI0JUYyJUI5JUY2AA==&pid=sogou-wsse-63154d5661f774fb&pos=1&exd=0;0;11;-1;2;0;0,http://inte.sogou.com/skwd?query=%C8%E7%BA%CE%D1%A7%BC%F4%D6%BD&mfp=YnU9MjA4MDAmcGlkPXNvZ291LXdzc2UtNjMxNTRkNTY2MWY3NzRmYiZwcGlkPXp1b3lhbmdjaGVuZyZwdmlkPWVmMTkxNzk1YzkyN2U3NGMmdHM9MTUxMzkwODE3NSZ3PTAmaD0wJmNpZD0tMSZwb3NpZD0tMSZmZz0yMjAyLDI1MDEsMjYwNCZpZD05MTM3NTEmaWU9Z2IyMzEyJmRpZD0zODE4MTcyJmZpZD0zNzA5NTMmc2lkPTM3MDk1MyZ1cmw9aHR0cDovL25ld3MuanNub2wuY29tL2xvY2FsLzIwMTcvMTIyMi8xNTQ5MjdfMi5odG1sJnBwPTAmc3A9MCZjcD0wJm5oaWQ9MSZuYnc9OTcmbmJoPTEwMiZuY2lkPTAmaXNuPTEmcXVlcnk9JUM4JUU3JUJBJUNFJUQxJUE3JUJDJUY0JUQ2JUJEAA==&pid=sogou-wsse-63154d5661f774fb&pos=2&exd=0;0;11;-1;2;0;0,http://inte.sogou.com/skwd?query=%BD%F0%D3%E3%B3%D4%CA%B2%C3%B4&mfp=YnU9MjA4MDAmcGlkPXNvZ291LXdzc2UtNjMxNTRkNTY2MWY3NzRmYiZwcGlkPXp1b3lhbmdjaGVuZyZwdmlkPWVmMTkxNzk1YzkyN2U3NGMmdHM9MTUxMzkwODE3NSZ3PTAmaD0wJmNpZD0tMSZwb3NpZD0tMSZmZz0yMjAyLDI1MDEsMjYwNCZpZD05MTM3NTEmaWU9Z2IyMzEyJmRpZD0zODE4MTcyJmZpZD0zNzA5NTMmc2lkPTM3MDk1MyZ1cmw9aHR0cDovL25ld3MuanNub2wuY29tL2xvY2FsLzIwMTcvMTIyMi8xNTQ5MjdfMi5odG1sJnBwPTAmc3A9MCZjcD0wJm5oaWQ9MSZuYnc9OTcmbmJoPTEwMiZuY2lkPTAmaXNuPTEmcXVlcnk9JUJEJUYwJUQzJUUzJUIzJUQ0JUNBJUIyJUMzJUI0AA==&pid=sogou-wsse-63154d5661f774fb&pos=3&exd=0;0;11;-1;2;0;0,http://inte.sogou.com/skwd?query=%B5%FE%D6%BD%B4%F3%C8%AB&mfp=YnU9MjA4MDAmcGlkPXNvZ291LXdzc2UtNjMxNTRkNTY2MWY3NzRmYiZwcGlkPXp1b3lhbmdjaGVuZyZwdmlkPWVmMTkxNzk1YzkyN2U3NGMmdHM9MTUxMzkwODE3NSZ3PTAmaD0wJmNpZD0tMSZwb3NpZD0tMSZmZz0yMjAyLDI1MDEsMjYwNCZpZD05MTM3NTEmaWU9Z2IyMzEyJmRpZD0zODE4MTcyJmZpZD0zNzA5NTMmc2lkPTM3MDk1MyZ1cmw9aHR0cDovL25ld3MuanNub2wuY29tL2xvY2FsLzIwMTcvMTIyMi8xNTQ5MjdfMi5odG1sJnBwPTAmc3A9MCZjcD0wJm5oaWQ9MSZuYnc9OTcmbmJoPTEwMiZuY2lkPTAmaXNuPTEmcXVlcnk9JUI1JUZFJUQ2JUJEJUI0JUYzJUM4JUFCAA==&pid=sogou-wsse-63154d5661f774fb&pos=4&exd=0;0;11;-1;2;0;0,http://inte.sogou.com/skwd?query=%CD%F5%B7%C6&mfp=YnU9MjA4MDAmcGlkPXNvZ291LXdzc2UtNjMxNTRkNTY2MWY3NzRmYiZwcGlkPXp1b3lhbmdjaGVuZyZwdmlkPWVmMTkxNzk1YzkyN2U3NGMmdHM9MTUxMzkwODE3NSZ3PTAmaD0wJmNpZD0tMSZwb3NpZD0tMSZmZz0yMjAyLDI1MDEsMjYwNCZpZD05MTM3NTEmaWU9Z2IyMzEyJmRpZD0zODE4MTcyJmZpZD0zNzA5NTMmc2lkPTM3MDk1MyZ1cmw9aHR0cDovL25ld3MuanNub2wuY29tL2xvY2FsLzIwMTcvMTIyMi8xNTQ5MjdfMi5odG1sJnBwPTAmc3A9MCZjcD0wJm5oaWQ9MSZuYnc9OTcmbmJoPTEwMiZuY2lkPTAmaXNuPTEmcXVlcnk9JUNEJUY1JUI3JUM2AA==&pid=sogou-wsse-63154d5661f774fb&pos=5&exd=0;0;11;-1;2;0;0,http://inte.sogou.com/skwd?query=%CB%AE%C5%E0%CF%C9%C8%CB%C7%F2&mfp=YnU9MjA4MDAmcGlkPXNvZ291LXdzc2UtNjMxNTRkNTY2MWY3NzRmYiZwcGlkPXp1b3lhbmdjaGVuZyZwdmlkPWVmMTkxNzk1YzkyN2U3NGMmdHM9MTUxMzkwODE3NSZ3PTAmaD0wJmNpZD0tMSZwb3NpZD0tMSZmZz0yMjAyLDI1MDEsMjYwNCZpZD05MTM3NTEmaWU9Z2IyMzEyJmRpZD0zODE4MTcyJmZpZD0zNzA5NTMmc2lkPTM3MDk1MyZ1cmw9aHR0cDovL25ld3MuanNub2wuY29tL2xvY2FsLzIwMTcvMTIyMi8xNTQ5MjdfMi5odG1sJnBwPTAmc3A9MCZjcD0wJm5oaWQ9MSZuYnc9OTcmbmJoPTEwMiZuY2lkPTAmaXNuPTEmcXVlcnk9JUNCJUFFJUM1JUUwJUNGJUM5JUM4JUNCJUM3JUYyAA==&pid=sogou-wsse-63154d5661f774fb&pos=6&exd=0;0;11;-1;2;0;0';
+var ad_img_list = 'http://img01.sogoucdn.com/app/a/200630/4c03e7cf4e61f9a7f176c52bf2cf9be1,http://img04.sogoucdn.com/app/a/200630/5492d6310783e7dc625ea793f40fe138,http://img01.sogoucdn.com/app/a/200630/5b6cd2212ad8927b97d061388111e7d3,http://img04.sogoucdn.com/app/a/200630/79f08a84571416ed89ec9fa390e61d0b,http://img03.sogoucdn.com/app/a/200630/015ce211391b6396993e0f261931dd1e,http://img02.sogoucdn.com/app/a/200630/a9cfbc9c8762566a41a543e6b2d2d2d9';
+var financial_tip ="";
+
+var ad_title = ad_title_list.split(',');
+var ad_url = ad_url_list.split(',');
+var ad_img = ad_img_list.split(',');
+/*
+ *  需要留下的接口：
+ *  图片区：尺寸大小，文字位置，文字透明度，背景颜色，边框颜色
+ *  内容区：字体大小，字体样式，字体颜色，有无下划线
+ */
+var iframe_height = 250;
+var iframe_width = 300;
+var border = 1;
+var picHover="pic-hover-"+1;
+
+
+var pic_org_height = 248;
+var text_org_height = 0;
+var logo_flag = "6";
+/*新增logo逻辑*/
+var logo_class = "logo_hide";
+logo_flag = Number(logo_flag);
+switch(logo_flag){
+   case 0:
+     logo_class = "logo_hide";
+     break;
+   case 1:
+     logo_class = "logo";
+     break;
+   case 2:
+     logo_class = "logo_text1";
+     break;
+   case 3:
+     logo_class = "logo_text2";
+     break;
+   case 4:
+     logo_class = "logo_text4";
+     break;
+   case 5:
+     logo_class = "logo_text5";
+     break;
+   case 6:
+     logo_class = "logo_text6";
+     break;
+   default:
+     logo_class = "logo_hide";
+}
+/*end 新增logo逻辑*/
+
+var ad_itor = 0;
+
+var addHandler = function(element, type, listener) {
+    type = type.replace(/^on/i, '').toLowerCase();
+
+    // 事件监听器挂载
+    if (element.addEventListener) {
+        element.addEventListener(type, listener, false);
+    } else if (element.attachEvent) {
+        element.attachEvent('on' + type, listener);
+    }
+    return element;
+};
+var slice_title = [];
+(function(){
+   //if  base_width less 88 ,max title size is 6
+   var cur_base_width = 97;
+   if(cur_base_width > 88){
+     slice_title = ad_title;
+     return;
+   }
+   for(var i = 0; i < ad_title.length;i++){
+       slice_title[i] = ad_title[i].slice(0,6);
+   }
+})()
+var render_pic_org = function(){
+    if(!pic_org_height){
+        return;
+    }
+    var pic_border = 1;
+
+    var pic_height = pic_org_height;
+    var pic_width = iframe_width - 2*border;
+
+    var pic_base_h = 102 - 2*pic_border;
+    var pic_base_w = 97 - 2*pic_border;
+
+    var is_outside = 1;
+
+    var pic_des_h = 20;
+    if(is_outside){
+        var base_h = pic_base_h + pic_des_h;
+        var base_w = pic_base_w;
+    }else{
+        var base_h = pic_base_h;
+        var base_w = pic_base_w;
+    }
+
+    var pic_row_num = 2;
+    var pic_col_num = 3;
+
+    var pic_row_h = Math.floor(pic_height/pic_row_num);
+    var pic_row_w = pic_width;
+    var pic_item_w = Math.floor(pic_width/pic_col_num);
+    var pic_org_content = document.createElement('div');
+    pic_org_content.className = 'pic-org-content';
+    for(var i = 0; i < pic_row_num; i ++){
+        var pic_row = document.createElement('div');
+        pic_row.className = 'pic-row';
+        pic_row.style.height = pic_row_h + 'px';
+        pic_row.style.width = pic_row_w + 'px';
+        for(var j = 0; j < pic_col_num; j++){
+            var pic_item = document.createElement('div');
+            var pic = document.createElement('div');
+            pic.className = 'pic';
+                var pic_item_margin_x = Math.floor((pic_width - pic_col_num*(base_w + pic_border*2))/pic_col_num/2);
+                var pic_item_margin_y = Math.floor((pic_height - pic_row_num*(base_h + pic_border*2))/pic_row_num/2);
+
+                pic_item.className = 'pic-item';
+                pic_item.style.margin = pic_item_margin_y + 'px ' + pic_item_margin_x + 'px ' + pic_item_margin_y + 'px ' + pic_item_margin_x + 'px';
+
+                pic_item.style.cursor = 'pointer';
+                /* add hover */
+                addHandler(pic_item,"mouseenter",function(pic_item, className) {
+                            return function(eve) {
+                                pic_item.className = 'pic-item '+className;
+                            };
+                        } (pic_item, picHover)
+                )
+                addHandler(pic_item,"mouseleave",function(pic_item, className) {
+                            return function(eve) {
+                                pic_item.className = 'pic-item';
+                            };
+                        } (pic_item, picHover)
+                )
+                var pic_a = document.createElement('a');
+                pic_a.setAttribute('target','_blank');
+                pic_a.setAttribute('href',ad_url[ad_itor]);
+                var img = document.createElement('img');
+                img.setAttribute('src',ad_img[ad_itor]);
+                img.style.height = pic_base_h + 'px';
+                img.style.width = pic_base_w + 'px';
+                pic_a.setAttribute('title',ad_title[ad_itor]);
+                pic_a.appendChild(img);
+
+
+
+                // 金融beginner
+                var tip_parent = document.createElement('div');
+                tip_parent.className = 'tip_parent';
+                // 将img跟div设置为同级目录，其父元素为a标签,为了正常显示tip，将a标签的属性全部去掉
+                tip_parent.innerHTML = '<div class="tip"><img class="tip_icon_1" src="http://p.inte.sogou.com/testgpimg/pc_tip.png" /><img class="tip_icon_2" src="http://p.inte.sogou.com/testgpimg/pc_tip_on.png" /></div>';
+                pic_a.appendChild(tip_parent);
+                //  金融end
+
+
+
+            if(is_outside){
+
+                pic.appendChild(pic_a);
+                pic_item.appendChild(pic);
+
+                var pic_des = document.createElement('div');
+                pic_des.className = 'pic-des-outside';
+                //pic_des.innerHTML = ad_title[ad_itor];
+                pic_des.style.lineHeight = pic_des_h + 'px';
+                pic_des.style.height = pic_des_h + 'px';
+                pic_des.style.width = pic_base_w + 'px';
+                var des_a = document.createElement('a');
+                des_a.innerHTML = slice_title[ad_itor]; //change to use slice_title
+                //des_a.style.color = '#000000';    //去掉颜色 通过变量统一定义
+                des_a.setAttribute('target','_blank');
+                des_a.setAttribute('href',ad_url[ad_itor]);
+                des_a.setAttribute('title',ad_title[ad_itor]);
+                pic_des.appendChild(des_a);
+
+                pic_item.appendChild(pic_des);
+                pic_row.appendChild(pic_item);
+//                addHandler(pic_item,'mouseenter',function(pic,des){return function(eve){
+//                    pic.className = 'pic pic-hover';
+//                    des.style.color = '#FF0000';
+//                };}(pic,pic_des));
+//                addHandler(pic_item,'mouseleave',function(pic,des){return function(eve){
+//                    pic.className = 'pic';
+//                    des.style.color = '#000000';
+//                };}(pic,pic_des));
+            }
+            else{
+                var pic_des = document.createElement('div');
+                pic_des.className = 'pic-des-inside';
+                pic_des.innerHTML = ad_title[ad_itor];
+                pic_des.style.lineHeight = pic_des_h + 'px';
+                pic_des.style.height = pic_des_h + 'px';
+                pic_des.style.width = pic_base_w + 'px';
+                pic_a.appendChild(pic_des);
+
+                pic.appendChild(pic_a);
+                pic_item.appendChild(pic);
+                pic_row.appendChild(pic_item);
+//                addHandler(pic,'mouseenter',function(eve){
+//                    var ele = event.target || event.srcElement;
+//                    ele.className = 'pic pic-hover';
+//                });
+//                addHandler(pic,'mouseleave',function(eve){
+//                    var ele = event.target || event.srcElement;
+//                    ele.className = 'pic';
+//                });
+            }
+
+            ad_itor++;
+
+        }
+        pic_org_content.appendChild(pic_row);
+    }
+    return pic_org_content;
+};
+
+var render_text_org = function(){
+    if(!text_org_height){
+        return;
+    }
+    var text_margin = 15;
+    var text_height = text_org_height;
+    var text_width = iframe_width - 2*border;
+    //写死
+    var text_base_h = 30;
+    //写死，最大七个字
+    var text_base_w = 120;
+
+    var text_li_num = Math.floor(text_height/text_base_h);
+    var text_row_num = Math.floor(text_width/text_base_w);
+    if(text_row_num%2 == 0){
+        var text_ul_num = 2;
+    }else{
+        var text_ul_num = 1;
+    }
+
+    var text_li_a_num = text_row_num / text_ul_num;
+    var bold_arr = [1,0,1];
+    var b_itor = 0;
+    var text_org_content = document.createElement('div');
+    text_org_content.className = 'text-org-content';
+    for(var i = 0; i < text_ul_num; i ++){
+        var text_ul = document.createElement('ul');
+        text_ul.style.width = text_width/text_ul_num + 'px';
+        for(var j = 0; j < text_li_num; j++){
+            var text_li = document.createElement('li');
+            text_li.style.width = text_width/text_ul_num + 'px';
+            text_li.style.height = text_base_h + 'px';
+            text_li.style.padding = '0 0 0 '+text_margin+'px';
+            for(var k = 0 ; k < text_li_a_num; k++){
+                var text_li_a = document.createElement('a');
+                text_li_a.innerHTML = ad_title[ad_itor];
+                text_li_a.setAttribute('href',ad_url[ad_itor]);
+                text_li_a.setAttribute('target','_blank');
+                text_li_a.style.height = text_base_h + 'px';
+                text_li_a.style.lineHeight = text_base_h + 'px';
+                if(bold_arr[b_itor]){
+                    text_li_a.style.fontWeight = 600;
+                }
+                if( k > 0 ){
+                    text_li_a.style.margin = '0 0 0 '+text_margin+'px';
+                }
+                addHandler(text_li_a,'mouseenter',function(eve){
+                    var ele = event.target || event.srcElement;
+                    ele.className = 'text-hover';
+                });
+                addHandler(text_li_a,'mouseleave',function(eve){
+                    var ele = event.target || event.srcElement;
+                    ele.className = '';
+                });
+                ad_itor++;
+                b_itor++;
+                text_li.appendChild(text_li_a);
+            }
+            text_ul.appendChild(text_li);
+        }
+        text_org_content.appendChild(text_ul);
+    }
+    return text_org_content;
+};
+
+var render_page = function(){
+    var ad_container = document.createElement('div');
+    ad_container.id = "div_ad";
+    ad_container.style.height = iframe_height - 2*border + 'px';
+    ad_container.style.width = iframe_width - 2*border + 'px';
+    ad_container.className = 'ad-container';
+    ad_container.appendChild(render_pic_org());
+    //ad_container.appendChild(render_text_org());
+
+    //add logo
+     var logo_dom = document.createElement('div');
+     logo_dom.innerHTML = '<a id="logo" class="logo '+logo_class+'" href="http://union.sogou.com/?" style="z-index:2" target="_blank"></a>';
+     ad_container.appendChild(logo_dom);//采用append,使用innerhtml会导致事件失效
+
+     document.body.appendChild(ad_container);
+};
+
+render_page();
+
+// 金融提示begin
+function bind(elem,type,handler)
+ {
+      if(document.addEventListener)
+      {
+       elem.addEventListener(type,handler,false);
+      }else if(elem.attachEvent){
+       elem.attachEvent('on'+type,handler);
+      }else{
+       elem['on'+type] = handler;
+      }
+ }
+function getElements(context,className){
+    if(document.getElementsByClassName){
+        return context.getElementsByClassName(className);
+    }else{
+        var arr = [];
+        var allNodes = context.getElementsByTagName('*');
+        for(var i=0;i<allNodes.length;i++){
+            if(allNodes[i].className == className){
+                arr.push(allNodes[i]);
+            }
+        }
+        return arr;
+    }
+}
+
+function start_tip(){
+    //开启金融提示
+
+    // 获得要处理的图片数组
+    var tip_list = (financial_tip+ '').split(',');
+    if(tip_list[0]== ''){
+      return;
+    }
+
+    var all_tip_parent = getElements(document,"tip_parent");
+    var all_tip = getElements(document,"tip");
+    var all_tip_icon_1 = getElements(document,"tip_icon_1");
+    var all_tip_icon_2 = getElements(document,"tip_icon_2");
+    if(all_tip.length <=0){
+        return;
+    }
+    for(var i =0; i<all_tip.length;i++){
+        if(typeof tip_list[i] !="undefined" && tip_list[i] == 1){
+            // 是否命中展示金融图片
+            (function(){
+                var tip_parent = all_tip_parent[i];
+                var tip =all_tip[i];
+                var tip_icon_1 = all_tip_icon_1[i];
+                var tip_icon_2 = all_tip_icon_2[i];
+
+
+                bind(tip_icon_1,"mouseover",function(e){
+                   tip_icon_1.style.display = "none";
+                   tip_icon_2.style.display = "block";
+
+                });
+                bind(tip_icon_2,"mouseout",function(e){
+                   tip_icon_1.style.display = "block";
+                   tip_icon_2.style.display = "none";
+
+                });
+                tip_parent.className += " tip_parent_show";
+            })(i)
+        }
+
+    }
+
+};
+setTimeout(function(){
+    start_tip();
+},500);
+        </script>
+        <iframe id="tanxcmiframe" width="0" height="0" src="http://dspcm.brand.sogou.com/qi" style="display:none"></iframe>
+        <script language="JavaScript" type="text/javascript" src="http://images.sohu.com/cs/jsfile/js/fc.js?v=1"></script>
+<script language="JavaScript" type="text/javascript">
+   var plant_cookie = '1';
+   var cookie_url = "http://images.sohu.com/cs/jsfile/js/co.js";
+   if(plant_cookie){
+      document.write('<scr'+'ipt type="text/javascript" charset="utf-8" src="' + cookie_url + '"></scr'+'ipt>');
+   }
+   //  是否引入pc_cp.js去复制当前cookie到新域名sogo
+   var open_copy = '0';
+   if(open_copy == '1'){
+       document.write('<script type="text/javascript" src="http://p.inte.sogou.com/pc/js/pc_cp.js"><\/script>')
+   }
+(function(){var S=function(a){return document.getElementById(a)};var U=function(a){return document.getElementsByTagName(a)};var B=function(a){a=a||window.event;this.target=a.target||a.srcElement};B.add=function(a,b,c){if(window.addEventListener){a.addEventListener(b,c,false)}else{a.attachEvent("on"+b,c)}};var E=function(){return new Date().getTime()};var K=function(a){var b=new B(a);if(J==-1){J=0}J++;tmo=E();mopos=O(a)};var V=function(a){if(a.type=="mousedown"){R=E();mdpos=O(a)}else{R=E()-R}};var F=function(a){N==-1?N=a.clientX:N=N;P==-1?P=a.clientY:P=P};var D=function(){if(X==-1){X=E()}C=E()-X};var G=function(a){L=a.clientX;M=a.clientY};var O=function(a){if(a.pageX||a.pageY){return{x:a.pageX,y:a.pageY}}return{x:a.clientX+document.body.scrollLeft-document.body.clientLeft,y:a.clientY+document.body.scrollTop-document.body.clientTop}};var w=function(a){x[i++]=1};var o=function(){A=E()};var W=function(b){var a=b.target.innerHTML;if(b.target.href.indexOf("&ml")==-1){ma_plus=(A-tmo)+","+history.length+","+mopos.x+","+mopos.y+","+mdpos.x+","+mdpos.y+",1903,974";b.target.href+="&ml="+i+"&mc="+(E()-A)+"&ma="+ma_plus;b.target.href+="&ak="+J+"."+R+"."+L+"."+M+"."+N+"."+P+"."+C}if((a.match(/(www\.)|(.*@.*)/i)!=null)&&document.all){a.match(/\<.*\>/i)==null?b.target.innerHTML=a:b.target.innerTEXT=a}};var Q=function(a){var b=new B(a);var c=0;while(b.target.tagName.toLowerCase()!="a"&&c<10){b.target=b.target.parentNode;c++}G(a);D();if("star"=="star"){W(b)}};var x=new Array(1000);var i=0,A=0;var L=-1,M=-1,N=-1,P=-1,R=-1,X=-1,C=-1,J=-1,H=-1;var T=S("div_ad");slots=T.getElementsByTagName("a");B.add(document,"mousemove",w);B.add(document,"mousedown",o);B.add(T,"mouseover",F);B.add(T,"mouseover",D);for(var I=0;I<slots.length;I++){node=slots[I];if(node.toString().indexOf("a1click.")>-1||node.toString().indexOf("www.sogou.com/bill_cpc")>-1||node.toString().indexOf("www.sogou.com/bill_un")>-1 || node.toString().indexOf("cx.sogou.com/bill_un")>-1||node.toString().indexOf("www.sogo.com/bill_cpc")>-1||node.toString().indexOf("www.sogo.com/bill_un")>-1 || node.toString().indexOf("cx.sogo.com/bill_un")>-1 ){B.add(node,"mousedown",V);B.add(node,"mouseup",V);B.add(node,"click",Q);B.add(node,"mouseover",K)}}})();
+</script>
+    </body>
+</html>
