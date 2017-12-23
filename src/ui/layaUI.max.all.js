@@ -28,7 +28,9 @@ var OperationPanelUI=(function(_super){
 var QuestionDialogUI=(function(_super){
 		function QuestionDialogUI(){
 			
-		    this.btnConfirm=null;
+		    this.questionRadio=null;
+		    this.questionText=null;
+		    this.btnQConfirm=null;
 
 			QuestionDialogUI.__super.call(this);
 		}
@@ -42,6 +44,27 @@ var QuestionDialogUI=(function(_super){
 
 		}
 
-		QuestionDialogUI.uiView={"type":"Dialog","props":{"width":600,"height":400},"child":[{"type":"Image","props":{"y":105,"x":121,"width":338,"skin":"comp/bg.png","height":266}},{"type":"RadioGroup","props":{"y":212,"x":156,"width":320,"space":20,"skin":"comp/radiogroup.png","selectedIndex":0,"labels":"选项A,label2,label2,label2","labelPadding":"0,0,0,10","labelFont":"SimHei","height":150,"direction":"vertical"}},{"type":"Label","props":{"y":159,"x":151,"width":281,"text":"校园中的毛爷爷雕塑指向哪里？","height":27,"font":"SimHei","color":"#ffffff","align":"left"}},{"type":"Button","props":{"y":325,"x":355,"width":72,"var":"btnConfirm","skin":"comp/button.png","name":"btnConfirm","labelSize":15,"labelFont":"SimHei","label":"确定","height":27}},{"type":"Label","props":{"y":126,"x":150,"text":"问题:","fontSize":16,"font":"SimHei","color":"#ffffff"}}]};
+		QuestionDialogUI.uiView={"type":"Dialog","props":{"width":600,"height":400},"child":[{"type":"Image","props":{"y":4,"x":-1,"width":602,"skin":"comp/bg.png","height":394}},{"type":"RadioGroup","props":{"y":166,"x":73,"width":320,"var":"questionRadio","space":20,"skin":"comp/radiogroup.png","selectedIndex":0,"labels":"选项A,label2,label2,label2","labelSize":20,"labelPadding":"0,0,0,10","labelFont":"SimHei","height":150,"direction":"vertical"}},{"type":"Label","props":{"y":86,"x":58,"width":281,"var":"questionText","text":"校园中的毛爷爷雕塑指向哪里？","height":27,"fontSize":20,"font":"SimHei","color":"#ffffff","align":"left"}},{"type":"Button","props":{"y":325,"x":441,"width":98,"var":"btnQConfirm","skin":"comp/button.png","name":"btnQConfirm","labelSize":20,"labelFont":"SimHei","label":"确定","height":41}},{"type":"Label","props":{"y":45,"x":59,"text":"问题:","fontSize":25,"font":"SimHei","color":"#ffffff"}}]};
 		return QuestionDialogUI;
+	})(Dialog);
+var QuestionTypeDialogUI=(function(_super){
+		function QuestionTypeDialogUI(){
+			
+		    this.typeRadio=null;
+		    this.btnTConfirm=null;
+
+			QuestionTypeDialogUI.__super.call(this);
+		}
+
+		CLASS$(QuestionTypeDialogUI,'ui.QuestionTypeDialogUI',_super);
+		var __proto__=QuestionTypeDialogUI.prototype;
+		__proto__.createChildren=function(){
+		    
+			laya.ui.Component.prototype.createChildren.call(this);
+			this.createView(QuestionTypeDialogUI.uiView);
+
+		}
+
+		QuestionTypeDialogUI.uiView={"type":"Dialog","props":{"width":600,"height":400},"child":[{"type":"Image","props":{"y":4,"x":-1,"width":602,"skin":"comp/bg.png","height":394}},{"type":"RadioGroup","props":{"y":166,"x":73,"width":320,"var":"typeRadio","space":20,"skin":"comp/radiogroup.png","selectedIndex":0,"labels":"选项A,label2,label2,label2","labelSize":20,"labelPadding":"0,0,0,10","labelFont":"SimHei","height":150,"direction":"vertical"}},{"type":"Label","props":{"y":86,"x":58,"width":281,"text":"请选择你想要回答的问题类型：","height":27,"fontSize":20,"font":"SimHei","color":"#ffffff","align":"left"}},{"type":"Button","props":{"y":325,"x":441,"width":98,"var":"btnTConfirm","skin":"comp/button.png","name":"btnTConfirm","labelSize":20,"labelFont":"SimHei","label":"确定","height":41}},{"type":"Label","props":{"y":45,"x":59,"text":"问题类型:","fontSize":25,"font":"SimHei","color":"#ffffff"}}]};
+		return QuestionTypeDialogUI;
 	})(Dialog);

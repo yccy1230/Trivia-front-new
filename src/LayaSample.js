@@ -2,6 +2,7 @@
 var tiledMap;
 var operationView;
 var questionDialog;
+var questionTypeDialog;
 var Handler= Laya.Handler;
 var Stage     = Laya.Stage;
 var TiledMap  = Laya.TiledMap;
@@ -10,15 +11,19 @@ var WebGL     = Laya.WebGL;
 var Event = Laya.Event;
 var Socket = Laya.Socket;
 var Byte   = Laya.Byte;
+var Tween   = Laya.Tween;
 
 // 定义常量
 var GAME_READY = 0;
 var GAME_DICE_RESULT = 1;
+var GAME_CHOOSE_TYPE = 5;
 var GAME_ANSWERING_QUESTION = 2;
 var GAME_ANSWER_QUESTION_RESULT = 3;
 var GAME_OVER = 4;
 var ROOM_WAITING = 0;
 var ROOM_PLAYING = 1;
+var PLAYER_GAMING_FREE = 2;
+var PLAYER_GAMING_HOLD = 3;
 
 //View Global Variable
 var traceBits=[1,1,2,2,1,1,1,0,0,1,1,1,1,1,2,2,2,3,3,3,2,2,2,1,1,1,2,2,2,2,3,3,3,3,3,3,0,0,0,0,3,3,2,2,2,2,3,3,0,0,0,0,0,0,0,0,0,0];
@@ -30,6 +35,7 @@ var roles;
 //Game Data Variables
 var myUserId;
 var players;
+var questionTypes2ID;
 
 function OperationPanel()
 {
@@ -39,7 +45,10 @@ function QuestionDialog()
 {
 	QuestionDialog.super(this);
 }
-
+function QuestionTypeDialog()
+{
+	QuestionTypeDialog.super(this);
+}
 (function()
 {
     // 不支持WebGL时自动切换至Canvas
@@ -139,15 +148,15 @@ function refreshUI(message){
         myUserId = message.id;
         return;
     }
-    if(message.status === ROOM_PLAYING){
+    // if(message.status === ROOM_PLAYING){
         refreshPlayerPanel(message);
         refreshPlayerPosition(message);
         refreshOpeartionpanel(message);
-    } else if (message.status === ROOM_WAITING){
+    // } else if (message.status === ROOM_WAITING){
         
-    }else{
-        console.log("房间状态不正确！");
-    }
+    // }else{
+    //     console.log("房间状态不正确！");
+    // }
 }
 
 /**
@@ -187,20 +196,71 @@ function refreshOpeartionpanel(message){
             }).delay(100).animate({left:'-2px',top:'2px'},100,function(){ 
                 dice.removeClass("dice_e").addClass("dice_"+num); 
                 $("#result").html("掷得点数是<span>"+num+"</span>"); 
-                console.log(num);
                 dice.css('cursor','pointer'); 
                 $("#dice_mask").remove();//移除遮罩 
+                // if(curPlayer===myUserId){
+                //     $.each(message.playerList,function(index,item){
+                //         if(item.userId === myUserId && item.status === PLAYER_GAMING_HOLD){
+                //             alert("抱歉哦！您没有掷得偶数~");
+                //         }
+                //     });
+                // }
             }); 
             if(curPlayer===myUserId){
-
             }else{
                 
             }
         break;
+        case GAME_CHOOSE_TYPE:
+            //选择问题类型
+            $.ajax({
+                type: "GET",
+                url: "http://localhost/trivia/game/question/type/",
+                contentType: "application/json; charset=utf-8",
+                dataType:"json",
+                success: function (body) {
+                    if (body.resCode === "200") {
+                        var label = "";
+                        questionTypes2ID= new Array();
+                        $.each(body.data,function(index,item){
+                            label+=item.name+",";
+                            questionTypes2ID[index] = item.id;
+                        });
+                        label = label.substring(0,label.length-1);
+                        questionTypeDialog.typeRadio.labels = label;
+                        setTimeout("questionTypeDialog.show()",2000);
+                    } else{
+                        alert(body.resMsg);
+                    }  
+                }
+            });
+            break;
         case GAME_ANSWERING_QUESTION:
             //获取问题中（回答中） UI数据包
+            $.ajax({
+                type: "GET",
+                url: "http://localhost/trivia/game/question/",
+                contentType: "application/json; charset=utf-8",
+                dataType:"json",
+                data: {
+                    'id' : message.game.questionId,
+                },
+                success: function (body) {
+                    if (body.resCode === "200") {
+                        var label = "";
+                        label+=body.data.chooseA+",";
+                        label+=body.data.chooseB+",";
+                        label+=body.data.chooseC+",";
+                        label+=body.data.chooseD;
+                        questionDialog.questionText.text = body.data.description;
+                        questionDialog.questionRadio.labels = label;
+                        questionDialog.show();
+                    } else{
+                        alert(body.resMsg);
+                    }  
+                }
+            });
             if(curPlayer===myUserId){
-
             }else{
                 
             }
@@ -208,7 +268,11 @@ function refreshOpeartionpanel(message){
         case GAME_ANSWER_QUESTION_RESULT:
             //回答问题结果 UI数据包
             if(curPlayer===myUserId){
-
+                $.each(message.playerList,function(index,item){
+                    if(item.userId === myUserId && item.status === PLAYER_GAMING_HOLD){
+                        alert("抱歉哦！您被关在监狱中了~ 只有下局掷得偶数才可以前进哦~");
+                    }
+                });
             }else{
                 
             }
@@ -231,8 +295,11 @@ function refreshPlayerPosition(obj){
             if(item.position === -1) item.position = 0;
             var position =graph[item.position];
             roles[index].visible = true;
-            roles[index].x=position.x;
-            roles[index].y=position.y;
+            Tween.to(roles[index],
+            {
+                x: position.x,
+                y: position.y
+            }, 1000);
         });
     }else if(obj.status === ROOM_WAITING){
         $.each(obj.playerList,function(index,item){
@@ -335,17 +402,65 @@ function onMapLoaded(){
 function onDialogLoaded(){
     Laya.class(OperationPanel, "OperationPanel", OperationPanelUI);
     Laya.class(QuestionDialog, "QuestionDialog", QuestionDialogUI);
+    Laya.class(QuestionTypeDialog, "QuestionTypeDialog", QuestionTypeDialogUI);
     operationView = new OperationPanel();
     questionDialog = new QuestionDialog();
-    questionDialog.visible = true;
+    questionTypeDialog = new QuestionTypeDialog();
     operationView.x = 1100;
     operationView.y = 0;
     operationView.btnReady.on(Event.CLICK, this, btnReadyClicked);
     Laya.stage.addChild(operationView);
     createDice();
+    initDialogs();
     connect();
     initData();
 }
+
+function initDialogs(){
+    questionTypeDialog.btnTConfirm.on(Event.CLICK, this, btnTConfirmClicked);
+    questionDialog.btnQConfirm.on(Event.CLICK, this, btnQConfirmClicked);
+}
+
+function btnQConfirmClicked(){
+    questionDialog.close();
+    $.ajax({
+        type: "POST",
+        url: "http://localhost/trivia/game/question/answer/",
+        contentType: "application/json; charset=utf-8",
+        dataType:"json",
+        data: JSON.stringify(
+            questionDialog.questionRadio.selectedIndex+1
+        ),
+        success: function (body) {
+            if (body.resCode !== "200") {
+                alert(body.retMsg+"请重新尝试！");
+                questionDialog.show();
+            }
+        }
+    });
+}
+
+/**
+ * 类型选择按钮点击事件监听
+ */
+function btnTConfirmClicked(){
+    questionTypeDialog.close();
+    $.ajax({
+        type: "GET",
+        url: "http://localhost/trivia/game/question/choose/",
+        contentType: "application/json; charset=utf-8",
+        dataType:"json",
+        data: {
+            'type' : questionTypes2ID[questionTypeDialog.typeRadio.selectedIndex]
+        },
+        success: function (body) {
+            if (body.resCode !== "200") {
+                alert(body.retMsg+"请更换选项尝试！");
+                questionTypeDialog.show();
+            }
+        }
+    });
+}   
 
 /**
  * 准备按钮点击事件 
