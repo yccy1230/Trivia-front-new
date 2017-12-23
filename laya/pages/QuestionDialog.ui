@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":15,
+    "selecteID":10,
     "props":{"width":600,"var":"questionDialog","sceneColor":"#000000","height":400},
     "nodeParent":-1,
     "label":"Dialog(questionDialog)",
@@ -41,7 +41,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":86,"x":58,"width":281,"var":"questionText","text":"校园中的毛爷爷雕塑指向哪里？","styleSkin":"comp/label.png","height":27,"fontSize":20,"font":"SimHei","color":"#ffffff","align":"left"},
+            "props":{"y":77,"x":57,"width":498,"var":"questionText","text":"校园中的毛爷爷雕塑指向哪里？","styleSkin":"comp/label.png","height":40,"fontSize":20,"font":"SimHei","color":"#ffffff","align":"left"},
             "nodeParent":1,
             "label":"Label(questionText)",
             "isDirectory":false,
@@ -67,7 +67,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":45,"x":59,"text":"问题:","styleSkin":"comp/label.png","fontSize":25,"font":"SimHei","color":"#ffffff"},
+            "props":{"y":39,"x":58,"text":"问题:","styleSkin":"comp/label.png","fontSize":25,"font":"SimHei","color":"#ffffff"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,

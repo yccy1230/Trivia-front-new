@@ -2,6 +2,28 @@ var CLASS$=Laya.class;
 var STATICATTR$=Laya.static;
 var View=laya.ui.View;
 var Dialog=laya.ui.Dialog;
+var GameResultDialogUI=(function(_super){
+		function GameResultDialogUI(){
+			
+		    this.resultTitle=null;
+		    this.btnRConfirm=null;
+		    this.resultText=null;
+
+			GameResultDialogUI.__super.call(this);
+		}
+
+		CLASS$(GameResultDialogUI,'ui.GameResultDialogUI',_super);
+		var __proto__=GameResultDialogUI.prototype;
+		__proto__.createChildren=function(){
+		    
+			laya.ui.Component.prototype.createChildren.call(this);
+			this.createView(GameResultDialogUI.uiView);
+
+		}
+
+		GameResultDialogUI.uiView={"type":"Dialog","props":{"width":600,"height":400},"child":[{"type":"Image","props":{"y":4,"x":-1,"width":602,"skin":"comp/bg.png","height":394}},{"type":"Label","props":{"y":86,"x":58,"width":281,"var":"resultTitle","height":27,"fontSize":20,"font":"SimHei","color":"#ffffff","align":"left"}},{"type":"Button","props":{"y":325,"x":441,"width":98,"var":"btnRConfirm","skin":"comp/button.png","name":"btnRConfirm","labelSize":20,"labelFont":"SimHei","label":"确定","height":41}},{"type":"Label","props":{"y":45,"x":59,"text":"游戏结束","fontSize":25,"font":"SimHei","color":"#ffffff"}},{"type":"TextArea","props":{"y":151,"x":54,"width":340,"var":"resultText","name":"resultText","height":210,"fontSize":20,"editable":false}}]};
+		return GameResultDialogUI;
+	})(Dialog);
 var OperationPanelUI=(function(_super){
 		function OperationPanelUI(){
 			
@@ -44,7 +66,7 @@ var QuestionDialogUI=(function(_super){
 
 		}
 
-		QuestionDialogUI.uiView={"type":"Dialog","props":{"width":600,"height":400},"child":[{"type":"Image","props":{"y":4,"x":-1,"width":602,"skin":"comp/bg.png","height":394}},{"type":"RadioGroup","props":{"y":166,"x":73,"width":320,"var":"questionRadio","space":20,"skin":"comp/radiogroup.png","selectedIndex":0,"labels":"选项A,label2,label2,label2","labelSize":20,"labelPadding":"0,0,0,10","labelFont":"SimHei","height":150,"direction":"vertical"}},{"type":"Label","props":{"y":86,"x":58,"width":281,"var":"questionText","text":"校园中的毛爷爷雕塑指向哪里？","height":27,"fontSize":20,"font":"SimHei","color":"#ffffff","align":"left"}},{"type":"Button","props":{"y":325,"x":441,"width":98,"var":"btnQConfirm","skin":"comp/button.png","name":"btnQConfirm","labelSize":20,"labelFont":"SimHei","label":"确定","height":41}},{"type":"Label","props":{"y":45,"x":59,"text":"问题:","fontSize":25,"font":"SimHei","color":"#ffffff"}}]};
+		QuestionDialogUI.uiView={"type":"Dialog","props":{"width":600,"height":400},"child":[{"type":"Image","props":{"y":4,"x":-1,"width":602,"skin":"comp/bg.png","height":394}},{"type":"RadioGroup","props":{"y":166,"x":73,"width":320,"var":"questionRadio","space":20,"skin":"comp/radiogroup.png","selectedIndex":0,"labels":"选项A,label2,label2,label2","labelSize":20,"labelPadding":"0,0,0,10","labelFont":"SimHei","height":150,"direction":"vertical"}},{"type":"Label","props":{"y":77,"x":57,"width":498,"var":"questionText","text":"校园中的毛爷爷雕塑指向哪里？","height":40,"fontSize":20,"font":"SimHei","color":"#ffffff","align":"left"}},{"type":"Button","props":{"y":325,"x":441,"width":98,"var":"btnQConfirm","skin":"comp/button.png","name":"btnQConfirm","labelSize":20,"labelFont":"SimHei","label":"确定","height":41}},{"type":"Label","props":{"y":39,"x":58,"text":"问题:","fontSize":25,"font":"SimHei","color":"#ffffff"}}]};
 		return QuestionDialogUI;
 	})(Dialog);
 var QuestionTypeDialogUI=(function(_super){

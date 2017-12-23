@@ -3,6 +3,7 @@ var tiledMap;
 var operationView;
 var questionDialog;
 var questionTypeDialog;
+var gameResultDialog;
 var Handler= Laya.Handler;
 var Stage     = Laya.Stage;
 var TiledMap  = Laya.TiledMap;
@@ -22,6 +23,8 @@ var GAME_ANSWER_QUESTION_RESULT = 3;
 var GAME_OVER = 4;
 var ROOM_WAITING = 0;
 var ROOM_PLAYING = 1;
+var PLAYER_WAITING = 0;
+var PLAYER_READY = 1;
 var PLAYER_GAMING_FREE = 2;
 var PLAYER_GAMING_HOLD = 3;
 
@@ -48,6 +51,10 @@ function QuestionDialog()
 function QuestionTypeDialog()
 {
 	QuestionTypeDialog.super(this);
+}
+function GameResultDialog()
+{
+	GameResultDialog.super(this);
 }
 (function()
 {
@@ -84,6 +91,7 @@ function createDice(){
 }
 
 function initDiceBtnListener(){
+    setBtnVisibility(false,false,false);
     $.ajax({
         type: "GET",
         url: "http://localhost/trivia/game/roll/dice/",
@@ -92,9 +100,7 @@ function initDiceBtnListener(){
         success: function (body) {
             if (body.resCode !== "200") {
                 alert(body.resMsg);
-            } else{
-                setBtnVisibility(false,false,false);
-            }  
+            }
         }
     });
 }
@@ -105,7 +111,6 @@ function initDiceBtnListener(){
 function connect()
 {
     socket = new Socket();
-    //socket.connect("echo.websocket.org", 80);
     socket.connectByUrl("ws://localhost:8080/trivia/websocket/");
 
     output = socket.output;
@@ -148,15 +153,9 @@ function refreshUI(message){
         myUserId = message.id;
         return;
     }
-    // if(message.status === ROOM_PLAYING){
-        refreshPlayerPanel(message);
-        refreshPlayerPosition(message);
-        refreshOpeartionpanel(message);
-    // } else if (message.status === ROOM_WAITING){
-        
-    // }else{
-    //     console.log("房间状态不正确！");
-    // }
+    refreshPlayerPanel(message);
+    refreshPlayerPosition(message);
+    refreshOpeartionpanel(message);
 }
 
 /**
@@ -172,7 +171,6 @@ function refreshOpeartionpanel(message){
             return false;
         }
     });
-    setBtnVisibility(false,false,false);
     switch(stage){
         case GAME_READY:
             //新一轮游戏就绪 UI数据包
@@ -198,13 +196,6 @@ function refreshOpeartionpanel(message){
                 $("#result").html("掷得点数是<span>"+num+"</span>"); 
                 dice.css('cursor','pointer'); 
                 $("#dice_mask").remove();//移除遮罩 
-                // if(curPlayer===myUserId){
-                //     $.each(message.playerList,function(index,item){
-                //         if(item.userId === myUserId && item.status === PLAYER_GAMING_HOLD){
-                //             alert("抱歉哦！您没有掷得偶数~");
-                //         }
-                //     });
-                // }
             }); 
             if(curPlayer===myUserId){
             }else{
@@ -253,6 +244,7 @@ function refreshOpeartionpanel(message){
                         label+=body.data.chooseC+",";
                         label+=body.data.chooseD;
                         questionDialog.questionText.text = body.data.description;
+                        questionDialog.questionText.wordWrap = true;
                         questionDialog.questionRadio.labels = label;
                         questionDialog.show();
                     } else{
@@ -269,7 +261,7 @@ function refreshOpeartionpanel(message){
             //回答问题结果 UI数据包
             if(curPlayer===myUserId){
                 $.each(message.playerList,function(index,item){
-                    if(item.userId === myUserId && item.status === PLAYER_GAMING_HOLD){
+                    if(item.status === PLAYER_GAMING_HOLD){
                         alert("抱歉哦！您被关在监狱中了~ 只有下局掷得偶数才可以前进哦~");
                     }
                 });
@@ -280,7 +272,17 @@ function refreshOpeartionpanel(message){
         case GAME_OVER:
             //游戏结束 UI数据包
             setBtnVisibility(true,true,false);
-            //TODO:游戏结果弹窗
+            if(message.playerList[0].status === PLAYER_WAITING){
+                 break; 
+            }
+            gameResultDialog.resultText.text = " \t排名\t \t\t \t昵称\t \t\t \t位置\t \t\t \t金币\n\n";
+            $.each(message.playerList,function(index,item){
+                gameResultDialog.resultText.text += " \t\t"+(index+1)+"\t";
+                gameResultDialog.resultText.text += " \t\t\t\t"+item.nickName+"\t";
+                gameResultDialog.resultText.text += " \t\t\t\t"+item.position+"\t";
+                gameResultDialog.resultText.text += " \t\t\t\t"+item.balance+"\n\n";
+            });
+            gameResultDialog.show();
         break;
     }
 }
@@ -403,9 +405,11 @@ function onDialogLoaded(){
     Laya.class(OperationPanel, "OperationPanel", OperationPanelUI);
     Laya.class(QuestionDialog, "QuestionDialog", QuestionDialogUI);
     Laya.class(QuestionTypeDialog, "QuestionTypeDialog", QuestionTypeDialogUI);
+    Laya.class(GameResultDialog, "GameResultDialog", GameResultDialogUI);
     operationView = new OperationPanel();
     questionDialog = new QuestionDialog();
     questionTypeDialog = new QuestionTypeDialog();
+    gameResultDialog = new GameResultDialog();
     operationView.x = 1100;
     operationView.y = 0;
     operationView.btnReady.on(Event.CLICK, this, btnReadyClicked);
@@ -419,6 +423,11 @@ function onDialogLoaded(){
 function initDialogs(){
     questionTypeDialog.btnTConfirm.on(Event.CLICK, this, btnTConfirmClicked);
     questionDialog.btnQConfirm.on(Event.CLICK, this, btnQConfirmClicked);
+    gameResultDialog.btnRConfirm.on(Event.CLICK, this, btnRConfirmClicked);
+}
+
+function btnRConfirmClicked(){
+    gameResultDialog.close();
 }
 
 function btnQConfirmClicked(){
