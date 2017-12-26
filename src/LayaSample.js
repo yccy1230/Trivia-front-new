@@ -4,10 +4,12 @@ var operationView;
 var questionDialog;
 var questionTypeDialog;
 var gameResultDialog;
+var msgDialog;
 var Handler= Laya.Handler;
 var Stage     = Laya.Stage;
 var TiledMap  = Laya.TiledMap;
 var Rectangle = Laya.Rectangle;
+var HTMLDivElement    = Laya.HTMLDivElement;
 var WebGL     = Laya.WebGL;
 var Event = Laya.Event;
 var Socket = Laya.Socket;
@@ -34,6 +36,7 @@ var graph;
 var unit_x=100;
 var unit_y=80;
 var roles;
+var rolesText;
 
 //Game Data Variables
 var myUserId;
@@ -47,6 +50,10 @@ function OperationPanel()
 function QuestionDialog()
 {
 	QuestionDialog.super(this);
+}
+function MsgDialog()
+{
+	MsgDialog.super(this);
 }
 function QuestionTypeDialog()
 {
@@ -80,7 +87,8 @@ function initData(){
         dataType:"json",
         success: function (body) {
             if (body.resCode !== "200") {
-                alert("拉取房间数据出错！");
+                msgDialog.msgContent.text = "拉取房间数据出错！";
+                msgDialog.show();
             }   
         }
     });
@@ -99,7 +107,8 @@ function initDiceBtnListener(){
         dataType:"json",
         success: function (body) {
             if (body.resCode !== "200") {
-                alert(body.resMsg);
+                msgDialog.msgContent.text = body.resMsg;
+                msgDialog.show();
             }
         }
     });
@@ -129,7 +138,8 @@ function onSocketOpen()
 
 function onSocketClose()
 {
-    console.log("Socket closed");
+    msgDialog.msgContent.text = "socket连接关闭，请检查登录状态";
+    msgDialog.show();
 }
 
 function onMessageReveived(message)
@@ -144,7 +154,8 @@ function onMessageReveived(message)
 function onConnectError(e)
 {
     console.log("error");
-    alert("socket建立失败");
+    msgDialog.msgContent.text = "socket建立失败！";
+    msgDialog.show();
 }
 
 function refreshUI(message){
@@ -164,10 +175,11 @@ function refreshUI(message){
  */
 function refreshOpeartionpanel(message){
     var stage = message.game.stage;
-    var curPlayer;
+    var curPlayer,curPlayerName;
     $.each(message.playerList,function(index,item){
         if(item.id === message.game.currentPlayerId) {
             curPlayer = item.userId;
+            curPlayerName = item.nickName;
             return false;
         }
     });
@@ -194,7 +206,6 @@ function refreshOpeartionpanel(message){
             }).delay(100).animate({left:'-2px',top:'2px'},100,function(){ 
                 dice.removeClass("dice_e").addClass("dice_"+num); 
                 $("#result").html("掷得点数是<span>"+num+"</span>"); 
-                dice.css('cursor','pointer'); 
                 $("#dice_mask").remove();//移除遮罩 
             }); 
             if(curPlayer===myUserId){
@@ -221,7 +232,8 @@ function refreshOpeartionpanel(message){
                         questionTypeDialog.typeRadio.labels = label;
                         setTimeout("questionTypeDialog.show()",2000);
                     } else{
-                        alert(body.resMsg);
+                        msgDialog.msgContent.text = body.resMsg;
+                        msgDialog.show();
                     }  
                 }
             });
@@ -248,7 +260,8 @@ function refreshOpeartionpanel(message){
                         questionDialog.questionRadio.labels = label;
                         questionDialog.show();
                     } else{
-                        alert(body.resMsg);
+                        msgDialog.msgContent.text = body.resMsg;
+                        msgDialog.show();
                     }  
                 }
             });
@@ -259,14 +272,30 @@ function refreshOpeartionpanel(message){
         break;
         case GAME_ANSWER_QUESTION_RESULT:
             //回答问题结果 UI数据包
-            if(curPlayer===myUserId){
+            if(curPlayer===myUserId){//我的轮次
                 $.each(message.playerList,function(index,item){
-                    if(item.status === PLAYER_GAMING_HOLD){
-                        alert("抱歉哦！您被关在监狱中了~ 只有下局掷得偶数才可以前进哦~");
+                    if(item.userId === curPlayer){
+                        if(item.status === PLAYER_GAMING_HOLD){
+                            msgDialog.msgContent.text = "抱歉哦！您被关在监狱中了~ 只有下局掷得偶数才可以前进哦~";
+                            msgDialog.show();
+                        }else{
+                            msgDialog.msgContent.text = "恭喜您答对了，给你一个小金币~";
+                            msgDialog.show();
+                        }
                     }
                 });
-            }else{
-                
+            }else{//其他人的轮次
+                $.each(message.playerList,function(index,item){
+                    if(item.userId !== curPlayer){
+                        if(item.status === PLAYER_GAMING_HOLD){
+                            msgDialog.msgContent.text = "恭喜玩家："+curPlayerName+",答错题目被关入监狱~";
+                            msgDialog.show();
+                        }else{
+                            msgDialog.msgContent.text = "恭喜玩家："+curPlayerName+",答对题目获得一个小金币~";
+                            msgDialog.show();
+                        }
+                    }
+                });
             }
         break;
         case GAME_OVER:
@@ -297,10 +326,17 @@ function refreshPlayerPosition(obj){
             if(item.position === -1) item.position = 0;
             var position =graph[item.position];
             roles[index].visible = true;
+            rolesText[index].visible = true;
+            rolesText[index].innerHTML = item.nickName;
             Tween.to(roles[index],
             {
                 x: position.x,
                 y: position.y
+            }, 1000);
+            Tween.to(rolesText[index],
+            {
+                x: position.x-20,
+                y: position.y+60
             }, 1000);
         });
     }else if(obj.status === ROOM_WAITING){
@@ -309,6 +345,8 @@ function refreshPlayerPosition(obj){
             var position = graph[item.position];
             roles[index].x=position.x;
             roles[index].y=position.y; 
+            rolesText[index].x=position.x;
+            rolesText[index].y=position.y;
         });
     }
 }
@@ -391,8 +429,15 @@ function onMapLoaded(){
     //初始化角色列表
     roles = [tiledMap.getLayerObject("hero","role1"),tiledMap.getLayerObject("hero","role2"),
             tiledMap.getLayerObject("hero","role3"),tiledMap.getLayerObject("hero","role4")];
+    rolesText = [new HTMLDivElement(),new HTMLDivElement(),new HTMLDivElement(),new HTMLDivElement()];
     $.each(roles,function(index,item){
         item.visible = false;
+        rolesText[index].style.font = "Impact";
+		rolesText[index].style.fontSize = 20;
+		rolesText[index].style.color = "#000000";
+        rolesText[index].innerHTML = "";
+        rolesText[index].visible = false;
+        Laya.stage.addChild(rolesText[index]);
     });
     //预加载资源文件后执行回调
     Laya.loader.load(["h5/res/atlas/comp.atlas","h5/res/atlas/template/ButtonTab.atlas","h5/res/atlas/template/Warn.atlas"], Handler.create(this, onDialogLoaded));
@@ -406,10 +451,13 @@ function onDialogLoaded(){
     Laya.class(QuestionDialog, "QuestionDialog", QuestionDialogUI);
     Laya.class(QuestionTypeDialog, "QuestionTypeDialog", QuestionTypeDialogUI);
     Laya.class(GameResultDialog, "GameResultDialog", GameResultDialogUI);
+    Laya.class(MsgDialog, "MsgDialog", MsgDialogUI);
     operationView = new OperationPanel();
     questionDialog = new QuestionDialog();
     questionTypeDialog = new QuestionTypeDialog();
     gameResultDialog = new GameResultDialog();
+    msgDialog = new MsgDialog();
+    msgDialog.msgContent.wordWrap = true;
     operationView.x = 1100;
     operationView.y = 0;
     operationView.btnReady.on(Event.CLICK, this, btnReadyClicked);
@@ -424,6 +472,11 @@ function initDialogs(){
     questionTypeDialog.btnTConfirm.on(Event.CLICK, this, btnTConfirmClicked);
     questionDialog.btnQConfirm.on(Event.CLICK, this, btnQConfirmClicked);
     gameResultDialog.btnRConfirm.on(Event.CLICK, this, btnRConfirmClicked);
+    msgDialog.btnMConfirm.on(Event.CLICK, this, btnMConfirmClicked);
+}
+
+function btnMConfirmClicked(){
+    msgDialog.close();
 }
 
 function btnRConfirmClicked(){
@@ -442,8 +495,9 @@ function btnQConfirmClicked(){
         ),
         success: function (body) {
             if (body.resCode !== "200") {
-                alert(body.retMsg+"请重新尝试！");
+                msgDialog.msgContent.text = body.retMsg+"请重新尝试！";
                 questionDialog.show();
+                msgDialog.show();
             }
         }
     });
@@ -464,8 +518,9 @@ function btnTConfirmClicked(){
         },
         success: function (body) {
             if (body.resCode !== "200") {
-                alert(body.retMsg+"请更换选项尝试！");
+                msgDialog.msgContent.text = body.retMsg+"请更换选项尝试！";
                 questionTypeDialog.show();
+                msgDialog.show();
             }
         }
     });
@@ -487,7 +542,8 @@ function btnReadyClicked(){
                 operationView.btnReady.on(Event.CLICK, this, btnCancelReadyClicked);
             }
             else {
-                alert(body.retMsg);
+                msgDialog.msgContent.text = body.retMsg;
+                msgDialog.show();
             }
         }
     });
@@ -510,7 +566,8 @@ function btnCancelReadyClicked(){
                 operationView.btnReady.on(Event.CLICK, this, btnReadyClicked);
             }
             else {
-                alert(body.retMsg);
+                msgDialog.msgContent.text = body.retMsg;
+                msgDialog.show();
             }
         }
     });

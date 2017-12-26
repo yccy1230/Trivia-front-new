@@ -24,6 +24,27 @@ var GameResultDialogUI=(function(_super){
 		GameResultDialogUI.uiView={"type":"Dialog","props":{"width":600,"height":400},"child":[{"type":"Image","props":{"y":4,"x":-1,"width":602,"skin":"comp/bg.png","height":394}},{"type":"Label","props":{"y":86,"x":58,"width":281,"var":"resultTitle","height":27,"fontSize":20,"font":"SimHei","color":"#ffffff","align":"left"}},{"type":"Button","props":{"y":325,"x":441,"width":98,"var":"btnRConfirm","skin":"comp/button.png","name":"btnRConfirm","labelSize":20,"labelFont":"SimHei","label":"确定","height":41}},{"type":"Label","props":{"y":45,"x":59,"text":"游戏结束","fontSize":25,"font":"SimHei","color":"#ffffff"}},{"type":"TextArea","props":{"y":151,"x":54,"width":340,"var":"resultText","name":"resultText","height":210,"fontSize":20,"editable":false}}]};
 		return GameResultDialogUI;
 	})(Dialog);
+var MsgDialogUI=(function(_super){
+		function MsgDialogUI(){
+			
+		    this.btnMConfirm=null;
+		    this.msgContent=null;
+
+			MsgDialogUI.__super.call(this);
+		}
+
+		CLASS$(MsgDialogUI,'ui.MsgDialogUI',_super);
+		var __proto__=MsgDialogUI.prototype;
+		__proto__.createChildren=function(){
+		    
+			laya.ui.Component.prototype.createChildren.call(this);
+			this.createView(MsgDialogUI.uiView);
+
+		}
+
+		MsgDialogUI.uiView={"type":"Dialog","props":{"width":600,"name":"msgDialog","height":400},"child":[{"type":"Image","props":{"y":6,"x":4,"width":602,"skin":"comp/bg.png","sizeGrid":"12,0,0,0","height":394}},{"type":"Button","props":{"y":320,"x":445,"width":98,"var":"btnMConfirm","skin":"comp/button.png","name":"btnMConfirm","labelSize":20,"labelFont":"SimHei","label":"确定","height":41}},{"type":"Label","props":{"y":46,"x":62,"width":85,"text":"提示:","height":43,"fontSize":30,"font":"SimHei","color":"#ffffff"}},{"type":"Label","props":{"y":137,"x":81,"width":432,"var":"msgContent","name":"msgContent","height":166,"fontSize":20,"font":"SimHei"}}]};
+		return MsgDialogUI;
+	})(Dialog);
 var OperationPanelUI=(function(_super){
 		function OperationPanelUI(){
 			

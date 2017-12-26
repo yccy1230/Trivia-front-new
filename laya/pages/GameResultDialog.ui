@@ -75,7 +75,8 @@
             "hasChild":false,
             "compId":21,
             "child":[
-                ]
+                ],
+            "$LOCKED":true
         }],
     "animations":[
         {
